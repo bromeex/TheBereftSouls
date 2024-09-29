@@ -1,0 +1,3 @@
+displayName = The Bereft Souls
+author = Brome
+version = 0.1
