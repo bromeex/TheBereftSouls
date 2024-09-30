@@ -12,12 +12,49 @@ A compatibility mod for the "UltraModded" ModPack. For more information:
 
 ## Contributing
 
-If you'd like to contribute, please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) file of this repository. We'd be very thankful for all of your contributions as well as credit them in this file.
+If you'd like to contribute, please refer to the
+[CONTRIBUTING.md](./CONTRIBUTING.md) file of this repository. We'd be very
+thankful for all of your contributions as well as credit them in this file.
+
+### Maintainers
+
+<!-- markdownlint-disable MD033 -->
+<a href="https://github.com/bromeex" title="Brome">
+  <img
+      src="https://avatars.githubusercontent.com/u/109879946?v=4"
+      width="50"
+      alt="Brome"
+  />
+</a>
+
+<a href="https://github.com/izutsumifan" title="Izutsumifan">
+  <img
+      src="https://avatars.githubusercontent.com/u/91285741?v=4"
+      width="50"
+      alt="Izutsumifan"
+  />
+</a>
+
+<a href="https://github.com/ggk8" title="Rebattleking">
+  <img
+      src="https://avatars.githubusercontent.com/u/148354820?v=4"
+      width="50"
+      alt="Rebattleking"
+  />
+</a>
+<!-- markdownlint-enable MD033 -->
 
 ### Contributors
 
-> [!TODO]
-> Write all the contributors names/add their avatars.
+<!-- markdownlint-disable MD033 -->
+<a href="https://github.com/1Git2Clone" title="1Git2Clone">
+  <img
+      src="https://avatars.githubusercontent.com/u/171241044?v=4"
+      width="50"
+      alt="1Git2Clone"
+  />
+</a>
+<!-- markdownlint-enable MD033 -->
 
 ## Mods included
 
