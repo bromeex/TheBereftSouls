@@ -29,6 +29,12 @@ thankful for all of your contributions as well as credit them in this file.
   />
 </a>
 
+
+<!-- markdownlint-enable MD033 -->
+
+### Contributors
+
+<!-- markdownlint-disable MD033 -->
 <a href="https://github.com/izutsumifan" title="Izutsumifan">
   <img
       src="https://avatars.githubusercontent.com/u/91285741?v=4"
@@ -44,11 +50,7 @@ thankful for all of your contributions as well as credit them in this file.
       alt="Rebattleking"
   />
 </a>
-<!-- markdownlint-enable MD033 -->
 
-### Contributors
-
-<!-- markdownlint-disable MD033 -->
 <a href="https://github.com/1Git2Clone" title="1Git2Clone">
   <img
       src="https://avatars.githubusercontent.com/u/171241044?v=4"
@@ -119,7 +121,6 @@ corresponding category.
 ### Quality-of-Life Mods
 
 - [Auto Trash](https://steamcommunity.com/sharedfiles/filedetails/?id=2565540604 "Steam Workshop Link")
-- [AlchemistNPC Lite](https://steamcommunity.com/sharedfiles/filedetails/?id=2599842771 "Steam Workshop Link")
 - [Fargo’s Mutant](https://steamcommunity.com/sharedfiles/filedetails/?id=2570931073 "Steam Workshop Link")
 - [Magic Storage](https://steamcommunity.com/sharedfiles/filedetails/?id=2563309347 "Steam Workshop Link")
 - [Boss Checklist](https://steamcommunity.com/sharedfiles/filedetails/?id=2669644269 "Steam Workshop Link")
@@ -141,6 +142,7 @@ corresponding category.
 
 - [Calamity Mod Music](https://steamcommunity.com/sharedfiles/filedetails/?id=2824688266 "Steam Workshop Link")
 - [Vanilla Calamity Mod Music](https://steamcommunity.com/sharedfiles/filedetails/?id=2816188633 "Steam Workshop Link")
+
 
 > [!NOTE]
 > A lot of graphics mods are often client-side, so they are considered optional.
