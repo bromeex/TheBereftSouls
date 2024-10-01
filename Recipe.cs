@@ -25,6 +25,13 @@ namespace TheBereftSouls
         }
         public override void AddRecipes()
         {
+            
+
+            
+        }
+
+        public override void PostAddRecipes()
+        {
             Main.recipe.Where(x => x.createItem.type == ModContent.ItemType<StormFlare>()).ToList().ForEach(s =>
             {
                 //s.DisableRecipe(); //disables the recipe
@@ -38,7 +45,7 @@ namespace TheBereftSouls
             });
 
             Main.recipe.Where(x => x.createItem.type == ModContent.ItemType<DesertMedallion>()).ToList().ForEach(s =>
-            {        
+            {
                 s.AddIngredient(ModContent.ItemType<SandstoneIngot>(), 5);//boss progression document said too add storm feathers to the recipe but I have no clue what those are (custom item?) added GTB sandstone ingot drop instead
             });
 
@@ -53,11 +60,6 @@ namespace TheBereftSouls
                 s.AddIngredient(ItemID.IronBar, 5);
                 //s.AddIngredient(ModContent.ItemType<DraculaFang>(), 2); should probably add a custom item instead of this as its only a 14% drop chance
             });
-        }
-
-        public override void PostAddRecipes()
-        {
-            
         }
     }
 }
