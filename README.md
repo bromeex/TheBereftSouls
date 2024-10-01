@@ -128,7 +128,6 @@ corresponding category.
 
 - Calamity Mod Music
 - Vanilla Calamity Mod Music
-- Clamity Mod Music
 
 > [!NOTE]
 > A lot of graphics mods are often client-side, so they are considered optional.
