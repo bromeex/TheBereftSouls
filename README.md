@@ -130,8 +130,8 @@ corresponding category.
 
 ### Graphics/Audio Mods
 
-- [Calamity Mod Music](https://steamcommunity.com/sharedfiles/filedetails/?id=2824688266)
-- [Vanilla Calamity Mod Music](https://steamcommunity.com/sharedfiles/filedetails/?id=2816188633)
+- [Calamity Mod Music](https://steamcommunity.com/sharedfiles/filedetails/?id=2824688266 "Steam Workshop Link")
+- [Vanilla Calamity Mod Music](https://steamcommunity.com/sharedfiles/filedetails/?id=2816188633 "Steam Workshop Link")
 
 > [!NOTE]
 > A lot of graphics mods are often client-side, so they are considered optional.
