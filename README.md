@@ -66,77 +66,67 @@ thankful for all of your contributions as well as credit them in this file.
 
 ## Mods included
 
-> [!NOTE]
-> This is a possible subject to change!
+This is thw final list of all the influded mods separated by their
+corresponding category.
 
-```json
-[
-  "CalamityModMusic",
-  "CalamityMod",
-  "CalamityRarities",
-  "ParticleLibrary",
-  "RemoveCalamitySummonerNerf",
-  "Fargowiltas",
-  "BeverageOfTheGods",
-  "CalamityOverhaul",
-  "ClamExtraMusic",
-  "UnofficialCalamityWhips",
-  "TouhouPets",
-  "SylaResourcePackLib",
-  "SummonsUI",
-  "BetterGameUI",
-  "InfernumModeMusic",
-  "WMITF",
-  "FasterUI",
-  "PingMod",
-  "androLib",
-  "ThisTianFaAndWuJingMod",
-  "BetterPotions",
-  "DisableCorruptionSpread",
-  "MoreAccessories",
-  "OreExcavator",
-  "SubworldLibrary",
-  "StructureHelper",
-  "ColoredDamageTypes",
-  "FargoSeeds",
-  "CalamityFlamethrowers",
-  "SerousCommonLib",
-  "PetsOverhaul",
-  "ClickerClass",
-  "MagicStorage",
-  "StarsAbove",
-  "AlchemistNPCLite",
-  "RecipeBrowser",
-  "BossChecklist",
-  "FargowiltasMusic",
-  "Luminance",
-  "FargowiltasSouls",
-  "UnCalamityModMusic",
-  "CalValEX",
-  "CatalystMod",
-  "CalamityAmmo",
-  "ThoriumMod",
-  "InfernumMode",
-  "BetterBossBarPlus",
-  "Clamity",
-  "ClamityMusic",
-  "FargowiltasCrossmod",
-  "CalamityClickers",
-  "CalamityHunt",
-  "CombinationsMod",
-  "MooMooLib",
-  "ArmorReforge",
-  "ArtificerMod",
-  "KokoLib",
-  "LansUnlimitedBuffSlots",
-  "MoreZenith",
-  "UsefulNPCs",
-  "VacuumOreBag",
-  "WeaponEnchantments",
-  "CalamityEntropy",
-  "DecadentSkills",
-  "SignatureEquipment",
-  "ShopExpander",
-  "InnoVault"
-]
-```
+### Library Mods
+
+- Subworld Library
+- Luminance
+- MooMoo’s Yoyo Lib
+
+### Content Mods
+
+- Calamity
+- Catalyst
+- Wrath of the Gods (Required for Testing)
+- Clamity
+- Thorium
+- Spirit
+- Secrets of the Shadows (Required for Testing)
+- Consolaria
+- Gensokyo
+- Fargo’s Souls
+
+### Overhaul Mods
+
+- MooMoo’s Ultimate Yoyo Revamp
+- Thorium Bosses Reworked
+- Calamity Ranger Expansion
+- Better Caves (Required for Testing)
+- Orchid Mineshaft (Required for Testing)
+- Improved Reforging
+- Stronger Reforges
+- Cross-Compatibility Mods:
+- Ragnarok (Calamity/Thorium)
+- Calamity Unofficial Bard/Healer (Calamity/Thorium)
+- Fargo’s Souls DLC (Fargo’s Souls/Calamity)
+- Fargo’s Souls More Cross-Mod (Fargo’s/Spirit/Consolaria)
+
+### Quality-of-Life Mods
+
+- Fargo’s Mutant
+- Magic Storage
+- Boss Checklist
+- Census (Town NPC Checklist)
+- Ore Excavator
+- Shop Expander
+- The Shop Market
+- Quality of Terraria
+- Boss Cursor
+- Recipe Browser
+- Begone, Evil! (Disable Corruption Spread)
+- Chat Source
+- High FPS Support
+- Smarter Cursor
+- More Pylons
+- Instant Platform Fallthrough
+
+### Graphics/Audio Mods
+
+- Calamity Mod Music
+- Vanilla Calamity Mod Music
+- Clamity Mod Music
+
+> [!NOTE]
+> A lot of graphics mods are often client-side, so they are considered optional.
