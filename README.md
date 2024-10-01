@@ -54,6 +54,14 @@ thankful for all of your contributions as well as credit them in this file.
       alt="1Git2Clone"
   />
 </a>
+
+<a href="https://github.com/Sangar2728" title="Sangar2728">
+  <img
+      src="https://avatars.githubusercontent.com/u/183438273?v=4"
+      width="50"
+      alt="Sangar2728"
+  />
+</a>
 <!-- markdownlint-enable MD033 -->
 
 ## Mods included
