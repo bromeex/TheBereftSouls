@@ -1,9 +1,11 @@
 # The Bereft Souls
 
-[![Discord Icon]][Discord]&emsp;
+[![Discord Icon]][Discord]&emsp;[![Steam Icon]][Steam Workshop Link]&emsp;
 
 [Discord Icon]: https://img.shields.io/badge/Discord-Brome%20World-black.svg
 [Discord]: https://discord.com/invite/nYJfz3jgQy
+[Steam Icon]: https://img.shields.io/badge/Steam%20Workshop-0960b7.svg
+[Steam Workshop Link]: https://steamcommunity.com/sharedfiles/filedetails/?id=3340400317
 
 A compatibility mod for the "UltraModded" ModPack. For more information:
 
