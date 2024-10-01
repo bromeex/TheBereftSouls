@@ -70,7 +70,7 @@ thankful for all of your contributions as well as credit them in this file.
 
 ## Mods included
 
-This is thw final list of all the influded mods separated by their
+This is the final list of all the included mods separated by their
 corresponding category.
 
 ### Library Mods
