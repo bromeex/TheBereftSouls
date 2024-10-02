@@ -14,12 +14,14 @@ namespace TheBereftSouls
 		public static Mod CalamityAmmo;
 		public static Mod SpiritMod;
 		public static Mod SOTS;
+		public static Mod ThoriumMod;
 
 		public override void Load(){
 			ModLoader.TryGetMod("CalamityMod", out CalamityMod);
 			ModLoader.TryGetMod("CalamityAmmo", out CalamityAmmo);
 			ModLoader.TryGetMod("SpiritMod", out SpiritMod);
 			ModLoader.TryGetMod("SOTS", out SOTS);
+			ModLoader.TryGetMod("ThoriumMod", out ThoriumMod);
 		}
 	}
 }
