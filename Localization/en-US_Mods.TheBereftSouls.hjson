@@ -13,6 +13,14 @@ Items: {
 		DisplayName: Void Trumpet
 		Tooltip: ""
 	}
+
+	GoldChakramOverride: {
+		Tooltip: ""
+		DisplayName: Gold Chakram Override
+	}
 }
 
-Projectiles.voidCoconutProj.DisplayName: void Coconut Proj
+Projectiles: {
+	voidCoconutProj.DisplayName: void Coconut Proj
+	GoldChakramProjectileOverride.DisplayName: Gold Chakram Projectile Override
+}
