@@ -1,8 +1,16 @@
-DamageClasses.VoidRogue.DisplayName: Void Rogue
+DamageClasses: {
+	VoidRogue.DisplayName: Void Rogue
+	VoidBard.DisplayName: Void Bard
+}
 
 Items: {
 	VoidCoconut: {
 		DisplayName: Void Coconut
+		Tooltip: ""
+	}
+
+	VoidTrumpet: {
+		DisplayName: Void Trumpet
 		Tooltip: ""
 	}
 }

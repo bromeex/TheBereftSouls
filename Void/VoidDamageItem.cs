@@ -12,6 +12,7 @@ using SOTS;
 using CalamityMod;
 using TheBereftSouls.Void;
 using SOTS.Items.Planetarium;
+using ThoriumMod;
 
 namespace TheBereftSouls.Void
 {
@@ -27,6 +28,8 @@ namespace TheBereftSouls.Void
             SafeSetDefaults();
             if (Item.DamageType == ModContent.GetInstance<RogueDamageClass>())
                 Item.DamageType = ModContent.GetInstance<VoidRogue>();
+            else if (Item.DamageType == ModContent.GetInstance<BardDamage>())
+                Item.DamageType = ModContent.GetInstance<VoidBard>();
             Item.mana = 1;
         }
 
@@ -69,6 +72,8 @@ namespace TheBereftSouls.Void
 
                 if (Item.CountsAsClass(ModContent.GetInstance<RogueDamageClass>()))
                     tt.Text = Language.GetTextValue("VoidRo", damageValue, damageWord);
+                else if (Item.CountsAsClass(ModContent.GetInstance<BardDamage>()))
+                    tt.Text = Language.GetTextValue("VoidBar", damageValue, damageWord);
 
             }
             string voidCostText = VoidCost(Main.LocalPlayer).ToString();
