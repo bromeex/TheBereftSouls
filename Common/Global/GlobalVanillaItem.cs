@@ -13,14 +13,13 @@ namespace TheBereftSouls.Common.Global
 		//Untested - JIT used to prevent crashes if Calamity isn't enabled.
 		
 
-		// Changes following Vanilla Weapons To Rogue, uses Integer due to how Vanilla ID work
-		// In order its Bone Javelin, Throwing Knife, Shuriken and Bone Dagger
-		private static List<int> Vanilla_Weapons_To_Rogue = new List<int>
+		// Changes following Vanilla Weapons To Rogue
+		private const List<short> VanillaWeaponsToRogue = new List<short>
 		{
-			3378,
-			279,
-			42,
-			3379
+        		ItemID.BoneJavelin,
+        		ItemID.ThrowingKnife,
+        		ItemID.Shuriken,
+	        	ItemID.BoneDagger,
 		};
 
 		[JITWhenModsEnabled("CalamityMod")]
@@ -32,9 +31,9 @@ namespace TheBereftSouls.Common.Global
 				return;
 			}
 			// Uses list to change all listed weapons to Rogue
-			foreach (int Vanilla_Weapon_ID in Vanilla_Weapons_To_Rogue)
+			foreach (int vanillaWeaponId in VanillaWeaponsToRogue)
 			{
-				if (item.type == Vanilla_Weapon_ID)
+				if (item.type == vanillaWeaponId)
 				{
 					item.DamageType = CalamityMod.Find<DamageClass>("RogueDamageClass");
 					base.SetDefaults(item);
