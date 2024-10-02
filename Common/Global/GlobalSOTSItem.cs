@@ -14,7 +14,7 @@ namespace TheBereftSouls.Common.Global
 		
 
 		// Changes following SOTS Weapons To Rogue
-		private static List<string> SOTS_Weapons_To_Rogue = new List<string>
+		private static List<string> SOTSWeaponsToRogue = new List<string>
 		{
 			"GelAxe",
 			"WingedKnife",
@@ -31,9 +31,9 @@ namespace TheBereftSouls.Common.Global
 				return;
 			}
 			// Uses list to change all listed weapons to Rogue
-			foreach (string SOTS_Weapon_Name in SOTS_Weapons_To_Rogue)
+			foreach (string SOTSWeaponName in SOTSWeaponsToRogue)
 			{
-				if (item.type == SOTS.Find<ModItem>(SOTS_Weapon_Name).Type)
+				if (item.type == SOTS.Find<ModItem>(SOTSWeaponName).Type)
 				{
 					item.DamageType = CalamityMod.Find<DamageClass>("RogueDamageClass");
 					base.SetDefaults(item);
