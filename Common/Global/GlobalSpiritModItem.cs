@@ -14,7 +14,7 @@ namespace TheBereftSouls.Common.Global
 		
 
 		// Changes following Spirit Weapons To Rogue
-		private static List<string> Spirit_Weapons_To_Rogue = new List<string>
+		private const List<string> SpiritWeaponsToRogue = new List<string>
 		{
 			"BismiteGrenade",
 			"DodgeBall",
@@ -31,15 +31,15 @@ namespace TheBereftSouls.Common.Global
 			{
 				return;
 			}
-			foreach (string Spirit_Weapon_Name in Spirit_Weapons_To_Rogue)
+			// Uses list to change all listed weapons to Rogue
+			foreach (string spiritWeaponName in SpiritWeaponsToRogue)
 			{
-				if (item.type == SpiritMod.Find<ModItem>(Spirit_Weapon_Name).Type)
+				if (item.type == SpiritMod.Find<ModItem>(spiritWeaponName).Type)
 				{
 					item.DamageType = CalamityMod.Find<DamageClass>("RogueDamageClass");
 					base.SetDefaults(item);
 				}
 			}
-			// Uses list to change all listed weapons to Rogue
 		}
 	}
 }
