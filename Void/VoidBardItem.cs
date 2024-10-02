@@ -100,14 +100,6 @@ namespace TheBereftSouls.Void
         {
 
         }
-        public bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            if (type != 10)
-            {
-                return true;
-            }
-            return false;
-        }
         public sealed override bool CanConsumeAmmo(Item ammo, Player player)
         {
             bool canUse = BeforeConsumeAmmo(player);
