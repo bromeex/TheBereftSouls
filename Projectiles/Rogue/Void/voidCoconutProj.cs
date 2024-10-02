@@ -13,7 +13,7 @@ namespace TheBereftSouls.Projectiles.Rogue.Void
     public class voidCoconutProj : ModProjectile, ILocalizedModType
     {
         //public new string LocalizationCategory => "Projectiles.Rogue";
-        public override string Texture => "TheBereftSouls/Items/Weapons/Rogue/Void/Coconut";
+        public override string Texture => "SOTS/Projectiles/Tide/Coconut";
 
         private bool recall = false;
         private bool summonMilk = true;

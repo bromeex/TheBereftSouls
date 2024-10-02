@@ -12,7 +12,7 @@ namespace TheBereftSouls.Items.Weapons.Rogue
 {
     public class VoidCoconut : VoidDamageItem
     {
-        public override string Texture => "SOTSXCalam/Items/Weapons/Rogue/Void/Coconut";
+        public override string Texture => "SOTS/Projectiles/Tide/Coconut";
         public override void SetStaticDefaults()
         {
             this.SetResearchCost(1);
