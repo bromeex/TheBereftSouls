@@ -1,1 +1,10 @@
+DamageClasses.VoidRogue.DisplayName: Void Rogue
 
+Items: {
+	VoidCoconut: {
+		DisplayName: Void Coconut
+		Tooltip: ""
+	}
+}
+
+Projectiles.voidCoconutProj.DisplayName: void Coconut Proj
