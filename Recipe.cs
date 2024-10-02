@@ -10,6 +10,7 @@ using ThoriumMod.Items.NPCItems;
 using ThoriumMod.Items.Sandstone;
 using ThoriumMod.Items.BossGraniteEnergyStorm;
 using ThoriumMod.Items.BossViscount;
+using ThoriumMod.Items.BossBuriedChampion;
 
 namespace TheBereftSouls
 {
@@ -20,7 +21,7 @@ namespace TheBereftSouls
             RecipeGroup group = new RecipeGroup(() => $"{Language.GetTextValue("LegacyMisc.37")} {Lang.GetItemNameValue(ItemID.MagicMirror)}", ItemID.IceMirror, ItemID.MagicMirror);
             RecipeGroup.RegisterGroup(nameof(ItemID.MagicMirror), group);
             
-            group = new RecipeGroup(() => $"{Language.GetTextValue("LegacyMisc.37")} {Lang.GetItemNameValue(ItemID.RottenChunk)}", ModContent.ItemType<BloodSample>());
+            group = new RecipeGroup(() => $"{Language.GetTextValue("LegacyMisc.37")} {Lang.GetItemNameValue(ItemID.RottenChunk)}", ModContent.ItemType<BloodSample>(), ItemID.RottenChunk);
             RecipeGroup.RegisterGroup(nameof(ItemID.RottenChunk), group);
         }
         public override void AddRecipes()
@@ -57,9 +58,21 @@ namespace TheBereftSouls
 
             Main.recipe.Where(x => x.createItem.type == ModContent.ItemType<UnstableCore>()).ToList().ForEach(s =>
             {
-                s.AddIngredient(ItemID.IronBar, 5);
+                s.AddRecipeGroup(nameof(ItemID.RottenChunk), 5);
                 //s.AddIngredient(ModContent.ItemType<DraculaFang>(), 2); should probably add a custom item instead of this as its only a 14% drop chance
             });
+
+            Main.recipe.Where(x => x.createItem.type == ModContent.ItemType<AncientBlade>()).ToList().ForEach(s =>
+            {
+                s.AddRecipeGroup(nameof(ItemID.RottenChunk), 5);
+                //s.AddIngredient(ModContent.ItemType<DraculaFang>(), 2); should probably add a custom item instead of this as its only a 14% drop chance
+            });
+
+            /*Main.recipe.Where(x => x.createItem.type == ModContent.ItemType<OverloadedSludge>()).ToList().ForEach(s =>
+            {
+                s.AddIngredient(ModContent.ItemType<marble item>(), 5);
+                s.AddIngredient(ModContent.ItemType<granite item>(), 5);
+            });*/
         }
     }
 }
