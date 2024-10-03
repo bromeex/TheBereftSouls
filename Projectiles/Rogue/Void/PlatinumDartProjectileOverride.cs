@@ -5,12 +5,12 @@ using TheBereftSouls.Void;
 
 namespace TheBereftSouls.Projectiles.Rogue.Void
 {
-    public class GoldChakramProjectileOverride : GoldChakram
+    public class PlatinumDartProjectileOverride : PlatinumDart
     {
-        public override string Texture => "SOTS/Projectiles/Ores/GoldChakram";
+        public override string Texture => "SOTS/Projectiles/Ores/PlatinumDart";
         public override void SetDefaults()
         {
-            Projectile.CloneDefaults(ModContent.ProjectileType<GoldChakram>());
+            Projectile.CloneDefaults(ModContent.ProjectileType<PlatinumDart>());
             Projectile.DamageType = ModContent.GetInstance<VoidRogue>();
         }
         

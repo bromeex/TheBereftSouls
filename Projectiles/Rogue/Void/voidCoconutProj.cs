@@ -12,7 +12,6 @@ namespace TheBereftSouls.Projectiles.Rogue.Void
 {
     public class voidCoconutProj : ModProjectile, ILocalizedModType
     {
-        //public new string LocalizationCategory => "Projectiles.Rogue";
         public override string Texture => "SOTS/Projectiles/Tide/Coconut";
 
         private bool recall = false;
@@ -77,14 +76,14 @@ namespace TheBereftSouls.Projectiles.Rogue.Void
                 {
                     float MilkSpeed = 5f;
                     int MilkDamage = Projectile.damage / 2;
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(1f, 0f) * MilkSpeed, ModContent.ProjectileType<CoconutShrapnel>(), MilkDamage, 2, Projectile.owner, 0, 0);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(0f, 1f) * MilkSpeed, ModContent.ProjectileType<CoconutShrapnel>(), MilkDamage, 2, Projectile.owner, 0, 0);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(-1f, 0f) * MilkSpeed, ModContent.ProjectileType<CoconutShrapnel>(), MilkDamage, 2, Projectile.owner, 0, 0);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(0f, -1f) * MilkSpeed, ModContent.ProjectileType<CoconutShrapnel>(), MilkDamage, 2, Projectile.owner, 0, 0);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Normalize(new Vector2(1f, 1f)) * MilkSpeed, ModContent.ProjectileType<CoconutShrapnel>(), MilkDamage, 2, Projectile.owner, 0, 0);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Normalize(new Vector2(1f, -1f)) * MilkSpeed, ModContent.ProjectileType<CoconutShrapnel>(), MilkDamage, 2, Projectile.owner, 0, 0);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Normalize(new Vector2(-1f, -1f)) * MilkSpeed, ModContent.ProjectileType<CoconutShrapnel>(), MilkDamage, 2, Projectile.owner, 0, 0);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Normalize(new Vector2(-1f, 1f)) * MilkSpeed, ModContent.ProjectileType<CoconutShrapnel>(), MilkDamage, 2, Projectile.owner, 0, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(1f, 0f) * MilkSpeed, ModContent.ProjectileType<RogueMilkShrapenel>(), MilkDamage, 2, Projectile.owner, 0, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(0f, 1f) * MilkSpeed, ModContent.ProjectileType<RogueMilkShrapenel>(), MilkDamage, 2, Projectile.owner, 0, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(-1f, 0f) * MilkSpeed, ModContent.ProjectileType<RogueMilkShrapenel>(), MilkDamage, 2, Projectile.owner, 0, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(0f, -1f) * MilkSpeed, ModContent.ProjectileType<RogueMilkShrapenel>(), MilkDamage, 2, Projectile.owner, 0, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Normalize(new Vector2(1f, 1f)) * MilkSpeed, ModContent.ProjectileType<RogueMilkShrapenel>(), MilkDamage, 2, Projectile.owner, 0, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Normalize(new Vector2(1f, -1f)) * MilkSpeed, ModContent.ProjectileType<RogueMilkShrapenel>(), MilkDamage, 2, Projectile.owner, 0, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Normalize(new Vector2(-1f, -1f)) * MilkSpeed, ModContent.ProjectileType<RogueMilkShrapenel>(), MilkDamage, 2, Projectile.owner, 0, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Normalize(new Vector2(-1f, 1f)) * MilkSpeed, ModContent.ProjectileType<RogueMilkShrapenel>(), MilkDamage, 2, Projectile.owner, 0, 0);
                 }
             }
 
@@ -93,14 +92,6 @@ namespace TheBereftSouls.Projectiles.Rogue.Void
                 OnKill(Projectile.timeLeft);
             }
             return;
-        }
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            Texture2D tex = Terraria.GameContent.TextureAssets.Projectile[Projectile.type].Value;
-            Main.EntitySpriteDraw(tex, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(lightColor), Projectile.rotation, tex.Size() / 2f, Projectile.scale, SpriteEffects.None, 0);
-            CalamityUtils.DrawAfterimagesCentered(Projectile, ProjectileID.Sets.TrailingMode[Projectile.type], lightColor, 1);
-            return false;
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)

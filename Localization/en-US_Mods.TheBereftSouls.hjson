@@ -18,9 +18,16 @@ Items: {
 		Tooltip: ""
 		DisplayName: Gold Chakram Override
 	}
+
+	PlatinumDartOverride: {
+		DisplayName: Platinum Dart Override
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
 	voidCoconutProj.DisplayName: void Coconut Proj
 	GoldChakramProjectileOverride.DisplayName: Gold Chakram Projectile Override
+	RogueMilkShrapenel.DisplayName: Rogue Milk Shrapenel
+	PlatinumDartProjectileOverride.DisplayName: Platinum Dart Projectile Override
 }
