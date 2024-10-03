@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria;
+using Terraria.ModLoader;
 
 namespace TheBereftSouls.Common.Utility
 {
@@ -8,11 +9,10 @@ namespace TheBereftSouls.Common.Utility
         {
             return mod.Find<ModItem>(item).Type;
         }
-        public static int GetProjectileFromMod(Mod mod, string projectile)
+        public static ModProjectile GetProjectileFromMod(Mod mod, string projectile)
         {
-            ModProjectile Projectile;
-            mod.TryFind(projectile, out Projectile);
-            return Projectile.Type;
+            mod.TryFind(projectile, out ModProjectile Projectile);
+            return Projectile;
         }
         public static int GetTileFromMod(Mod mod, string tile)
         {

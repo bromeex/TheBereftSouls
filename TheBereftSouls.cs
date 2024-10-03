@@ -13,7 +13,7 @@ namespace TheBereftSouls
         public static Mod FargosSoulMod;
         public static Mod FargowiltasMod;
         public static Mod GensokyoMod;
-
+        public static Mod CalamityRangerExpansion;
 
 
 
@@ -26,6 +26,7 @@ namespace TheBereftSouls
             ModLoader.TryGetMod("Fargowiltas", out FargowiltasMod);
             ModLoader.TryGetMod("SpiritMod", out SpiritMod);
             ModLoader.TryGetMod("Gensokyo", out GensokyoMod);
+            ModLoader.TryGetMod("CalamityAmmo", out CalamityRangerExpansion);
         }
     }
 }

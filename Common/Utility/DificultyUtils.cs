@@ -10,8 +10,6 @@ namespace TheBereftSouls.Common.Utility
         public static bool EternityMode = false;
         public static bool MasochistMode = false;
         public static bool LegendaryMode = false;
-        public static bool RevengeEternity = false;
-        public static bool DeathEternity = false;
 
         public override void PostUpdateWorld()
         {
@@ -24,6 +22,7 @@ namespace TheBereftSouls.Common.Utility
             {
                 CheckCalamity();
                 CheckFargos();
+
             }
             else if (TheBereftSouls.CalamityMod != null)
             {

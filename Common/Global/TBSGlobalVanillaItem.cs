@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace TheBereftSouls.Common.Global
 {
-    public class GlobalVanillaItem : GlobalItem
+    public class TBSGlobalVanillaItem : GlobalItem
     {
         public override void SetDefaults(Item item)
         {
@@ -14,5 +14,6 @@ namespace TheBereftSouls.Common.Global
             }
             base.SetDefaults(item);
         }
+        public override bool InstancePerEntity => true;
     }
 }
