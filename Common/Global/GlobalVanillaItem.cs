@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using System.Collections.Generic;
+using TheBereftSouls.Common.Utility;
 
 namespace TheBereftSouls.Common.Global
 {
@@ -14,7 +15,7 @@ namespace TheBereftSouls.Common.Global
 		
 
 		// Changes following Vanilla Weapons To Rogue
-		private const List<short> VanillaWeaponsToRogue = new List<short>
+		private static List<short> VanillaWeaponsToRogue = new List<short>
 		{
         		ItemID.BoneJavelin,
         		ItemID.ThrowingKnife,
@@ -35,7 +36,7 @@ namespace TheBereftSouls.Common.Global
 			{
 				if (item.type == vanillaWeaponId)
 				{
-					item.DamageType = CalamityMod.Find<DamageClass>("RogueDamageClass");
+					item.DamageType = GetModClass.rogueDamageClass;
 					base.SetDefaults(item);
 				}
 			}

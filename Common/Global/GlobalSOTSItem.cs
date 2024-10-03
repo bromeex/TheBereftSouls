@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using System.Collections.Generic;
+using TheBereftSouls.Common.Utility;
 
 namespace TheBereftSouls.Common.Global
 {
@@ -35,7 +36,7 @@ namespace TheBereftSouls.Common.Global
 			{
 				if (item.type == SOTS.Find<ModItem>(SOTSWeaponName).Type)
 				{
-					item.DamageType = CalamityMod.Find<DamageClass>("RogueDamageClass");
+					item.DamageType = GetModClass.rogueDamageClass;
 					base.SetDefaults(item);
 				}
 			}

@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using System.Collections.Generic;
+using TheBereftSouls.Common.Utility;
 
 namespace TheBereftSouls.Common.Global
 {
@@ -14,7 +15,7 @@ namespace TheBereftSouls.Common.Global
 		
 
 		// Changes following Spirit Weapons To Rogue
-		private const List<string> SpiritWeaponsToRogue = new List<string>
+		private static List<string> SpiritWeaponsToRogue = new List<string>
 		{
 			"BismiteGrenade",
 			"DodgeBall",
@@ -36,7 +37,7 @@ namespace TheBereftSouls.Common.Global
 			{
 				if (item.type == SpiritMod.Find<ModItem>(spiritWeaponName).Type)
 				{
-					item.DamageType = CalamityMod.Find<DamageClass>("RogueDamageClass");
+					item.DamageType = GetModClass.rogueDamageClass;
 					base.SetDefaults(item);
 				}
 			}
