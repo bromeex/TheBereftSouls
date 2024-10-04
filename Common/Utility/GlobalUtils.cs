@@ -1,0 +1,18 @@
+﻿using System.Collections.Generic;
+
+namespace TheBereftSouls.Common.Utility
+{
+    public class GlobalUtils
+    {
+        public static void AddSomeElements(HashSet<int> list, HashSet<int> insert)
+        {
+            foreach (int element in insert)
+                list.Add(element);     
+        }
+        public static void AddSomeElements(List<int> list, List<int> insert)
+        {
+            foreach (int element in insert)
+                list.Add(element);
+        }
+    }
+}

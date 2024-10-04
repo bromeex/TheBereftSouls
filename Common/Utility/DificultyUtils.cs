@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using System.Runtime.CompilerServices;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace TheBereftSouls.Common.Utility
@@ -13,40 +14,40 @@ namespace TheBereftSouls.Common.Utility
 
         public override void PostUpdateWorld()
         {
-            CheckDificulty();
-            base.PostUpdateWorld();
-        }
-        public void CheckDificulty()
-        {
-            if(TheBereftSouls.CalamityMod != null && TheBereftSouls.FargosSoulMod != null)
+            if (TheBereftSouls.CalamityMod != null && TheBereftSouls.FargosSoulMod != null)
             {
-                CheckCalamity();
-                CheckFargos();
-
+                CalamityDificultyCheck.CheckCalamity(ref Revengeance, ref Death);
+                FargosDificultyCheck.CheckFargos(ref EternityMode, ref MasochistMode);
             }
             else if (TheBereftSouls.CalamityMod != null)
             {
-                CheckCalamity();
+                CalamityDificultyCheck.CheckCalamity(ref Revengeance, ref Death);
             }
             else if (TheBereftSouls.FargosSoulMod != null)
             {
-                CheckFargos();
+                FargosDificultyCheck.CheckFargos(ref EternityMode, ref MasochistMode);
             }
             LegendaryMode = Main.masterMode && Main.getGoodWorld;
-        }
 
-        [JITWhenModsEnabled("CalamityMod")]
-        public void CheckCalamity()
+            base.PostUpdateWorld();
+        }
+    }
+
+    [ExtendsFromMod("CalamityMod")]
+    internal class CalamityDificultyCheck
+    {
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void CheckCalamity(ref bool Revengeance, ref bool Death)
         {
-            if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod))
-            {
-                Revengeance = (bool)calamityMod.Call("GetDifficultyActive", "revengeance");
-                Death = (bool)calamityMod.Call("GetDifficultyActive", "death");
-            }
+            Revengeance = (bool)TheBereftSouls.CalamityMod.Call("GetDifficultyActive", "revengeance");
+            Death = (bool)TheBereftSouls.CalamityMod.Call("GetDifficultyActive", "death");
         }
-
-        [JITWhenModsEnabled("FargowiltasSouls")]
-        public void CheckFargos()
+    }
+    [ExtendsFromMod("FargowiltasSouls")]
+    internal class FargosDificultyCheck
+    {
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void CheckFargos(ref bool EternityMode, ref bool MasochistMode)
         {
             EternityMode = FargowiltasSouls.Core.Systems.WorldSavingSystem.EternityMode;
             MasochistMode = FargowiltasSouls.Core.Systems.WorldSavingSystem.MasochistModeReal;
