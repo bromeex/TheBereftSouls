@@ -1,6 +1,4 @@
-﻿using CalamityMod.Tiles.Furniture.CraftingStations;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -13,15 +11,17 @@ namespace TheBereftSouls.Common.Utility
         /// </summary>
         public static void OverrideTile(Recipe recipe, int newTile)
         {   
-            foreach (int tile in recipe.requiredTile.ToArray())
+            List<int> tilesList = recipe.requiredTile;
+            foreach (int tile in tilesList)
             {
-                    recipe.RemoveTile(tile);
+                recipe.RemoveTile(tile);
             }
             recipe.AddTile(newTile);
         }
         public static void OverrideTile<T>(Recipe recipe) where T : ModTile
-        {      
-            foreach (int tile in recipe.requiredTile.ToArray())
+        {
+            List<int> tilesList = recipe.requiredTile;
+            foreach (int tile in tilesList)
             {
                     recipe.RemoveTile(tile);
             }
@@ -29,7 +29,8 @@ namespace TheBereftSouls.Common.Utility
         }
         public static void OverrideTile(Recipe recipe,int tileObjetive, int newTile)
         {
-            foreach (int tile in recipe.requiredTile.ToArray())
+            List<int> tilesList = recipe.requiredTile;
+            foreach (int tile in tilesList)
             {
                 if(tileObjetive == tile)
                     recipe.RemoveTile(tile);
@@ -38,9 +39,10 @@ namespace TheBereftSouls.Common.Utility
         }
         public static void OverrideTile<T>(Recipe recipe,int tileObjetive) where T : ModTile
         {
-            foreach (int tile in recipe.requiredTile.ToArray())
+            List<int> tilesList = recipe.requiredTile;
+            foreach (int tile in tilesList)
             {
-                if(tileObjetive == tile)
+                if (tileObjetive == tile)
                     recipe.RemoveTile(tile);
             }
             recipe.AddTile<T>();
