@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using TheBereftSouls.Common.Utility;
 using static TheBereftSouls.Common.Global.GensokyoBossSummonOverride;
@@ -9,13 +11,15 @@ namespace TheBereftSouls.Common.Global
     public class BossSummonOverride : GlobalItem
     {
         public override bool InstancePerEntity => true;
-        public static HashSet<int> BossSummons { get; set; }
+        public static HashSet<int> BossSummons;
+        
         public override void SetDefaults(Item item)
         {
+            BossSummons = [];
             if (TheBereftSouls.GensokyoMod != null)
-                GensokyoBossSummonOverride.LoadList();
+                GensokyoBossSummonOverride.LoadList(BossSummons);
             if(TheBereftSouls.SecretsOfTheShadows != null)
-                SOTSBossSummonOverride.LoadList();
+                SOTSBossSummonOverride.LoadList(BossSummons);
 
             if (BossSummons.Contains(item.type))
                 item.consumable = false;
@@ -27,9 +31,10 @@ namespace TheBereftSouls.Common.Global
     [ExtendsFromMod("Gensokyo")]
     internal class GensokyoBossSummonOverride
     {
-        public static void LoadList()
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void LoadList(HashSet<int> BossSummons)
         {
-            GlobalUtils.AddSomeElements(BossSummonOverride.BossSummons,
+            GlobalUtils.AddSomeElements(BossSummons,
             [
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"AliceMargatroidSpawner"),
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"CirnoSpawner"),
@@ -57,10 +62,11 @@ namespace TheBereftSouls.Common.Global
 
         [ExtendsFromMod("SOTS")]
         internal class SOTSBossSummonOverride
-        { 
-            public static void LoadList()
+        {
+            [MethodImpl(MethodImplOptions.NoInlining)]
+            public static void LoadList(HashSet<int> BossSummons)
             {
-                GlobalUtils.AddSomeElements(BossSummonOverride.BossSummons,
+                GlobalUtils.AddSomeElements(BossSummons,
                 [
                     ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"JarOfPeanuts"),
                     ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"SuspiciousLookingCandle"),

@@ -12,24 +12,24 @@ namespace TheBereftSouls.Common.Utility
         /// Override a required crafting station with the given tile type to this recipe. Ex: <c>RecipeUtils.OverrideCraftStation(recipe,TileID.WorkBenches)</c>
         /// </summary>
         public static void OverrideTile(Recipe recipe, int newTile)
-        {
-            foreach (int tile in recipe.requiredTile)
+        {   
+            foreach (int tile in recipe.requiredTile.ToArray())
             {
-                recipe.RemoveTile(tile);
+                    recipe.RemoveTile(tile);
             }
             recipe.AddTile(newTile);
         }
         public static void OverrideTile<T>(Recipe recipe) where T : ModTile
-        {
-            foreach (int tile in recipe.requiredTile)
+        {      
+            foreach (int tile in recipe.requiredTile.ToArray())
             {
-                recipe.RemoveTile(tile);
+                    recipe.RemoveTile(tile);
             }
             recipe.AddTile<T>();
         }
         public static void OverrideTile(Recipe recipe,int tileObjetive, int newTile)
         {
-            foreach (int tile in recipe.requiredTile)
+            foreach (int tile in recipe.requiredTile.ToArray())
             {
                 if(tileObjetive == tile)
                     recipe.RemoveTile(tile);
@@ -38,7 +38,7 @@ namespace TheBereftSouls.Common.Utility
         }
         public static void OverrideTile<T>(Recipe recipe,int tileObjetive) where T : ModTile
         {
-            foreach (int tile in recipe.requiredTile)
+            foreach (int tile in recipe.requiredTile.ToArray())
             {
                 if(tileObjetive == tile)
                     recipe.RemoveTile(tile);
