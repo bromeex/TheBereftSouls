@@ -14,5 +14,13 @@ namespace TheBereftSouls.Common.Utility
             foreach (int element in insert)
                 list.Add(element);
         }
+        public static void AddSomeElements(ICollection<int> list, ICollection<int> insert)
+        {
+            lock (list)
+            {
+                foreach (int element in insert)
+                    list.Add(element);
+            }
+        }
     }
 }

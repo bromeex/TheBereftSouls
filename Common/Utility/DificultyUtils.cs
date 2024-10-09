@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -28,8 +30,6 @@ namespace TheBereftSouls.Common.Utility
                 FargosDificultyCheck.CheckFargos(ref EternityMode, ref MasochistMode);
             }
             LegendaryMode = Main.masterMode && Main.getGoodWorld;
-
-            base.PostUpdateWorld();
         }
     }
 
@@ -39,8 +39,9 @@ namespace TheBereftSouls.Common.Utility
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void CheckCalamity(ref bool Revengeance, ref bool Death)
         {
-            Revengeance = (bool)TheBereftSouls.CalamityMod.Call("GetDifficultyActive", "revengeance");
-            Death = (bool)TheBereftSouls.CalamityMod.Call("GetDifficultyActive", "death");
+            Mod CalamityMod = TheBereftSouls.CalamityMod;
+            Revengeance = (bool)CalamityMod.Call("GetDifficultyActive", "revengeance");
+            Death = (bool)CalamityMod.Call("GetDifficultyActive", "death");
         }
     }
     [ExtendsFromMod("FargowiltasSouls")]
@@ -49,8 +50,13 @@ namespace TheBereftSouls.Common.Utility
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void CheckFargos(ref bool EternityMode, ref bool MasochistMode)
         {
-            EternityMode = FargowiltasSouls.Core.Systems.WorldSavingSystem.EternityMode;
-            MasochistMode = FargowiltasSouls.Core.Systems.WorldSavingSystem.MasochistModeReal;
+            //Getting fargos dificulty without references only using reflection
+            Assembly assembly = Assembly.Load("FargowiltasSouls"); // Load Fargos assambly
+            Type worldSavingSystemType = assembly.GetType("FargowiltasSouls.Core.Systems.WorldSavingSystem"); // Obtainging WorldSavingSystem type
+            PropertyInfo masochistModeProperty = worldSavingSystemType.GetProperty("MasochistModeReal"); // Obtaining the property MasochistModeReal
+            MasochistMode = (bool)masochistModeProperty.GetValue(null); // Get the value
+            PropertyInfo eternityModeProperty = worldSavingSystemType.GetProperty("MasochistModeReal");
+            EternityMode = (bool)eternityModeProperty.GetValue(null);       
         }
     }
 }

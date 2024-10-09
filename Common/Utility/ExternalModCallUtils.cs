@@ -1,46 +1,101 @@
-﻿using Terraria;
+﻿using CalamityMod.Projectiles.Magic;
+using Mono.Cecil.Cil;
+using System.Collections.Generic;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace TheBereftSouls.Common.Utility
 {
     public class ExternalModCallUtils
     {
-        public static int GetItemFromMod(Mod mod, string item)
+        public struct CacheItem
         {
-            return mod.Find<ModItem>(item).Type;
+            public Mod mod;
+            public string name;
+            public ModItem instance;
         }
+        public struct CacheProjectile
+        {
+            public Mod mod;
+            public string name;
+            public ModProjectile instance;
+        }
+        public struct CacheNpc
+        {
+            public Mod mod;
+            public string name;
+            public ModNPC instance;
+        }
+        public static HashSet<CacheItem> ItemsCache { get; set; } = [];
+        public static ModItem GetItemFromMod(Mod mod, string item)
+        {
+            foreach (CacheItem cache in ItemsCache)
+            {
+                if (cache.mod == mod && cache.name == item)
+                    return cache.instance;
+            }      
+
+            mod.TryFind(item, out ModItem OutItem);
+            ItemsCache.Add(new CacheItem { mod = mod, name = item, instance = OutItem });
+            return OutItem;
+        }
+
+        public static HashSet<CacheProjectile> ProjectileCache { get; set; } = [];
         public static ModProjectile GetProjectileFromMod(Mod mod, string projectile)
         {
-            mod.TryFind(projectile, out ModProjectile Projectile);
-            return Projectile;
+            foreach (CacheProjectile cache in ProjectileCache)
+            {
+                if (cache.mod == mod && cache.name == projectile)
+                    return cache.instance;
+            }
+
+            mod.TryFind(projectile, out ModProjectile OutProjectile);
+            ProjectileCache.Add(new CacheProjectile { mod = mod, name = projectile, instance = OutProjectile });
+            return OutProjectile;
         }
-        public static int GetTileFromMod(Mod mod, string tile)
+        public static ModTile GetTileFromMod(Mod mod, string tile)
         {
-            return mod.Find<ModTile>(tile).Type;
+            mod.TryFind(tile, out ModTile OutTile);
+            return OutTile;
         }
-        public static int GetNpcFromMod(Mod mod, string npc)
+
+        public static HashSet<CacheNpc> NpcCache { get; set; } = [];
+        public static ModNPC GetNpcFromMod(Mod mod, string npc)
         {
-            return mod.Find<ModNPC>(npc).Type;
+            foreach (CacheNpc cache in NpcCache)
+            {
+                if (cache.mod == mod && cache.name == npc)
+                    return cache.instance;
+            }
+
+            mod.TryFind(npc, out ModNPC OutNpc);
+            NpcCache.Add(new CacheNpc { mod = mod, name = npc, instance = OutNpc });
+            return OutNpc;
         }
         public static DamageClass GetDamageClassFromMod(Mod mod, string damageClass)
         {
-            return mod.Find<DamageClass>(damageClass);
+            mod.TryFind(damageClass, out DamageClass OutDamageClass);
+            return OutDamageClass;
         }
-        public static int GetBuffFromMod(Mod mod, string buff)
+        public static ModBuff GetBuffFromMod(Mod mod, string buff)
         {
-            return mod.Find<ModBuff>(buff).Type;
+            mod.TryFind(buff, out ModBuff OutBuff);
+            return OutBuff;
         }
-        public static int GetDustFromMod(Mod mod, string dust)
+        public static ModDust GetDustFromMod(Mod mod, string dust)
         {
-            return mod.Find<ModDust>(dust).Type;
+            mod.TryFind(dust, out ModDust OutDust);
+            return OutDust;
         }
-        public static int GetPrefixFromMod(Mod mod, string prefix)
+        public static ModPrefix GetPrefixFromMod(Mod mod, string prefix)
         {
-            return mod.Find<ModPrefix>(prefix).Type;
+            mod.TryFind(prefix, out ModPrefix OutPrefix);
+            return OutPrefix;
         }
-        public static int GetRarityFromMod(Mod mod, string rarity)
+        public static ModRarity GetRarityFromMod(Mod mod, string rarity)
         {
-            return mod.Find<ModRarity>(rarity).Type;
+            mod.TryFind(rarity, out ModRarity OutRarity);
+            return OutRarity;
         }
         public static int GetModPrefix(Mod mod, string name)
         {
@@ -48,7 +103,8 @@ namespace TheBereftSouls.Common.Utility
         }
         public static ModPlayer GetPlayerFromMod(Mod mod, string player)
         {
-            return mod.Find<ModPlayer>(player);
+            mod.TryFind(player, out ModPlayer OutPlayer);
+            return OutPlayer;
         }
     }
 }

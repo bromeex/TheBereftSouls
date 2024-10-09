@@ -12,19 +12,16 @@ namespace TheBereftSouls.Common.Utility
         public static void OverrideTile(Recipe recipe, int newTile)
         {   
             List<int> tilesList = recipe.requiredTile;
-            foreach (int tile in tilesList)
-            {
-                recipe.RemoveTile(tile);
-            }
+            if (tilesList.Count > 0)
+                recipe.requiredTile.Clear();
+            
             recipe.AddTile(newTile);
         }
         public static void OverrideTile<T>(Recipe recipe) where T : ModTile
         {
             List<int> tilesList = recipe.requiredTile;
-            foreach (int tile in tilesList)
-            {
-                    recipe.RemoveTile(tile);
-            }
+            if (tilesList.Count > 0)
+                recipe.requiredTile.Clear();
             recipe.AddTile<T>();
         }
         public static void OverrideTile(Recipe recipe,int tileObjetive, int newTile)
@@ -40,10 +37,13 @@ namespace TheBereftSouls.Common.Utility
         public static void OverrideTile<T>(Recipe recipe,int tileObjetive) where T : ModTile
         {
             List<int> tilesList = recipe.requiredTile;
-            foreach (int tile in tilesList)
+            if (tilesList.Count > 0)
             {
-                if (tileObjetive == tile)
-                    recipe.RemoveTile(tile);
+                foreach (int tile in tilesList)
+                {
+                    if (tileObjetive == tile)
+                        recipe.RemoveTile(tile);
+                }
             }
             recipe.AddTile<T>();
         }

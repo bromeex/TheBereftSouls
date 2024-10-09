@@ -12,7 +12,6 @@ namespace TheBereftSouls.Common.Global
             {
                 item.pick = 55;
             }
-            base.SetDefaults(item);
         }
         public override bool InstancePerEntity => true;
     }

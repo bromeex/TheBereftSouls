@@ -1,6 +1,4 @@
-﻿using CalamityMod.Items.Materials;
-using CalamityMod.Tiles.Furniture.CraftingStations;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TheBereftSouls.Common.Utility;
 
@@ -11,20 +9,18 @@ namespace TheBereftSouls.Common.Global
 
         public override void PostAddRecipes()
         {
-
+            Mod CalamityMod = TheBereftSouls.CalamityMod;
             foreach (Recipe recipe in Main.recipe)
             {
                 if (TheBereftSouls.CalamityRangerExpansion != null)
                 {
                     if (recipe.TryGetResult(ExternalModCallUtils.GetItemFromMod(TheBereftSouls.CalamityRangerExpansion, "AutoCalculationCoil"), out _))
                     {
-                        recipe.AddIngredient<CosmiliteBar>(5);
-                        RecipeUtils.OverrideTile<CosmicAnvil>(recipe);
-                        recipe.AddTile<CosmicAnvil>();
+                        recipe.AddIngredient(ExternalModCallUtils.GetItemFromMod(CalamityMod,"CosmiliteBar").Type,5);
+                        RecipeUtils.OverrideTile(recipe,ExternalModCallUtils.GetTileFromMod(CalamityMod, "CosmicAnvil").Type);
                     }
                 }
             }
-            base.PostAddRecipes();
         }
     }
 }
