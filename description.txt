@@ -1,1 +1,11 @@
+The Bereft Souls it is a mod that allows compatibility between the following mods:
+[*] Calamity Mod
+[*] Thorium Mod
+[*] Spirit Mod
+[*] Fargos Souls Mod
+[*] Secret Of Shadows
+[*] Gensokyo
+
+creating a unique, balanced and unified progression
+
 This mod is intended to be used with this collection: https://steamcommunity.com/workshop/filedetails/?id=3340400317
