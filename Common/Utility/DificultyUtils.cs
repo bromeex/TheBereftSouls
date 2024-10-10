@@ -50,13 +50,8 @@ namespace TheBereftSouls.Common.Utility
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void CheckFargos(ref bool EternityMode, ref bool MasochistMode)
         {
-            //Getting fargos dificulty without references only using reflection
-            Assembly assembly = Assembly.Load("FargowiltasSouls"); // Load Fargos assambly
-            Type worldSavingSystemType = assembly.GetType("FargowiltasSouls.Core.Systems.WorldSavingSystem"); // Obtainging WorldSavingSystem type
-            PropertyInfo masochistModeProperty = worldSavingSystemType.GetProperty("MasochistModeReal"); // Obtaining the property MasochistModeReal
-            MasochistMode = (bool)masochistModeProperty.GetValue(null); // Get the value
-            PropertyInfo eternityModeProperty = worldSavingSystemType.GetProperty("MasochistModeReal");
-            EternityMode = (bool)eternityModeProperty.GetValue(null);       
+            EternityMode = FargowiltasSouls.Core.Systems.WorldSavingSystem.EternityMode;
+            MasochistMode = FargowiltasSouls.Core.Systems.WorldSavingSystem.MasochistModeReal;
         }
     }
 }
