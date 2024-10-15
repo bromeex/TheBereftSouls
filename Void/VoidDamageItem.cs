@@ -18,10 +18,7 @@ namespace TheBereftSouls.Void
 {
     public abstract class VoidDamageItem : ModItem
     {
-        public virtual void SafeSetDefaults()
-        {
-
-        }
+        public virtual void SafeSetDefaults(){}
         public sealed override void SetDefaults()
         {
             Item.shoot = ProjectileID.PurificationPowder;
@@ -88,12 +85,9 @@ namespace TheBereftSouls.Void
                     tt2.Text = Language.GetTextValue("Mods.SOTS.Common.CV", voidCostText);
                 }
             }
-            ModifyTooltip(tooltips);
+            //ModifyTooltip(tooltips);
         }
-        public virtual void ModifyTooltip(List<TooltipLine> tooltips)
-        {
-
-        }
+        //public virtual void ModifyTooltip(List<TooltipLine> tooltips){}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (type != 10)

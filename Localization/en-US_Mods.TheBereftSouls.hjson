@@ -23,6 +23,16 @@ Items: {
 		DisplayName: Platinum Dart Override
 		Tooltip: ""
 	}
+
+	FrigidEnchantment: {
+		Tooltip: ""
+		DisplayName: Frigid Enchantment
+	}
+
+	VibrantEnchantment: {
+		DisplayName: Vibrant Enchantment
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

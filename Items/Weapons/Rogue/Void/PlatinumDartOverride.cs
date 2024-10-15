@@ -20,7 +20,7 @@ namespace TheBereftSouls.Items.Weapons.Rogue.Void
         }
         public override void SafeSetDefaults()
         {
-            Item.SetNameOverride("Platinum Dart");
+            Item.SetNameOverride("Platinum Dart"); 
             Item.CloneDefaults(ModContent.ItemType<PlatinumDart>());
             Item.DamageType = ModContent.GetInstance<RogueDamageClass>();
             Item.shoot = ModContent.ProjectileType <PlatinumDartProjectileOverride>();
