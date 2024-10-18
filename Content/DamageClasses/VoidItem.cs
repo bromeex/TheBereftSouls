@@ -68,7 +68,7 @@ namespace TheBereftSouls.Content.DamageClasses
                 if (Item.CountsAsClass(ModContent.GetInstance<RogueDamageClass>()))
                     tt.Text = Language.GetTextValue("VoidRo", damageValue, damageWord);
                 else if (Item.CountsAsClass(ModContent.GetInstance<HealerDamage>()))
-                    tt.Text = Language.GetTextValue("VoidHeal", damageValue, damageWord);
+                    tt.Text = Language.GetTextValue("VoidH", damageValue, damageWord);
 
             }
             string voidCostText = VoidCost(Main.LocalPlayer).ToString();
