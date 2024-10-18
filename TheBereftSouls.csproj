@@ -7,10 +7,18 @@
 	<PropertyGroup>
 		
 	</PropertyGroup>
+	<ItemGroup>
+	  <Reference Include="CalamityMod">
+	    <HintPath>..\Llib\CalamityMod.dll</HintPath>
+	  </Reference>
+	  <Reference Include="SOTS">
+	    <HintPath>..\Llib\SOTS.dll</HintPath>
+	  </Reference>
+	  <Reference Include="ThoriumMod">
+	    <HintPath>..\Llib\ThoriumMod.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 
 	<!-- References -->
-	<ItemGroup>
-		
-	</ItemGroup>
 
 </Project>

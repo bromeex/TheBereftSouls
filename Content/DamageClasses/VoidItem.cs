@@ -10,12 +10,10 @@ using Terraria.ModLoader;
 using SOTS.Void;
 using SOTS;
 using CalamityMod;
-using TheBereftSouls.Void;
 using SOTS.Items.Planetarium;
 using ThoriumMod;
-using TheBereftSouls.Content.DamageClasses;
 
-namespace TheBereftSouls.Void
+namespace TheBereftSouls.Content.DamageClasses
 {
     public abstract class VoidDamageItem : ModItem
     {
