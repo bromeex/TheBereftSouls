@@ -12,22 +12,48 @@ using SOTS;
 using CalamityMod;
 using SOTS.Items.Planetarium;
 using ThoriumMod;
-using Terraria.Utilities;
-using ThoriumMod.Prefixes.BardPrefixes;
+using Terraria.Audio;
+using ThoriumMod.Empowerments;
+using ThoriumMod.Utilities;
+using ThoriumMod.Items;
+using ThoriumMod.Empowerments;
 
 namespace TheBereftSouls.Content.DamageClasses
 {
-    public abstract class VoidDamageItem : ModItem
+    public abstract class VoidBardItem : BardItem
     {
+
         public virtual void SafeSetDefaults() { }
-        public sealed override void SetDefaults()
+        public sealed override void SetBardDefaults()
         {
+            
             Item.shoot = ProjectileID.PurificationPowder;
             SafeSetDefaults();
-            if (Item.DamageType == ModContent.GetInstance<RogueDamageClass>())
-                Item.DamageType = ModContent.GetInstance<VoidRogue>();
-            else if (Item.DamageType == ModContent.GetInstance<HealerDamage>())
-                Item.DamageType = ModContent.GetInstance<VoidHealer>();
+            Item.DamageType = ModContent.GetInstance<VoidBard>();  
+        }
+
+        
+        
+        public sealed override bool CanConsumeAmmo(Item ammo, Player player)
+        {
+            bool canUse = BeforeConsumeAmmo(player);
+            return canUse;
+        }
+        public sealed override bool CanBeConsumedAsAmmo(Item weapon, Player player)
+        {
+            bool canUse = BeforeConsumeAmmo(player);
+            return canUse;
+        }
+        
+        public override bool? BardUseItem(Player player)
+        {
+            if (Item.createTile > -1)
+            {
+                return base.UseItem(player);
+            }
+            if (BeforeDrainVoid(player))
+                DrainMana(player);
+            return true;
         }
 
         public int VoidCost(Player player)
@@ -55,7 +81,7 @@ namespace TheBereftSouls.Content.DamageClasses
 
             return cost;
         }
-        public sealed override void ModifyTooltips(List<TooltipLine> tooltips)
+        public sealed override void BardModifyTooltips(List<TooltipLine> tooltips)
         {
             VoidPlayer voidPlayer = VoidPlayer.ModPlayer(Main.LocalPlayer); //only the local player will see the tooltip, afterall
             TooltipLine tt = tooltips.FirstOrDefault(x => x.Name == "Damage" && x.Mod == "Terraria");
@@ -67,10 +93,8 @@ namespace TheBereftSouls.Content.DamageClasses
 
                 tt.Text = Language.GetTextValue("Mods.SOTS.Common.Void2", damageValue, damageWord);
 
-                if (Item.CountsAsClass(ModContent.GetInstance<RogueDamageClass>()))
-                    tt.Text = Language.GetTextValue("VoidRo", damageValue, damageWord);
-                else if (Item.CountsAsClass(ModContent.GetInstance<HealerDamage>()))
-                    tt.Text = Language.GetTextValue("VoidH", damageValue, damageWord);
+                if (Item.CountsAsClass(ModContent.GetInstance<BardDamage>()))
+                    tt.Text = Language.GetTextValue("VoidB", damageValue, damageWord);
 
             }
             string voidCostText = VoidCost(Main.LocalPlayer).ToString();
@@ -86,31 +110,15 @@ namespace TheBereftSouls.Content.DamageClasses
                 }
             }
         }
-
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        /*public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (type != 10)
             {
                 return true;
             }
             return false;
-        }
-        public sealed override bool CanConsumeAmmo(Item ammo, Player player)
-        {
-            bool canUse = BeforeConsumeAmmo(player);
-            return canUse;
-        }
-        public sealed override bool CanBeConsumedAsAmmo(Item weapon, Player player)
-        {
-            bool canUse = BeforeConsumeAmmo(player);
-            return canUse;
-        }
-        public void OnUseEffects(Player player)
-        {
-            BeadPlayer modPlayer = player.GetModPlayer<BeadPlayer>();
-            modPlayer.attackNum++;
-        }
-        public sealed override bool CanUseItem(Player player)
+        }*/
+        public override bool CanPlayInstrument(Player player)
         {
             VoidPlayer voidPlayer = VoidPlayer.ModPlayer(player);
             bool canUse = BeforeUseItem(player);
@@ -128,22 +136,14 @@ namespace TheBereftSouls.Content.DamageClasses
             {
                 return false;
             }
-            OnUseEffects(player);
-            if (Item.useAmmo == 0 && canDrainMana)
-                DrainMana(player);
-            if (Item.mana > 0)
-                player.statMana += Item.mana;
+            //OnUseEffects(player);
             return true;
         }
-        public sealed override bool? UseItem(Player player)
+
+        public void OnUseEffects(Player player)
         {
-            if (Item.createTile > -1)
-            {
-                return base.UseItem(player);
-            }
-            if (Item.useAmmo != 0 && BeforeDrainVoid(player))
-                DrainMana(player);
-            return true;
+            BeadPlayer modPlayer = player.GetModPlayer<BeadPlayer>();
+            modPlayer.attackNum++;
         }
 
         public virtual bool BeforeDrainVoid(Player player)
@@ -151,11 +151,6 @@ namespace TheBereftSouls.Content.DamageClasses
             return true;
         }
         public virtual bool BeforeUseItem(Player player)
-        {
-            return true;
-        }
-
-        public virtual bool BeforeConsumeAmmo(Player player)
         {
             return true;
         }
@@ -174,11 +169,18 @@ namespace TheBereftSouls.Content.DamageClasses
             }
         }
 
-        /*public override int ChoosePrefix(UnifiedRandom rand)
+        public virtual bool BeforeConsumeAmmo(Player player)
         {
+            return true;
+        }
 
-
-        }*/
-
+        public override bool BardShoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            if (type != 10)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

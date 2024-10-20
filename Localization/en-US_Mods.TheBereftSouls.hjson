@@ -19,6 +19,11 @@ Items: {
 		Tooltip: ""
 		DisplayName: Vespera Life Claymore
 	}
+
+	VesperaWarhorn: {
+		Tooltip: ""
+		DisplayName: Vespera Warhorn
+	}
 }
 
 Projectiles: {
