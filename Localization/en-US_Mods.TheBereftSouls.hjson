@@ -1,2 +1,12 @@
-# This file will automatically update with entries for new content after a build and reload.
-
+Items: {
+	VibrantEnchantment: {
+		Tooltip:
+			'''
+			Occasionally fire additional projectiles when using weapons
+			The chance of firing additional projectiles decreases the longer a weapon is used
+			Switching weapons resets the chance
+			Effects of Harvester Scythe
+			'''
+		DisplayName: Vibrant Enchantment
+	}
+}
