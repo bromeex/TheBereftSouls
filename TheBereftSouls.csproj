@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<!-- Import tModLoader mod properties -->
 	<Import Project="..\tModLoader.targets" />
@@ -7,6 +7,9 @@
 	<PropertyGroup>
 		
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Remove="Content\Items\Accessories\WormwoodEnchantment.png" />
+	</ItemGroup>
 	<ItemGroup>
 	  <Reference Include="SOTS">
 	    <HintPath>..\ModAssemblies\SOTS_v0.24.1.4.dll</HintPath>

@@ -13,7 +13,7 @@ namespace TheBereftSouls.Content.Items.Accessories
         public override void SetDefaults()
         {
             Item.width = 30;
-            Item.height = 28;
+            Item.height = 34;
             Item.accessory = true;
             Item.value = Item.buyPrice(0, 30);
             Item.rare = ItemRarityID.Green;
@@ -60,8 +60,11 @@ namespace TheBereftSouls.Content.Items.Accessories
         {
             if (player.GetModPlayer<VibrantEnchPlayer>().vibrantEnch && chanceToFire >= Main.rand.NextFloat())
             {
-                Projectile.NewProjectile(source, position, velocity / 2, type, damage, knockback);
-                if (chanceToFire > 0)
+                if (Main.myPlayer == player.whoAmI)
+                {
+                    Projectile.NewProjectile(source, position, (velocity / 2).RotatedByRandom(MathHelper.PiOver4), type, damage, knockback);
+                }
+                if (chanceToFire >= 0)
                 {
                     chanceToFire -= 0.1f;
                 }
@@ -71,6 +74,10 @@ namespace TheBereftSouls.Content.Items.Accessories
 
         public override void UpdateInventory(Item item, Player player)
         {
+            if (!player.GetModPlayer<VibrantEnchPlayer>().vibrantEnch)
+            {
+                return;
+            }
             if (player.HeldItem != item)
             {
                 chanceToFire = 0.6f;
