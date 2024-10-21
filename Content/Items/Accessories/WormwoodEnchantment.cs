@@ -10,15 +10,21 @@ using System.Collections.Generic;
 using Microsoft.CodeAnalysis.CSharp;
 using MonoMod.RuntimeDetour;
 using Terraria.Localization;
+using TheBereftSouls.Content.Buffs;
 
 namespace TheBereftSouls.Content.Items.Accessories
 {
     public class WormwoodEnchantment : ModItem
     {
-        static int defenseBoost = 3;
+        static int defenseBoost = 1;
         static int hooksToSummon = 4;
         public List<Projectile> hooks = new List<Projectile>(hooksToSummon);
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(defenseBoost);
+
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
+        }
 
         public override void SetDefaults()
         {
@@ -34,7 +40,7 @@ namespace TheBereftSouls.Content.Items.Accessories
             player.statDefense += player.numMinions * defenseBoost;
             if (Main.myPlayer == player.whoAmI)
             {
-                if (player.statLife == player.statLifeMax2)
+                if (!player.HasBuff(ModContent.BuffType<PatchedUpDebuff>()) && player.statLife > player.statLifeMax2 / 2)
                 {
                     if (hooks.Count < hooksToSummon)
                     {
@@ -50,7 +56,8 @@ namespace TheBereftSouls.Content.Items.Accessories
                     foreach (var hook in hooks)
                     {
                         hook.Kill();
-                        player.Heal(50);
+                        player.Heal(player.statLifeMax2 / 16);
+                        player.AddBuff(ModContent.BuffType<PatchedUpDebuff>(), 3600);
                     }
                     hooks.Clear();
                 }

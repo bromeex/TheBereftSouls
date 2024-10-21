@@ -10,6 +10,11 @@ namespace TheBereftSouls.Content.Items.Accessories
 {
     public class VibrantEnchantment : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
+        }
+
         public override void SetDefaults()
         {
             Item.width = 30;
@@ -54,7 +59,7 @@ namespace TheBereftSouls.Content.Items.Accessories
     public class VibrantItem : GlobalItem
     {
         public override bool InstancePerEntity => true;
-        float chanceToFire = 0.6f;
+        float chanceToFire = 0.8f;
 
         public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
@@ -66,6 +71,7 @@ namespace TheBereftSouls.Content.Items.Accessories
                 }
                 if (chanceToFire >= 0)
                 {
+                    Main.NewText(chanceToFire);
                     chanceToFire -= 0.1f;
                 }
             }
@@ -74,13 +80,10 @@ namespace TheBereftSouls.Content.Items.Accessories
 
         public override void UpdateInventory(Item item, Player player)
         {
-            if (!player.GetModPlayer<VibrantEnchPlayer>().vibrantEnch)
+            base.UpdateInventory(item, player);
+            if (item.type != player.HeldItem.type)
             {
-                return;
-            }
-            if (player.HeldItem != item)
-            {
-                chanceToFire = 0.6f;
+                chanceToFire = 0.8f;
             }
         }
     }

@@ -17,8 +17,15 @@ Items: {
 			Increases defense by {0} for every active minion
 			Summon 4 blooming hooks
 			When above 50% life blooming hooks are in "offensive mode", firing projectiles towards nearby enemies
-			When below 50% life blooming hooks are destroyed and heal the player for 50 life each
-			The hooks reappear when the player reaches max life again
+			When below 50% life blooming hooks are destroyed and heal the player for 1/16th of their max life each
+			The hooks reappear after 60 seconds if your life is above 50%
 			'''
+	}
+}
+
+Buffs: {
+	PatchedUpDebuff: {
+		DisplayName: Patched Up Debuff
+		Description: The blooming hooks have sacrificed themselves for you...
 	}
 }
