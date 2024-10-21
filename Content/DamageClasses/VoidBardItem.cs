@@ -17,22 +17,21 @@ using ThoriumMod.Empowerments;
 using ThoriumMod.Utilities;
 using ThoriumMod.Items;
 using ThoriumMod.Empowerments;
+using ThoriumMod.Items.BardItems;
 
 namespace TheBereftSouls.Content.DamageClasses
 {
     public abstract class VoidBardItem : BardItem
     {
 
-        public virtual void SafeSetDefaults() { }
+        public virtual void SafeSetDefaults() {}
         public sealed override void SetBardDefaults()
         {
             
             Item.shoot = ProjectileID.PurificationPowder;
+            //Item.DamageType = ModContent.GetInstance<VoidBard>(); this needs to be assigned in VoidBardWeaponDamageTypeFix.cs as thorium sets weapon damage to bard at the end of the sealed set defaults call.
             SafeSetDefaults();
-            Item.DamageType = ModContent.GetInstance<VoidBard>();  
         }
-
-        
         
         public sealed override bool CanConsumeAmmo(Item ammo, Player player)
         {
@@ -97,16 +96,14 @@ namespace TheBereftSouls.Content.DamageClasses
                     tt.Text = Language.GetTextValue("VoidB", damageValue, damageWord);
 
             }
-            string voidCostText = VoidCost(Main.LocalPlayer).ToString();
-            TooltipLine tt2 = tooltips.FirstOrDefault(x => x.Name == "UseMana" && x.Mod == "Terraria");
-            if (tt2 != null)
+            
+            int cost = VoidCost(Main.LocalPlayer);
+            if (cost > 0)
             {
-                string[] splitText = tt2.Text.Split(' ');
-                if (Item.accessory)
-                    tooltips.Remove(tt2);
-                else
+                int index = tooltips.FindIndex((TooltipLine tt) => (tt.Mod.Equals("Terraria") || tt.Mod.Equals("ThoriumMod")) && ((Item.damage > 0 && tt.Name.Equals("Knockback")) || tt.Name.Equals("Tooltip0")));
+                if (index != -1)
                 {
-                    tt2.Text = Language.GetTextValue("Mods.SOTS.Common.CV", voidCostText);
+                    tooltips.Insert(index + ((Item.damage > 0) ? 1 : 0), new TooltipLine(((ModType)this).Mod, "VoidCost", "Uses " + cost + " void"));
                 }
             }
         }
