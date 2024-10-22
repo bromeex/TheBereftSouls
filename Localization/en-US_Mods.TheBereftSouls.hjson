@@ -21,6 +21,11 @@ Items: {
 			The hooks reappear after 60 seconds if your life is above 50%
 			'''
 	}
+
+	VesperaEnchantment: {
+		DisplayName: Vespera Enchantment
+		Tooltip: ""
+	}
 }
 
 Buffs: {
@@ -29,3 +34,6 @@ Buffs: {
 		Description: The blooming hooks have sacrificed themselves for you...
 	}
 }
+
+Projectiles.VesperaStone.DisplayName: Vespera Stone
+"Keybinds.Vespera Enchantment Stone.DisplayName": Vespera  Enchantment  Stone

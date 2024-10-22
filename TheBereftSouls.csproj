@@ -8,6 +8,7 @@
 		
 	</PropertyGroup>
 	<ItemGroup>
+	  <None Remove="Content\Items\Accessories\VesperaEnchantment.png" />
 	  <None Remove="Content\Items\Accessories\WormwoodEnchantment.png" />
 	</ItemGroup>
 	<ItemGroup>

@@ -71,7 +71,6 @@ namespace TheBereftSouls.Content.Items.Accessories
                 }
                 if (chanceToFire >= 0)
                 {
-                    Main.NewText(chanceToFire);
                     chanceToFire -= 0.1f;
                 }
             }
