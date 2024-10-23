@@ -1,22 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<!-- Import tModLoader mod properties -->
-	<Import Project="..\tModLoader.targets" />
+    <!-- Import tModLoader mod properties -->
+    <Import Project="..\tModLoader.targets" />
 
-	<!-- General -->
-	<PropertyGroup>
-		
-	</PropertyGroup>
-	<ItemGroup>
-	  <None Remove="Content\Items\Accessories\VesperaEnchantment.png" />
-	  <None Remove="Content\Items\Accessories\WormwoodEnchantment.png" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Reference Include="SOTS">
-	    <HintPath>..\ModAssemblies\SOTS_v0.24.1.4.dll</HintPath>
-	  </Reference>
-	</ItemGroup>
+    <!-- General -->
+    <PropertyGroup>
+        <!--
+        SA0001 - All diagnostics of XML documentation comments has been
+                 disabled due to the current project configuration.
+                   - https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA0001.md
+        SA1633 - A C# code file is missing a standard file header.
+                   - https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1633.md
+        -->
+        <NoWarn>SA0001,SA1633</NoWarn>
+    </PropertyGroup>
 
-	<!-- References -->
+    <!-- References -->
+    <ItemGroup>
+        <AdditionalFiles Include="stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+    </ItemGroup>
 
 </Project>
