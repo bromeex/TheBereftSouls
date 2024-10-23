@@ -14,6 +14,7 @@ namespace TheBereftSouls.Content.Items.Weapons.Bard.Void
 {
     public class VesperaWarhorn : VoidBardItem
     {
+        //this is a placeholder/example void bard item
         public override BardInstrumentType InstrumentType => BardInstrumentType.Brass;
 
         public override void SetStaticDefaults()

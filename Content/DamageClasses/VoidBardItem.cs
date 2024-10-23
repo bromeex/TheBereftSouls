@@ -9,20 +9,16 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using SOTS.Void;
 using SOTS;
-using CalamityMod;
 using SOTS.Items.Planetarium;
 using ThoriumMod;
-using Terraria.Audio;
-using ThoriumMod.Empowerments;
-using ThoriumMod.Utilities;
 using ThoriumMod.Items;
-using ThoriumMod.Empowerments;
-using ThoriumMod.Items.BardItems;
+
 
 namespace TheBereftSouls.Content.DamageClasses
 {
     public abstract class VoidBardItem : BardItem
     {
+        //based off https://github.com/VortexOfRainbows/SOTS/blob/1.4.4/Void/VoidItem.cs
 
         public virtual void SafeSetDefaults() {}
         public sealed override void SetBardDefaults()
@@ -33,16 +29,6 @@ namespace TheBereftSouls.Content.DamageClasses
             SafeSetDefaults();
         }
         
-        public sealed override bool CanConsumeAmmo(Item ammo, Player player)
-        {
-            bool canUse = BeforeConsumeAmmo(player);
-            return canUse;
-        }
-        public sealed override bool CanBeConsumedAsAmmo(Item weapon, Player player)
-        {
-            bool canUse = BeforeConsumeAmmo(player);
-            return canUse;
-        }
         
         public override bool? BardUseItem(Player player)
         {
@@ -107,14 +93,7 @@ namespace TheBereftSouls.Content.DamageClasses
                 }
             }
         }
-        /*public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            if (type != 10)
-            {
-                return true;
-            }
-            return false;
-        }*/
+
         public override bool CanPlayInstrument(Player player)
         {
             VoidPlayer voidPlayer = VoidPlayer.ModPlayer(player);
@@ -133,7 +112,6 @@ namespace TheBereftSouls.Content.DamageClasses
             {
                 return false;
             }
-            //OnUseEffects(player);
             return true;
         }
 
@@ -165,12 +143,6 @@ namespace TheBereftSouls.Content.DamageClasses
                     vPlayer.voidMeter -= finalCost;
             }
         }
-
-        public virtual bool BeforeConsumeAmmo(Player player)
-        {
-            return true;
-        }
-
         public override bool BardShoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (type != 10)

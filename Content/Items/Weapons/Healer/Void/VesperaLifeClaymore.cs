@@ -8,6 +8,7 @@ using ThoriumMod.Utilities;
 using ThoriumMod;
 using static Terraria.NPC;
 using SOTS;
+using CalamityMod;
 
 namespace TheBereftSouls.Content.Items.Weapons.Healer.Void
 {
@@ -19,7 +20,7 @@ namespace TheBereftSouls.Content.Items.Weapons.Healer.Void
         }
         public override void SafeSetDefaults()
         {
-            Item.DamageType = ThoriumDamageBase<HealerDamage>.Instance;
+            Item.DamageType = ModContent.GetInstance<HealerDamage>();
             Item.damage = 18;
             //isHealer = true;
             //healDisplay = true;

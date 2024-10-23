@@ -12,11 +12,10 @@ using SOTS;
 using CalamityMod;
 using SOTS.Items.Planetarium;
 using ThoriumMod;
-using Terraria.Utilities;
-using ThoriumMod.Prefixes.BardPrefixes;
 
 namespace TheBereftSouls.Content.DamageClasses
 {
+    //based off https://github.com/VortexOfRainbows/SOTS/blob/1.4.4/Void/VoidItem.cs
     public abstract class VoidDamageItem : ModItem
     {
         public override bool WeaponPrefix() => true;
@@ -96,16 +95,7 @@ namespace TheBereftSouls.Content.DamageClasses
             }
             return false;
         }
-        public sealed override bool CanConsumeAmmo(Item ammo, Player player)
-        {
-            bool canUse = BeforeConsumeAmmo(player);
-            return canUse;
-        }
-        public sealed override bool CanBeConsumedAsAmmo(Item weapon, Player player)
-        {
-            bool canUse = BeforeConsumeAmmo(player);
-            return canUse;
-        }
+
         public void OnUseEffects(Player player)
         {
             BeadPlayer modPlayer = player.GetModPlayer<BeadPlayer>();
@@ -156,10 +146,6 @@ namespace TheBereftSouls.Content.DamageClasses
             return true;
         }
 
-        public virtual bool BeforeConsumeAmmo(Player player)
-        {
-            return true;
-        }
         public void DrainMana(Player player)
         {
             DrainMana(player, VoidCost(player));
@@ -174,12 +160,5 @@ namespace TheBereftSouls.Content.DamageClasses
                     vPlayer.voidMeter -= finalCost;
             }
         }
-
-        /*public override int ChoosePrefix(UnifiedRandom rand)
-        {
-
-
-        }*/
-
     }
 }
