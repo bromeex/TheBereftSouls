@@ -12,6 +12,8 @@ using TheBereftSouls.Content.Tiles.Special;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Terraria.Audio;
 using System.Collections.Generic;
+using Terraria.Localization;
+using System.Linq;
 
 namespace TheBereftSouls.Content.Items.Accessories
 {
@@ -55,18 +57,19 @@ namespace TheBereftSouls.Content.Items.Accessories
                     if (Main.tile[vPlayer.vesperaStoneXCOORDS[i], vPlayer.vesperaStoneYCOORDS[i]].TileType == ModContent.TileType<VesperaStoneBlock>())
                     {
                         WorldGen.KillTile(vPlayer.vesperaStoneXCOORDS[i], vPlayer.vesperaStoneYCOORDS[i]);
+                        NetMessage.SendTileSquare(-1, vPlayer.vesperaStoneXCOORDS[i], vPlayer.vesperaStoneYCOORDS[i]);
                     }
                 }
                 
             }
 
-            if (KeyBindSystem.VesperaEnchStone.JustPressed && Timer <= 0)
+            if (KeybindSystem.VesperaEnchStone.JustPressed && Timer <= 0)
             {
                 for (int i = 0; i < 5; i++)
                 {
                     Vector2 positionToTarget = Main.MouseWorld + new Vector2(Main.rand.NextFloat(-30, 30), Main.rand.NextFloat(-30, 30));
                     float speed = player.Center.Distance(positionToTarget) / 30;
-                    Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, player.Center.DirectionTo(positionToTarget) * speed, ModContent.ProjectileType<VesperaStone>(), 5, 0.1f);
+                    Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, player.Center.DirectionTo(positionToTarget) * speed, ModContent.ProjectileType<VesperaStone>(), 15, 0.1f);
 
                 }
                 Timer = 300;

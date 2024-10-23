@@ -32,7 +32,7 @@ namespace TheBereftSouls.Content.Projectiles.Friendly
             {
                 for (int i = -1; i < 1; i++)
                 {
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(i * 36)).SafeNormalize(Vector2.Zero) * 5, ModContent.ProjectileType<BigEvostonePebble>(), 5, 0.1f);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(i * 36)).SafeNormalize(Vector2.Zero) * 5, ModContent.ProjectileType<BigEvostonePebble>(), 15, 0.1f);
                 }
             }
         }

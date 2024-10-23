@@ -24,7 +24,12 @@ Items: {
 
 	VesperaEnchantment: {
 		DisplayName: Vespera Enchantment
-		Tooltip: ""
+		Tooltip:
+			'''
+			Press the "Vespera Enchantment Stone" keybind to fire several stone projectiles towards your cursor
+			If the projectiles don�t hit anything, they create temporary stone blocks
+			If the projectiles hit an enemy, they will summon several bouncing rocks
+			'''
 	}
 }
 

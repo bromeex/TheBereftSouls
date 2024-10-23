@@ -2,7 +2,7 @@
 
 namespace TheBereftSouls.Common.Systems
 {
-    public class KeyBindSystem : ModSystem
+    public class KeybindSystem : ModSystem
     {
         public static ModKeybind VesperaEnchStone;
 
