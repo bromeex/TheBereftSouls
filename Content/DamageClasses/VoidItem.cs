@@ -19,6 +19,7 @@ namespace TheBereftSouls.Content.DamageClasses
 {
     public abstract class VoidDamageItem : ModItem
     {
+        public override bool WeaponPrefix() => true;
         public virtual void SafeSetDefaults() { }
         public sealed override void SetDefaults()
         {
