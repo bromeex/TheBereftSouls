@@ -18,9 +18,10 @@ namespace TheBereftSouls.Content.Items.Weapons.Healer.Void
         {
             this.SetResearchCost(1);
         }
-        public override void SafeSetDefaults()
+        public override void SetItemDefaults()
         {
             Item.DamageType = ModContent.GetInstance<HealerDamage>();
+            //Item.DamageType = ModContent.GetInstance<VoidHealer>();
             Item.damage = 18;
             //isHealer = true;
             //healDisplay = true;

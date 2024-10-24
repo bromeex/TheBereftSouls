@@ -17,7 +17,7 @@ namespace TheBereftSouls.Content.Items.Weapons.Rogue.Void
         {
             this.SetResearchCost(1);
         }
-        public override void SafeSetDefaults()
+        public override void SetItemDefaults()
         {
             Item.width = 40;
             Item.height = 36;
@@ -37,6 +37,7 @@ namespace TheBereftSouls.Content.Items.Weapons.Rogue.Void
             Item.shoot = ModContent.ProjectileType<VoidCoconutProj>();
             Item.shootSpeed = 15f;
             Item.DamageType = ModContent.GetInstance<RogueDamageClass>();
+            //Item.DamageType = ModContent.GetInstance<VoidRogue>();
 
         }
         public override int GetVoid(Player player)
