@@ -1,9 +1,6 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.Localization;
+using TheBereftSouls.Players;
 
 namespace TheBereftSouls.Content.Buffs
 {
@@ -16,17 +13,7 @@ namespace TheBereftSouls.Content.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.GetModPlayer<InfectedPlayer>().patchedUp = true;
-        }
-    }
-
-    public class InfectedPlayer : ModPlayer
-    {
-        public bool patchedUp = false;
-
-        public override void ResetEffects()
-        {
-            patchedUp = false;
+            player.GetModPlayer<BereftPlayer>().PatchedUp = true;
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using SOTS;
+using SOTS.Items.Earth;
+using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using SOTS.Items.Earth;
-using SOTS;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
+using TheBereftSouls.Players;
 
 namespace TheBereftSouls.Content.Items.Accessories
 {
@@ -28,7 +29,7 @@ namespace TheBereftSouls.Content.Items.Accessories
         {
             SOTSPlayer.ModPlayer(player).CritBonusMultiplier += 0.2f;
             SOTSPlayer.ModPlayer(player).HarvestersScythe = true;
-            player.GetModPlayer<VibrantEnchPlayer>().vibrantEnch = true;
+            player.GetModPlayer<BereftPlayer>().VibrantEnch = true;
         }
 
         public override void AddRecipes()
@@ -42,38 +43,34 @@ namespace TheBereftSouls.Content.Items.Accessories
             recipe.AddIngredient(ModContent.ItemType<VibrantStaff>());
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
-
-        }
-    }
-
-    public class VibrantEnchPlayer : ModPlayer
-    {
-        public bool vibrantEnch = false;
-
-        public override void ResetEffects()
-        {
-            vibrantEnch = false;
         }
     }
 
     public class VibrantItem : GlobalItem
     {
         public override bool InstancePerEntity => true;
-        float chanceToFire = 0.8f;
+
+        private float chanceToFire = 0.8f; // 80% chance to shoot
 
         public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.GetModPlayer<VibrantEnchPlayer>().vibrantEnch && chanceToFire >= Main.rand.NextFloat())
+            if (item.damage <= 0)
+            {
+                return true; // Only work on weapons
+            }
+            if (player.GetModPlayer<BereftPlayer>().VibrantEnch && chanceToFire >= Main.rand.NextFloat())
             {
                 if (Main.myPlayer == player.whoAmI)
                 {
-                    Projectile.NewProjectile(source, position, (velocity / 2).RotatedByRandom(MathHelper.PiOver4), type, damage, knockback);
+                    Projectile.NewProjectile(source, position, (velocity / 2).RotatedByRandom(MathHelper.Pi / 6), type, damage / 2, knockback); // Additional projectiles deal half damage and move at half speed (should be tested)
                 }
+
                 if (chanceToFire >= 0)
                 {
                     chanceToFire -= 0.1f;
                 }
             }
+
             return true;
         }
 

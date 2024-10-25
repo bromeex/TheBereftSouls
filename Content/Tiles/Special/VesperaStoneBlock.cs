@@ -1,11 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
-using Terraria.DataStructures;
-using Terraria.Enums;
-using Terraria.Audio;
-using Terraria.Localization;
 
 namespace TheBereftSouls.Content.Tiles.Special
 {
@@ -16,6 +11,7 @@ namespace TheBereftSouls.Content.Tiles.Special
             TileID.Sets.DrawsWalls[Type] = true;
             TileID.Sets.DontDrawTileSliced[Type] = true;
             TileID.Sets.IgnoresNearbyHalfbricksWhenDrawn[Type] = true;
+            DustType = DustID.PureSpray;
 
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;

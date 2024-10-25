@@ -4,7 +4,7 @@ namespace TheBereftSouls
 {
     public class TheBereftSouls : Mod
     {
-        //Public variables for easy accses to mod reference
+        // Public variables for easy accses to mod reference
         public static Mod CalamityMod;
         public static Mod BossChecklist;
         public static Mod ThoriumMod;

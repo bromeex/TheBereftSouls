@@ -3,7 +3,7 @@
     <!-- Import tModLoader mod properties -->
     <Import Project="..\tModLoader.targets" />
 
-    <!-- General -->
+     <!-- General -->
     <PropertyGroup>
         <!--
         SA0001 - All diagnostics of XML documentation comments has been
@@ -15,7 +15,6 @@
         <NoWarn>SA0001,SA1633</NoWarn>
     </PropertyGroup>
 
-    <!-- References -->
     <ItemGroup>
         <AdditionalFiles Include="stylecop.json" />
     </ItemGroup>
@@ -25,6 +24,12 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         <PrivateAssets>all</PrivateAssets>
       </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="SOTS">
+        <HintPath>..\ModAssemblies\SOTS.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

@@ -1,19 +1,14 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using SOTS.Items.Invidia;
+using TheBereftSouls.Players;
+using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using SOTS.Items.Earth;
-using SOTS;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
-using SOTS.Items.Invidia;
-using TheBereftSouls.Content.Projectiles.Friendly;
 using TheBereftSouls.Common.Systems;
+using TheBereftSouls.Content.Projectiles.Friendly;
 using TheBereftSouls.Content.Tiles.Special;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Terraria.Audio;
-using System.Collections.Generic;
-using Terraria.Localization;
-using System.Linq;
+using TheBereftSouls.Utils;
 
 namespace TheBereftSouls.Content.Items.Accessories
 {
@@ -45,22 +40,18 @@ namespace TheBereftSouls.Content.Items.Accessories
             if (Timer == 0)
             {
                 SoundEngine.PlaySound(SoundID.Item4 with { Pitch = -1f });
-                for (int i = 0; i < 16; i++)
+                BereftUtils.DustCircle(player.Center, 16, 10, DustID.Stone);
+                var bPlayer = player.GetModPlayer<BereftPlayer>();
+                for (int i = 0; i < bPlayer.vesperaStoneCoords.Count; i++)
                 {
-                    var dust = Dust.NewDustDirect(player.Center, 1, 1, DustID.Stone);
-                    dust.noGravity = true;
-                    dust.velocity = new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i * 22.5f));
-                }
-                var vPlayer = player.GetModPlayer<VesperaEnchPlayer>();
-                for (int i = 0; i < vPlayer.vesperaStoneXCOORDS.Count; i++)
-                {
-                    if (Main.tile[vPlayer.vesperaStoneXCOORDS[i], vPlayer.vesperaStoneYCOORDS[i]].TileType == ModContent.TileType<VesperaStoneBlock>())
+                    int xCoords = (int)bPlayer.vesperaStoneCoords[i].X;
+                    int yCoords = (int)bPlayer.vesperaStoneCoords[i].Y;
+                    if (Main.tile[xCoords, yCoords].TileType == ModContent.TileType<VesperaStoneBlock>())
                     {
-                        WorldGen.KillTile(vPlayer.vesperaStoneXCOORDS[i], vPlayer.vesperaStoneYCOORDS[i]);
-                        NetMessage.SendTileSquare(-1, vPlayer.vesperaStoneXCOORDS[i], vPlayer.vesperaStoneYCOORDS[i]);
+                        WorldGen.KillTile(xCoords, yCoords);
+                        NetMessage.SendTileSquare(-1, xCoords, yCoords);
                     }
                 }
-                
             }
 
             if (KeybindSystem.VesperaEnchStone.JustPressed && Timer <= 0)
@@ -70,7 +61,6 @@ namespace TheBereftSouls.Content.Items.Accessories
                     Vector2 positionToTarget = Main.MouseWorld + new Vector2(Main.rand.NextFloat(-30, 30), Main.rand.NextFloat(-30, 30));
                     float speed = player.Center.Distance(positionToTarget) / 30;
                     Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, player.Center.DirectionTo(positionToTarget) * speed, ModContent.ProjectileType<VesperaStone>(), 15, 0.1f);
-
                 }
                 Timer = 300;
             }
@@ -93,11 +83,5 @@ namespace TheBereftSouls.Content.Items.Accessories
             recipe.Register();
 
         }
-    }
-
-    public class VesperaEnchPlayer : ModPlayer
-    {
-        public List<int> vesperaStoneXCOORDS = new List<int>();
-        public List<int> vesperaStoneYCOORDS = new List<int>();
     }
 }
