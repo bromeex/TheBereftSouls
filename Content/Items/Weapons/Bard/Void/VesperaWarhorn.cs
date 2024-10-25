@@ -47,6 +47,10 @@ namespace TheBereftSouls.Content.Items.Weapons.Bard.Void
         {
             return 5;
         }
+        public override void ModifyInstrumentDamage(ThoriumPlayer bard, ref StatModifier damage)
+        {
+            Item.DamageType = ModContent.GetInstance<VoidBard>();
+        }
         public override Vector2? HoldoutOffset()
         {
             return new Vector2(0f, 8f);

@@ -49,7 +49,10 @@ namespace TheBereftSouls.Content.Items.Weapons.Healer.Void
         {
             return 5;
         }
-
+        public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
+        {
+            Item.DamageType = ModContent.GetInstance<VoidHealer>();
+        }
         public override void AddRecipes(){}
     }
 }
