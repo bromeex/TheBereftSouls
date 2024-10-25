@@ -1,6 +1,7 @@
 DamageClasses: {
 	VoidRogue.DisplayName: Void Rogue
 	VoidBard.DisplayName: Void Bard
+	VoidHealer.DisplayName: Void Healer
 }
 
 Items: {
@@ -13,6 +14,20 @@ Items: {
 		DisplayName: Void Trumpet
 		Tooltip: ""
 	}
+
+	VesperaLifeClaymore: {
+		Tooltip: ""
+		DisplayName: Vespera Life Claymore
+	}
+
+	VesperaWarhorn: {
+		Tooltip: ""
+		DisplayName: Vespera Warhorn
+	}
 }
 
-Projectiles.voidCoconutProj.DisplayName: void Coconut Proj
+Projectiles: {
+	voidCoconutProj.DisplayName: void Coconut Proj
+	VoidCoconutProj.DisplayName: Void Coconut Proj
+	RogueMilkShrapenel.DisplayName: Rogue Milk Shrapenel
+}
