@@ -34,33 +34,15 @@ namespace TheBereftSouls.Content.DamageClasses
             TooltipLine tt = tooltips.FirstOrDefault(x => x.Name == "Damage" && x.Mod == "Terraria");
             if (tt != null)
             {
-                /*string[] splitText = tt.Text.Split(' ');
-                string damageValue = splitText.First();
-                string damageWord = Language.GetTextValue("Mods.SOTS.Common.Damage");
-
-                //tt.Text = Language.GetTextValue("Mods.SOTS.Common.Void2", damageValue, damageWord);
-
-                //tt.Text = Language.GetTextValue("VoidRo", damageValue, damageWord);
-                if (Item.CountsAsClass(ModContent.GetInstance<RogueDamageClass>())) 
-                //if (Item.DamageType == ModContent.GetInstance<VoidRogue>())
-                {
-                    //damageWord = "void + rogue";
-                    tt.Text = Language.GetTextValue("VoidRo", damageValue, damageWord);
-                }
-                else if (Item.CountsAsClass(ModContent.GetInstance<HealerDamage>()))
-                {
-                    //damageWord = "void + radiant";
-                    tt.Text = Language.GetTextValue("VoidH", damageValue, damageWord);
-                }*/
                 string[] splitText = tt.Text.Split(' ');
                 string damageValue = splitText.First();
                 string damageWord = Language.GetTextValue("Mods.SOTS.Common.Damage");
 
                 tt.Text = Language.GetTextValue("Mods.SOTS.Common.Void2", damageValue, damageWord);
 
-                if (Item.CountsAsClass(ModContent.GetInstance<RogueDamageClass>()))
+                if (Item.CountsAsClass(ModContent.GetInstance<VoidRogue>()))
                     tt.Text = Language.GetTextValue("VoidRo", damageValue, damageWord);
-                else if (Item.CountsAsClass(ModContent.GetInstance<HealerDamage>()))
+                else if (Item.CountsAsClass(ModContent.GetInstance<VoidHealer>()))
                     tt.Text = Language.GetTextValue("VoidH", damageValue, damageWord);
             }
         }
