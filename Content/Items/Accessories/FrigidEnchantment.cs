@@ -1,12 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using SOTS;
-using SOTS.Items.Earth;
-using SOTS.Items.Permafrost;
-using SOTS.Items.SpiritStaves;
+﻿using SOTS.Items.Permafrost;
 using SOTS.Items.Tools;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -14,6 +8,7 @@ using TheBereftSouls.Players;
 
 namespace TheBereftSouls.Content.Items.Accessories
 {
+    [ExtendsFromMod("SOTS")]
     public class FrigidEnchantment : ModItem
     {
         public static int percentDamage = 10;
@@ -38,7 +33,7 @@ namespace TheBereftSouls.Content.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<BereftPlayer>().FrigidEnch = true;
+            player.GetModPlayer<BereftSOTSPlayer>().FrigidEnch = true;
             player.iceSkate = true;
             player.buffImmune[BuffID.Frostburn] = true;
             player.buffImmune[BuffID.Frostburn2] = true;
@@ -60,16 +55,17 @@ namespace TheBereftSouls.Content.Items.Accessories
         }
     }
 
+    /*[JITWhenModsEnabled("SOTS")]
     public class FrigidItem : GlobalItem
     {
         public override bool AppliesToEntity(Item entity, bool lateInstantiation)
         {
-            return lateInstantiation && BereftPlayer.FrigidItems.Contains(entity.type);
+            return BereftSOTSPlayer.FrigidItems.Contains(entity.type);
         }
 
         public override void ModifyWeaponDamage(Item item, Player player, ref StatModifier damage)
         {
-            if (player.GetModPlayer<BereftPlayer>().FrigidEnch)
+            if (player.GetModPlayer<BereftSOTSPlayer>().FrigidEnch)
             {
                 damage += FrigidEnchantment.percentDamage / 100;
                 damage.Flat += FrigidEnchantment.flatDamage;
@@ -78,10 +74,10 @@ namespace TheBereftSouls.Content.Items.Accessories
 
         public override void ModifyWeaponCrit(Item item, Player player, ref float crit)
         {
-            if (player.GetModPlayer<BereftPlayer>().FrigidEnch)
+            if (player.GetModPlayer<BereftSOTSPlayer>().FrigidEnch)
             {
                 crit += FrigidEnchantment.crit;
             }
         }
-    }
+    }*/
 }

@@ -12,6 +12,7 @@ using TheBereftSouls.Utils;
 
 namespace TheBereftSouls.Content.Items.Accessories
 {
+    [ExtendsFromMod("SOTS")]
     public class VesperaEnchantment : ModItem
     {
         float Timer = 0;
@@ -41,7 +42,7 @@ namespace TheBereftSouls.Content.Items.Accessories
             {
                 SoundEngine.PlaySound(SoundID.Item4 with { Pitch = -1f });
                 BereftUtils.DustCircle(player.Center, 16, 10, DustID.Stone);
-                var bPlayer = player.GetModPlayer<BereftPlayer>();
+                var bPlayer = player.GetModPlayer<BereftSOTSPlayer>();
                 for (int i = 0; i < bPlayer.VesperaStoneCoords.Count; i++)
                 {
                     int xCoords = (int)bPlayer.VesperaStoneCoords[i].X;

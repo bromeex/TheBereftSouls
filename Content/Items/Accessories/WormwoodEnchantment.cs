@@ -11,6 +11,7 @@ using TheBereftSouls.Utils;
 
 namespace TheBereftSouls.Content.Items.Accessories
 {
+    [ExtendsFromMod("SOTS")]
     public class WormwoodEnchantment : ModItem
     {
         public List<Projectile> Hooks = new List<Projectile>(hooksToSummon);

@@ -4,6 +4,7 @@ using TheBereftSouls.Players;
 
 namespace TheBereftSouls.Content.Buffs
 {
+    [ExtendsFromMod("SOTS")]
     public class PatchedUpDebuff : ModBuff
     {
         public override void SetStaticDefaults()
@@ -13,7 +14,7 @@ namespace TheBereftSouls.Content.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.GetModPlayer<BereftPlayer>().PatchedUp = true;
+            player.GetModPlayer<BereftSOTSPlayer>().PatchedUp = true;
         }
     }
 }

@@ -9,6 +9,7 @@ using TheBereftSouls.Players;
 
 namespace TheBereftSouls.Content.Items.Accessories
 {
+    [ExtendsFromMod("SOTS")]
     public class VibrantEnchantment : ModItem
     {
         public override void SetStaticDefaults()
@@ -29,7 +30,7 @@ namespace TheBereftSouls.Content.Items.Accessories
         {
             SOTSPlayer.ModPlayer(player).CritBonusMultiplier += 0.2f;
             SOTSPlayer.ModPlayer(player).HarvestersScythe = true;
-            player.GetModPlayer<BereftPlayer>().VibrantEnch = true;
+            player.GetModPlayer<BereftSOTSPlayer>().VibrantEnch = true;
         }
 
         public override void AddRecipes()
@@ -46,6 +47,8 @@ namespace TheBereftSouls.Content.Items.Accessories
         }
     }
 
+    [JITWhenModsEnabled("SOTS")]
+    [ExtendsFromMod("SOTS")]
     public class VibrantItem : GlobalItem
     {
         public override bool InstancePerEntity => true;
@@ -58,7 +61,7 @@ namespace TheBereftSouls.Content.Items.Accessories
             {
                 return true; // Only work on weapons
             }
-            if (player.GetModPlayer<BereftPlayer>().VibrantEnch && chanceToFire >= Main.rand.NextFloat())
+            if (player.GetModPlayer<BereftSOTSPlayer>().VibrantEnch && chanceToFire >= Main.rand.NextFloat())
             {
                 if (Main.myPlayer == player.whoAmI)
                 {

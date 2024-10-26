@@ -8,7 +8,8 @@ using Terraria.ModLoader;
 
 namespace TheBereftSouls.Players
 {
-    public class BereftPlayer : ModPlayer
+    [ExtendsFromMod("SOTS")]
+    public class BereftSOTSPlayer : ModPlayer
     {
         #region Accessories
         public bool VibrantEnch = false;

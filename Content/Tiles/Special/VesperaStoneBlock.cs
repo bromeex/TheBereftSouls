@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 
 namespace TheBereftSouls.Content.Tiles.Special
 {
+    [ExtendsFromMod("SOTS")]
     public class VesperaStoneBlock : ModTile
     {
         public override void SetStaticDefaults()

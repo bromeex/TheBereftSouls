@@ -9,6 +9,7 @@ using TheBereftSouls.Utils;
 
 namespace TheBereftSouls.Content.Projectiles.Friendly
 {
+    [ExtendsFromMod("SOTS")]
     public class VesperaStone : ModProjectile
     {
         public override void SetDefaults()
@@ -61,7 +62,7 @@ namespace TheBereftSouls.Content.Projectiles.Friendly
                 WorldGen.PlaceTile(point.X, point.Y, ModContent.TileType<VesperaStoneBlock>());
                 NetMessage.SendTileSquare(-1, point.X, point.Y);
                 BereftUtils.DustCircle(Main.player[Projectile.owner].Center, 16, 10, DustID.PureSpray);
-                Main.player[Projectile.owner].GetModPlayer<BereftPlayer>().VesperaStoneCoords.Add(new Vector2(point.X, point.Y));
+                Main.player[Projectile.owner].GetModPlayer<BereftSOTSPlayer>().VesperaStoneCoords.Add(new Vector2(point.X, point.Y));
             }
         }
     }
