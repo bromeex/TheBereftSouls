@@ -31,6 +31,17 @@ Items: {
 			If the projectiles hit an enemy, they will summon several bouncing rocks
 			'''
 	}
+
+	FrigidEnchantment: {
+		DisplayName: Frigid Enchantment
+		Tooltip:
+			'''
+			Increases damage of cold weapons by {0}% and a flat {1}
+			Increases critical strike chance of cold weapons by {2}%
+			Grants immunity to cold debuffs
+			Effects of Ice Skates
+			'''
+	}
 }
 
 Buffs: {

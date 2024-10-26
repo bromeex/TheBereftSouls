@@ -6,6 +6,7 @@ namespace TheBereftSouls.Common.Systems
     {
         public static ModKeybind VesperaEnchStone;
 
+
         public override void Load()
         {
             VesperaEnchStone = KeybindLoader.RegisterKeybind(Mod, "Vespera Enchantment Stone", "U");

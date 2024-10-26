@@ -42,10 +42,10 @@ namespace TheBereftSouls.Content.Items.Accessories
                 SoundEngine.PlaySound(SoundID.Item4 with { Pitch = -1f });
                 BereftUtils.DustCircle(player.Center, 16, 10, DustID.Stone);
                 var bPlayer = player.GetModPlayer<BereftPlayer>();
-                for (int i = 0; i < bPlayer.vesperaStoneCoords.Count; i++)
+                for (int i = 0; i < bPlayer.VesperaStoneCoords.Count; i++)
                 {
-                    int xCoords = (int)bPlayer.vesperaStoneCoords[i].X;
-                    int yCoords = (int)bPlayer.vesperaStoneCoords[i].Y;
+                    int xCoords = (int)bPlayer.VesperaStoneCoords[i].X;
+                    int yCoords = (int)bPlayer.VesperaStoneCoords[i].Y;
                     if (Main.tile[xCoords, yCoords].TileType == ModContent.TileType<VesperaStoneBlock>())
                     {
                         WorldGen.KillTile(xCoords, yCoords);
