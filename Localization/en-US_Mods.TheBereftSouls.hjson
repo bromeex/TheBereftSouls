@@ -24,10 +24,16 @@ Items: {
 		Tooltip: ""
 		DisplayName: Vespera Warhorn
 	}
+
+	GoldChakramOverride: {
+		Tooltip: ""
+		DisplayName: Gold Chakram Override
+	}
 }
 
 Projectiles: {
 	voidCoconutProj.DisplayName: void Coconut Proj
 	VoidCoconutProj.DisplayName: Void Coconut Proj
 	RogueMilkShrapenel.DisplayName: Rogue Milk Shrapenel
+	GoldChakramProjectileOverride.DisplayName: Gold Chakram Projectile Override
 }
