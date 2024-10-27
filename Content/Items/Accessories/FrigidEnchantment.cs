@@ -11,11 +11,11 @@ namespace TheBereftSouls.Content.Items.Accessories
     [ExtendsFromMod("SOTS")]
     public class FrigidEnchantment : ModItem
     {
-        public static int percentDamage = 10;
-        public static int flatDamage = 10;
-        public static int crit = 5;
+        public static int PercentDamage = 10;
+        public static int FlatDamage = 10;
+        public static int Crit = 5;
 
-        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(percentDamage, flatDamage, crit);
+        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(PercentDamage, FlatDamage, Crit);
 
         public override void SetStaticDefaults()
         {
@@ -27,8 +27,8 @@ namespace TheBereftSouls.Content.Items.Accessories
             Item.width = 30;
             Item.height = 34;
             Item.accessory = true;
-            Item.value = Item.buyPrice(0, 30);
-            Item.rare = ItemRarityID.Green;
+            Item.value = Item.sellPrice(0, 8, 0, 0);
+            Item.rare = ItemRarityID.LightPurple;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -55,7 +55,7 @@ namespace TheBereftSouls.Content.Items.Accessories
         }
     }
 
-    /*[JITWhenModsEnabled("SOTS")]
+    [ExtendsFromMod("SOTS")]
     public class FrigidItem : GlobalItem
     {
         public override bool AppliesToEntity(Item entity, bool lateInstantiation)
@@ -67,8 +67,8 @@ namespace TheBereftSouls.Content.Items.Accessories
         {
             if (player.GetModPlayer<BereftSOTSPlayer>().FrigidEnch)
             {
-                damage += FrigidEnchantment.percentDamage / 100;
-                damage.Flat += FrigidEnchantment.flatDamage;
+                damage += FrigidEnchantment.PercentDamage / 100;
+                damage.Flat += FrigidEnchantment.FlatDamage;
             }
         }
 
@@ -76,8 +76,8 @@ namespace TheBereftSouls.Content.Items.Accessories
         {
             if (player.GetModPlayer<BereftSOTSPlayer>().FrigidEnch)
             {
-                crit += FrigidEnchantment.crit;
+                crit += FrigidEnchantment.Crit;
             }
         }
-    }*/
+    }
 }

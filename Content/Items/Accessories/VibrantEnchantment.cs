@@ -22,13 +22,13 @@ namespace TheBereftSouls.Content.Items.Accessories
             Item.width = 30;
             Item.height = 34;
             Item.accessory = true;
-            Item.value = Item.buyPrice(0, 30);
+            Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Green;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            SOTSPlayer.ModPlayer(player).CritBonusMultiplier += 0.2f;
+            SOTSPlayer.ModPlayer(player).CritBonusMultiplier += 0.2f; // Only applies to melee weapons (just how SOTS coded it)
             SOTSPlayer.ModPlayer(player).HarvestersScythe = true;
             player.GetModPlayer<BereftSOTSPlayer>().VibrantEnch = true;
         }
@@ -61,6 +61,7 @@ namespace TheBereftSouls.Content.Items.Accessories
             {
                 return true; // Only work on weapons
             }
+
             if (player.GetModPlayer<BereftSOTSPlayer>().VibrantEnch && chanceToFire >= Main.rand.NextFloat())
             {
                 if (Main.myPlayer == player.whoAmI)
@@ -79,7 +80,6 @@ namespace TheBereftSouls.Content.Items.Accessories
 
         public override void UpdateInventory(Item item, Player player)
         {
-            base.UpdateInventory(item, player);
             if (item.type != player.HeldItem.type)
             {
                 chanceToFire = 0.8f;

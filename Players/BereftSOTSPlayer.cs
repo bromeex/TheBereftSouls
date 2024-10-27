@@ -11,7 +11,6 @@ namespace TheBereftSouls.Players
     [ExtendsFromMod("SOTS")]
     public class BereftSOTSPlayer : ModPlayer
     {
-        #region Accessories
         public bool VibrantEnch = false;
         public bool FrigidEnch = false;
 
@@ -47,16 +46,9 @@ namespace TheBereftSouls.Players
             ModContent.ItemType<Metalmalgamation>(),
             ModContent.ItemType<ShardstormSpell>(),
             ModContent.ItemType<NorthStar>(),
-            ModContent.ItemType<PBow>(),
-            ModContent.ItemType<PBow>(),
         };
-        #endregion
 
-        #region Buffs;
         public bool PatchedUp = false;
-        #endregion
-         
-
 
         public override void ResetEffects()
         {

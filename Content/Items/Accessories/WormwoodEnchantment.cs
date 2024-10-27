@@ -31,8 +31,8 @@ namespace TheBereftSouls.Content.Items.Accessories
             Item.width = 30;
             Item.height = 34;
             Item.accessory = true;
-            Item.value = Item.buyPrice(0, 30);
-            Item.rare = ItemRarityID.Green;
+            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -62,10 +62,11 @@ namespace TheBereftSouls.Content.Items.Accessories
                         player.AddBuff(ModContent.BuffType<PatchedUpDebuff>(), 3600);
                         BereftUtils.DustCircle(player.Center, 16, 10, DustID.GemEmerald, Main.rand.NextFloat(1f, 2f));
                     }
+
                     Hooks.Clear();
                 }
 
-                if (Hooks.Count > 0 && Hooks[0] != null && !Hooks[0].active)
+                if (Hooks.Count > 0 && !Hooks[0].active)
                 {
                     Hooks.Clear();
                 }

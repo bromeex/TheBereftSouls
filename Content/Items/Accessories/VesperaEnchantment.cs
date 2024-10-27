@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using SOTS.Items.Invidia;
-using TheBereftSouls.Players;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -8,6 +7,7 @@ using Terraria.ModLoader;
 using TheBereftSouls.Common.Systems;
 using TheBereftSouls.Content.Projectiles.Friendly;
 using TheBereftSouls.Content.Tiles.Special;
+using TheBereftSouls.Players;
 using TheBereftSouls.Utils;
 
 namespace TheBereftSouls.Content.Items.Accessories
@@ -15,7 +15,7 @@ namespace TheBereftSouls.Content.Items.Accessories
     [ExtendsFromMod("SOTS")]
     public class VesperaEnchantment : ModItem
     {
-        float Timer = 0;
+        private float timer = 0;
 
         public override void SetStaticDefaults()
         {
@@ -27,7 +27,7 @@ namespace TheBereftSouls.Content.Items.Accessories
             Item.width = 30;
             Item.height = 34;
             Item.accessory = true;
-            Item.value = Item.buyPrice(0, 30);
+            Item.value = Item.sellPrice(0, 5, 0, 0);
             Item.rare = ItemRarityID.Green;
         }
 
@@ -38,7 +38,7 @@ namespace TheBereftSouls.Content.Items.Accessories
                 return;
             }
 
-            if (Timer == 0)
+            if (timer == 0)
             {
                 SoundEngine.PlaySound(SoundID.Item4 with { Pitch = -1f });
                 BereftUtils.DustCircle(player.Center, 16, 10, DustID.Stone);
@@ -55,7 +55,7 @@ namespace TheBereftSouls.Content.Items.Accessories
                 }
             }
 
-            if (KeybindSystem.VesperaEnchStone.JustPressed && Timer <= 0)
+            if (KeybindSystem.VesperaEnchStone.JustPressed && timer <= 0)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -63,11 +63,13 @@ namespace TheBereftSouls.Content.Items.Accessories
                     float speed = player.Center.Distance(positionToTarget) / 30;
                     Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, player.Center.DirectionTo(positionToTarget) * speed, ModContent.ProjectileType<VesperaStone>(), 15, 0.1f);
                 }
-                Timer = 300;
+
+                timer = 300;
             }
-            if (Timer >= 0)
+
+            if (timer >= 0)
             {
-                Timer--;
+                timer--;
             }
         }
 
@@ -82,7 +84,6 @@ namespace TheBereftSouls.Content.Items.Accessories
             recipe.AddIngredient(ModContent.ItemType<VesperaFishingRod>());
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
-
         }
     }
 }

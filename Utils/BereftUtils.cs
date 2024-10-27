@@ -1,5 +1,5 @@
-﻿using Terraria;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 
 namespace TheBereftSouls.Utils
 {
@@ -7,7 +7,7 @@ namespace TheBereftSouls.Utils
     {
         /// <summary>
         /// <para>Creates a circle of dust around a given position.</para>
-        /// <para><paramref name="noGrav"/> - if false, dust will be affected by gravity,</para>
+        /// <para><paramref name="noGrav"/> - if false, dust will be affected by gravity.</para>
         /// </summary>
         /// <param name="position"></param>
         /// <param name="amount"></param>
@@ -17,7 +17,6 @@ namespace TheBereftSouls.Utils
         /// <param name="noGrav"></param>
         /// <param name="alpha"></param>
         /// <param name="newColor"></param>
-
         public static void DustCircle(Vector2 position, int amount, float speed, int dustID, float scale = 1, bool noGrav = true, int alpha = 0, Color newColor = default)
         {
             for (int i = 0; i < amount; i++)

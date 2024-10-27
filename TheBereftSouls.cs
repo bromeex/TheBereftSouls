@@ -4,6 +4,5 @@ namespace TheBereftSouls
 {
     public class TheBereftSouls : Mod
     {
-        
     }
 }
