@@ -2,9 +2,9 @@
 using SpiritMod.Buffs;
 using Terraria;
 using Terraria.ModLoader;
-using static TheBereftSouls.Common.Utility.CacheManager;
+using static TheBereftSouls.Utils.CacheManager;
 
-namespace TheBereftSouls.Common.Utility
+namespace TheBereftSouls.Utils
 {
     public class ExternalModCallUtils
     {
@@ -12,11 +12,11 @@ namespace TheBereftSouls.Common.Utility
         public static ModItem GetItemFromMod(Mod mod, string item)
         {
             Mod modAux = null;
-            var value = cache.Get(item,ref modAux);
+            var value = cache.Get(item, ref modAux);
 
-            if(value != null && modAux == mod) 
-                return value;   
-          
+            if (value != null && modAux == mod)
+                return value;
+
             mod.TryFind(item, out ModItem OutItem);
             cache.UpdateSize();
             cache.Put(item, mod, OutItem);

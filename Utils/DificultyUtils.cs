@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace TheBereftSouls.Common.Utility
+namespace TheBereftSouls.Utils
 {
     public class DificultyUtils : ModSystem
     {

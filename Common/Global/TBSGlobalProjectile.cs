@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using TheBereftSouls.Common.Utility;
+using TheBereftSouls.Utils;
 
 namespace TheBereftSouls.Common.Global
 {

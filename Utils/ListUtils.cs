@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace TheBereftSouls.Common.Utility
+namespace TheBereftSouls.Utils
 {
-    public class GlobalUtils
+    public class ListUtils
     {
         public static void AddSomeElements(HashSet<int> list, HashSet<int> insert)
         {
             foreach (int element in insert)
-                list.Add(element);     
+                list.Add(element);
         }
         public static void AddSomeElements(List<int> list, List<int> insert)
         {

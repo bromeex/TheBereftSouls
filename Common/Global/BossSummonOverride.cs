@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using Terraria;
 using Terraria.ModLoader;
-using TheBereftSouls.Common.Utility;
+using TheBereftSouls.Utils;
 using static TheBereftSouls.Common.Global.GensokyoBossSummonOverride;
 
 namespace TheBereftSouls.Common.Global
@@ -33,7 +33,7 @@ namespace TheBereftSouls.Common.Global
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void LoadList(ICollection<int> BossSummons)
         {
-            GlobalUtils.AddSomeElements(BossSummons,
+            ListUtils.AddSomeElements(BossSummons,
             [
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"AliceMargatroidSpawner").Type,
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"CirnoSpawner").Type,
@@ -65,7 +65,7 @@ namespace TheBereftSouls.Common.Global
             [MethodImpl(MethodImplOptions.NoInlining)]
             public static void LoadList(ICollection<int> BossSummons)
             {
-                GlobalUtils.AddSomeElements(BossSummons,
+                ListUtils.AddSomeElements(BossSummons,
                 [
                     ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"JarOfPeanuts").Type,
                     ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"SuspiciousLookingCandle").Type,

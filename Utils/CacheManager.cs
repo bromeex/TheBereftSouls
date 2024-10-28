@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Terraria.ModLoader;
 
-namespace TheBereftSouls.Common.Utility
+namespace TheBereftSouls.Utils
 {
     public class CacheManager
     {
@@ -13,7 +13,7 @@ namespace TheBereftSouls.Common.Utility
             public Node Prev;
             public Node Next;
 
-            public Node(string name,Mod mod_, dynamic value)
+            public Node(string name, Mod mod_, dynamic value)
             {
                 Name = name;
                 mod = mod_;
@@ -36,7 +36,7 @@ namespace TheBereftSouls.Common.Utility
             {
                 this.capacity = capacity;
                 cache = new Dictionary<string, Node>();
-                head = new Node(string.Empty,null,-1);
+                head = new Node(string.Empty, null, -1);
                 tail = new Node(string.Empty, null, -1);
                 head.Next = tail;
                 tail.Prev = head;
@@ -91,7 +91,7 @@ namespace TheBereftSouls.Common.Utility
             }
 
             // Put a key-value pair into the cache
-            public void Put(string name,Mod mod, dynamic value)
+            public void Put(string name, Mod mod, dynamic value)
             {
                 if (cache.ContainsKey(name))
                 {
@@ -107,13 +107,13 @@ namespace TheBereftSouls.Common.Utility
                     cache.Remove(lruNode.Name);
                 }
 
-                Node newNode = new(name,mod, value);
+                Node newNode = new(name, mod, value);
                 Add(newNode);
                 cache[name] = newNode;
             }
             public void UpdateSize()
             {
-                if(cache.Count >= capacity)
+                if (cache.Count >= capacity)
                     capacity++;
             }
             public void UpdateSize(int ammount)
