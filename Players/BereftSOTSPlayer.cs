@@ -42,7 +42,6 @@ namespace TheBereftSouls.Players
             ModContent.ItemType<FrigidJavelin>(),
             ModContent.ItemType<HypericeClusterCannon>(),
             ModContent.ItemType<IcicleImpale>(),
-            ModContent.ItemType<PBow>(),
             ModContent.ItemType<Metalmalgamation>(),
             ModContent.ItemType<ShardstormSpell>(),
             ModContent.ItemType<NorthStar>(),
