@@ -53,3 +53,9 @@ Buffs: {
 
 Projectiles.VesperaStone.DisplayName: Vespera Stone
 "Keybinds.Vespera Enchantment Stone.DisplayName": Vespera  Enchantment  Stone
+
+DamageClasses: {
+	VoidBard.DisplayName: Void Bard
+	VoidHealer.DisplayName: Void Healer
+	VoidRogue.DisplayName: Void Rogue
+}
