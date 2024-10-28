@@ -1,1 +1,57 @@
 
+Items: {
+	VibrantEnchantment: {
+		DisplayName: Vibrant Enchantment
+		Tooltip:
+			'''
+			Occasionally fire additional projectiles when using weapons
+			The chance of firing additional projectiles decreases the longer a weapon is used
+			Switching weapons resets the chance
+			Effects of Harvester Scythe
+			'''
+	}
+
+
+	WormwoodEnchantment: {
+		DisplayName: Wormwood Enchantment
+		Tooltip:
+			'''
+			Increases defense by {0} for every active minion
+			Summon 4 blooming hooks
+			When above 50% life blooming hooks are in "offensive mode", firing projectiles towards nearby enemies
+			When below 50% life blooming hooks are destroyed and heal the player for 1/16th of their max life each
+			The hooks reappear after 60 seconds if your life is above 50%
+			'''
+	}
+
+	VesperaEnchantment: {
+		DisplayName: Vespera Enchantment
+		Tooltip:
+			'''
+			Press the "Vespera Enchantment Stone" keybind to fire several stone projectiles towards your cursor
+			If the projectiles don't hit anything, they create temporary stone blocks
+			If the projectiles hit an enemy, they will summon several bouncing rocks
+			'''
+	}
+
+	FrigidEnchantment: {
+		DisplayName: Frigid Enchantment
+		Tooltip:
+			'''
+			Increases damage of cold weapons by {0}% and a flat {1}
+			Increases critical strike chance of cold weapons by {2}%
+			Grants immunity to cold debuffs
+			Effects of Ice Skates
+			'''
+	}
+}
+
+Buffs: {
+	PatchedUpDebuff: {
+		DisplayName: Patched Up Debuff
+		Description: The blooming hooks have sacrificed themselves for you...
+	}
+}
+
+Projectiles.VesperaStone.DisplayName: Vespera Stone
+"Keybinds.Vespera Enchantment Stone.DisplayName": Vespera  Enchantment  Stone
