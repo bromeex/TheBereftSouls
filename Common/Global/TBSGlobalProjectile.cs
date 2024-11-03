@@ -12,11 +12,18 @@ namespace TheBereftSouls.Common.Global
         public override bool InstancePerEntity => true;  
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
+            if (TheBereftSouls.CalamityMod != null)
+                OnSpawnCalamity(projectile, source);
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public void OnSpawnCalamity(Projectile projectile, IEntitySource source)
+        {
             if (TheBereftSouls.CalamityRangerExpansion != null)
             {
                 if (projectile.type == ExternalModCallUtils.GetProjectileFromMod(TheBereftSouls.CalamityRangerExpansion, "WulfrumBoltRanged").Type)
                 {
-                   WulfrumBolt.HomingRange = 150;
+                    WulfrumBolt.HomingRange = 150;
                 }
             }
         }

@@ -1,7 +1,4 @@
-﻿using CalamityMod.Buffs.Alcohol;
-using SpiritMod.Buffs;
-using Terraria;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using static TheBereftSouls.Utils.CacheManager;
 
 namespace TheBereftSouls.Utils

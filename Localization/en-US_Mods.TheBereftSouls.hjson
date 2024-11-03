@@ -1,4 +1,3 @@
-
 Items: {
 	VibrantEnchantment: {
 		DisplayName: Vibrant Enchantment
@@ -10,7 +9,6 @@ Items: {
 			Effects of Harvester Scythe
 			'''
 	}
-
 
 	WormwoodEnchantment: {
 		DisplayName: Wormwood Enchantment
