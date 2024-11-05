@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Terraria;
 using Terraria.ModLoader;
 using TheBereftSouls.Utils;
-using static TheBereftSouls.Common.Global.GensokyoBossSummonOverride;
 
 namespace TheBereftSouls.Common.Global
 {
@@ -12,18 +12,24 @@ namespace TheBereftSouls.Common.Global
     {
         public override bool InstancePerEntity => true;
         public static Collection<int> BossSummons = [];
-        
+
         public override void SetDefaults(Item item)
-        {   
+        {
             BossSummons.Clear();
             if (TheBereftSouls.GensokyoMod != null)
+            {
                 GensokyoBossSummonOverride.LoadList(BossSummons);
-            if(TheBereftSouls.SecretsOfTheShadows != null)
+            }
+
+            if (TheBereftSouls.SecretsOfTheShadows != null)
+            {
                 SOTSBossSummonOverride.LoadList(BossSummons);
+            }
 
             if (BossSummons.Contains(item.type))
+            {
                 item.consumable = false;
-
+            }
         }
     }
 
@@ -31,9 +37,9 @@ namespace TheBereftSouls.Common.Global
     internal class GensokyoBossSummonOverride
     {
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static void LoadList(ICollection<int> BossSummons)
+        public static void LoadList(ICollection<int> bossSummons)
         {
-            ListUtils.AddSomeElements(BossSummons,
+            List<int> gensokyolist =
             [
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"AliceMargatroidSpawner").Type,
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"CirnoSpawner").Type,
@@ -56,23 +62,25 @@ namespace TheBereftSouls.Common.Global
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"ToyosatomimiNoMikoSpawner").Type,
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"TsukumoSistersSpawner").Type,
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"UtsuhoReiujiSpawner").Type
-            ]);
+            ];
+            bossSummons.Union(gensokyolist);
         }
+    }
 
-        [ExtendsFromMod("SOTS")]
-        internal class SOTSBossSummonOverride
+    [ExtendsFromMod("SOTS")]
+    internal class SOTSBossSummonOverride
+    {
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void LoadList(ICollection<int> bossSummons)
         {
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static void LoadList(ICollection<int> BossSummons)
-            {
-                ListUtils.AddSomeElements(BossSummons,
-                [
-                    ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"JarOfPeanuts").Type,
-                    ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"SuspiciousLookingCandle").Type,
-                    ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"FrostedKey").Type,
-                    ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"CatalystBomb").Type
-                ]);
-            }
+            List<int> sotsList =
+            [
+                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"JarOfPeanuts").Type,
+                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"SuspiciousLookingCandle").Type,
+                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"FrostedKey").Type,
+                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"CatalystBomb").Type
+            ];
+            bossSummons.Union(sotsList);
         }
     }
 }
