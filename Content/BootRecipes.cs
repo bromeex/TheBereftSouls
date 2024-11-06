@@ -1,52 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using SOTS;
 using SOTS.Items;
+using CalamityMod.Items.Accessories;
+using CalamityMod.Items.Accessories.Wings;
+using FargowiltasSouls.Content.Items.Accessories.Masomode;
 
 namespace TheBereftSouls.Content
 {
+    [ExtendsFromMod("CalamityMod", "FargowiltasSouls", "SOTS")]
     public class BootRecipes : ModSystem
     {
         public override void PostAddRecipes()
         {
-            if (ModLoader.TryGetMod("CalamityMod", out Mod calamityMod) && ModLoader.TryGetMod("FargowiltasSouls", out Mod fargowiltasSouls)) 
+            for (int i = 0; i < Recipe.numRecipes; i++)
             {
-                calamityMod.TryFind("AngelTreads", out ModItem angelTreads);
-                fargowiltasSouls.TryFind("AeolusBoots", out ModItem aeolusBoots);
-                calamityMod.TryFind("TracersCelestial", out ModItem tracersCelestial);
+                Recipe recipe = Main.recipe[i];
 
-                for (int i = 0; i < Recipe.numRecipes; i++)
+                switch (recipe.createItem.type)
                 {
-                    Item result;
-                    Recipe recipe = Main.recipe[i];
-
-                    if (recipe.TryGetResult(ModContent.ItemType<SOTS.Items.FlashsparkBoots>(), out result))
-                    {
+                    case var id when id == ModContent.ItemType<FlashsparkBoots>():
                         recipe.RemoveIngredient(ItemID.TerrasparkBoots);
-                        recipe.AddIngredient(angelTreads.Type);
-                    }
-                    else if (recipe.TryGetResult(aeolusBoots.Type, out result))
-                    {
-                        recipe.RemoveIngredient(angelTreads.Type);
-                        recipe.AddIngredient(ModContent.ItemType<SOTS.Items.FlashsparkBoots>());
-                    }
-                    else if (recipe.TryGetResult(ModContent.ItemType<SOTS.Items.SubspaceBoosters>(), out result))
-                    {
-                        recipe.RemoveIngredient(ModContent.ItemType<SOTS.Items.FlashsparkBoots>());
-                        recipe.AddIngredient(aeolusBoots.Type);
-                    }
-                    else if (recipe.TryGetResult(tracersCelestial.Type, out result))
-                    {
-                        recipe.RemoveIngredient(aeolusBoots.Type);
-                        recipe.AddIngredient(ModContent.ItemType<SOTS.Items.SubspaceBoosters>());
-                    }
-                }
+                        recipe.AddIngredient(ModContent.ItemType<AngelTreads>());
+                        break;
+                    case var id when id == ModContent.ItemType<AeolusBoots>():
+                        recipe.RemoveIngredient(ModContent.ItemType<AngelTreads>());
+                        recipe.AddIngredient(ModContent.ItemType<FlashsparkBoots>());
+                        break;
+                    case var id when id == ModContent.ItemType<SubspaceBoosters>():
+                        recipe.RemoveIngredient(ModContent.ItemType<FlashsparkBoots>());
+                        recipe.AddIngredient(ModContent.ItemType<AeolusBoots>());
+                        break;
+                    case var id when id == ModContent.ItemType<TracersCelestial>():
+                        recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
+                        recipe.AddIngredient(ModContent.ItemType<SubspaceBoosters>());
+                        break;
+                    default:
+                        break;
+                };
             }
         }
     }
