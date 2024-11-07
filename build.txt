@@ -1,5 +1,5 @@
 displayName = [c/992323:Th][c/a75a5a:e Ber][c/b49190:eft ][c/cffffd:So][c/c6dad9:uls]
 author = Brome
 version = 0.1
-weakReferences = CalamityMod@2.0,Fargowiltas@3.2.1,FargowiltasSouls@1.6.5.1,SOTS@0.24
+weakReferences = SOTS@0.24, CalamityMod@2.0.4.5, FargowiltasSouls@1.7.0.6, Fargowiltas@3.3.5.1
 buildIgnore = lib\*
