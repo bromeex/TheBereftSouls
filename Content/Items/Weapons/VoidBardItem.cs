@@ -1,18 +1,17 @@
-using Microsoft.Xna.Framework;
-using SOTS.Buffs;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Xna.Framework;
+using SOTS;
+using SOTS.Buffs;
+using SOTS.Items.Planetarium;
+using SOTS.Void;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using SOTS.Void;
-using SOTS;
-using SOTS.Items.Planetarium;
 using ThoriumMod;
 using ThoriumMod.Items;
-
 
 namespace TheBereftSouls.Content.Items.Weapons
 {
@@ -37,7 +36,7 @@ namespace TheBereftSouls.Content.Items.Weapons
             {
                 return base.UseItem(player);
             }
-            if (BeforeDrainVoid(player))
+            if (CanDrainMana(player))
                 DrainMana(player);
             return true;
         }
@@ -46,14 +45,13 @@ namespace TheBereftSouls.Content.Items.Weapons
         {
             VoidPlayer voidPlayer = VoidPlayer.ModPlayer(player);
             int baseCost = GetVoid(player);
-            int finalCost;
             float voidCostMult = 1f;
 
             if (Item.prefix == ModContent.PrefixType<Famished>() || Item.prefix == ModContent.PrefixType<Precarious>() || Item.prefix == ModContent.PrefixType<Potent>() || Item.prefix == ModContent.PrefixType<Omnipotent>() || Item.prefix == ModContent.PrefixType<Chthonic>())
             {
                 voidCostMult = Item.GetGlobalItem<PrefixItem>().voidCostMultiplier;
             }
-            finalCost = (int)(baseCost * voidPlayer.voidCost * voidCostMult);
+            int finalCost = (int)(baseCost * voidPlayer.voidCost * voidCostMult);
             if (finalCost < 1)
             {
                 finalCost = 1;
@@ -67,7 +65,7 @@ namespace TheBereftSouls.Content.Items.Weapons
 
             return cost;
         }
-        public sealed override void BardModifyTooltips(List<TooltipLine> tooltips)
+        public override void BardModifyTooltips(List<TooltipLine> tooltips)
         {
             VoidPlayer voidPlayer = VoidPlayer.ModPlayer(Main.LocalPlayer); //only the local player will see the tooltip, afterall
             TooltipLine tt = tooltips.FirstOrDefault(x => x.Name == "Damage" && x.Mod == "Terraria");
@@ -104,7 +102,7 @@ namespace TheBereftSouls.Content.Items.Weapons
                 return false;
             int currentVoid = voidPlayer.voidMeterMax2 - voidPlayer.lootingSouls - voidPlayer.VoidMinionConsumption;
             int finalCost = VoidCost(player);
-            bool canDrainMana = BeforeDrainVoid(player);
+            bool canDrainMana = CanDrainMana(player);
             if ((voidPlayer.safetySwitch && canDrainMana) && voidPlayer.voidMeter < finalCost && !voidPlayer.frozenVoid)
             {
                 return false;
@@ -122,7 +120,7 @@ namespace TheBereftSouls.Content.Items.Weapons
             modPlayer.attackNum++;
         }
 
-        public virtual bool BeforeDrainVoid(Player player)
+        public virtual bool CanDrainMana(Player player)
         {
             return true;
         }

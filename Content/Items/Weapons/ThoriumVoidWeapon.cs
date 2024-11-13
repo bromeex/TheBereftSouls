@@ -1,15 +1,11 @@
-using Microsoft.Xna.Framework;
-using SOTS.Buffs;
 using System.Collections.Generic;
 using System.Linq;
+using SOTS.Void;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using SOTS.Void;
 using TheBereftSouls.Content.DamageClasses;
 using ThoriumMod;
-
 
 namespace TheBereftSouls.Content.Items.Weapons
 {

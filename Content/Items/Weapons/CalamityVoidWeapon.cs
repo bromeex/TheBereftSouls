@@ -1,15 +1,11 @@
-using Microsoft.Xna.Framework;
-using SOTS.Buffs;
 using System.Collections.Generic;
 using System.Linq;
+using CalamityMod;
+using SOTS.Void;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using SOTS.Void;
-using CalamityMod;
 using TheBereftSouls.Content.DamageClasses;
-
 
 namespace TheBereftSouls.Content.Items.Weapons
 {
@@ -41,8 +37,6 @@ namespace TheBereftSouls.Content.Items.Weapons
 
                 if (Item.CountsAsClass(ModContent.GetInstance<VoidRogue>()))
                     tt.Text = Language.GetTextValue("VoidRo", damageValue, damageWord);
-                //else if (Item.CountsAsClass(ModContent.GetInstance<VoidHealer>()))
-                //    tt.Text = Language.GetTextValue("VoidH", damageValue, damageWord);
             }
         }
     }
