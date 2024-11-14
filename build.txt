@@ -1,5 +1,6 @@
 displayName = The Bereft Souls
 author = Brome
 version = 0.1
-weakReferences = SOTS@0.24, CalamityMod@2.0.4.4, ThoriumMod@1.7.1.6
+weakReferences = SOTS@0.24, CalamityMod@2.0.4.5, FargowiltasSouls@1.7.0.6, Fargowiltas@3.3.5.1, ThoriumMod@1.7.1.6
 buildIgnore = lib\*
+
