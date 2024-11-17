@@ -14,12 +14,11 @@ namespace TheBereftSouls.Content.Items.Accessories
     [ExtendsFromMod("SOTS")]
     public class WormwoodEnchantment : ModItem
     {
-        public List<Projectile> Hooks = new List<Projectile>(hooksToSummon);
+        private static readonly int DefenseBoost = 1;
+        private static readonly int HooksToSummon = 4;
+        private readonly List<Projectile> hooks = new(HooksToSummon);
 
-        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(defenseBoost);
-
-        private static int defenseBoost = 1;
-        private static int hooksToSummon = 4;
+        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(DefenseBoost);
 
         public override void SetStaticDefaults()
         {
@@ -37,25 +36,25 @@ namespace TheBereftSouls.Content.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statDefense += player.numMinions * defenseBoost;
+            player.statDefense += player.numMinions * DefenseBoost;
             if (Main.myPlayer == player.whoAmI)
             {
                 if (!player.HasBuff(ModContent.BuffType<PatchedUpDebuff>()) && player.statLife > player.statLifeMax2 / 2)
                 {
-                    if (Hooks.Count < hooksToSummon)
+                    if (hooks.Count < HooksToSummon)
                     {
-                        Hooks.Add(Projectile.NewProjectileDirect(player.GetSource_FromThis(), player.MountedCenter, Vector2.Zero, ModContent.ProjectileType<BloomingHook>(), 11, 1));
+                        hooks.Add(Projectile.NewProjectileDirect(player.GetSource_FromThis(), player.MountedCenter, Vector2.Zero, ModContent.ProjectileType<BloomingHook>(), 11, 1));
                     }
                 }
 
-                foreach (var hook in Hooks)
+                foreach (var hook in hooks)
                 {
                     hook.timeLeft = 6;
                 }
 
                 if (player.statLife < player.statLifeMax / 2)
                 {
-                    foreach (var hook in Hooks)
+                    foreach (var hook in hooks)
                     {
                         hook.Kill();
                         player.Heal(player.statLifeMax2 / 16);
@@ -63,12 +62,12 @@ namespace TheBereftSouls.Content.Items.Accessories
                         BereftUtils.DustCircle(player.Center, 16, 10, DustID.GemEmerald, Main.rand.NextFloat(1f, 2f));
                     }
 
-                    Hooks.Clear();
+                    hooks.Clear();
                 }
 
-                if (Hooks.Count > 0 && !Hooks[0].active)
+                if (hooks.Count > 0 && !hooks[0].active)
                 {
-                    Hooks.Clear();
+                    hooks.Clear();
                 }
             }
         }

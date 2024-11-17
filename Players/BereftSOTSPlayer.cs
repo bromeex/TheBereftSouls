@@ -11,12 +11,9 @@ namespace TheBereftSouls.Players
     [ExtendsFromMod("SOTS")]
     public class BereftSOTSPlayer : ModPlayer
     {
-        public bool VibrantEnch = false;
-        public bool FrigidEnch = false;
-
-        public List<Vector2> VesperaStoneCoords = new List<Vector2>(); // Used by Vespera ench
-        public static List<int> FrigidItems = new List<int>() // Used by Frigid Ench, needs to be updated with weapons from other mods; Maybe move somewhere else
-        {
+        // Used by Frigid Ench, needs to be updated with weapons from other mods; Maybe move somewhere else
+        public static HashSet<int> FrigidItems { get; } =
+        [
             ItemID.Snowball,
             ItemID.SnowballCannon,
             ItemID.SnowmanCannon,
@@ -45,9 +42,14 @@ namespace TheBereftSouls.Players
             ModContent.ItemType<Metalmalgamation>(),
             ModContent.ItemType<ShardstormSpell>(),
             ModContent.ItemType<NorthStar>(),
-        };
+        ];
 
-        public bool PatchedUp = false;
+        public bool VibrantEnch { get; set; } = false;
+        public bool FrigidEnch { get; set; } = false;
+        public bool PatchedUp { get; set; } = false;
+
+        // Used by Vespera ench
+        public List<Vector2> VesperaStoneCoords { get; } = [];
 
         public override void ResetEffects()
         {

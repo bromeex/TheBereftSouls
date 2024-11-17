@@ -11,9 +11,9 @@ namespace TheBereftSouls.Content.Items.Accessories
     [ExtendsFromMod("SOTS")]
     public class FrigidEnchantment : ModItem
     {
-        public static int PercentDamage = 10;
-        public static int FlatDamage = 10;
-        public static int Crit = 5;
+        public static readonly int PercentDamage = 10;
+        public static readonly int FlatDamage = 10;
+        public static readonly int Crit = 5;
 
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(PercentDamage, FlatDamage, Crit);
 
