@@ -14,11 +14,11 @@ namespace TheBereftSouls.Content.Items.Accessories
     [ExtendsFromMod("SOTS")]
     public class WormwoodEnchantment : ModItem
     {
-        private static readonly int DefenseBoost = 1;
-        private static readonly int HooksToSummon = 4;
-        private readonly List<Projectile> hooks = new(HooksToSummon);
+        private const int DEFENSE_BOOST = 1;
+        private const int HOOKS_TO_SUMMON = 4;
+        private readonly List<Projectile> hooks = new(HOOKS_TO_SUMMON);
 
-        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(DefenseBoost);
+        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(DEFENSE_BOOST);
 
         public override void SetStaticDefaults()
         {
@@ -36,12 +36,12 @@ namespace TheBereftSouls.Content.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statDefense += player.numMinions * DefenseBoost;
+            player.statDefense += player.numMinions * DEFENSE_BOOST;
             if (Main.myPlayer == player.whoAmI)
             {
                 if (!player.HasBuff(ModContent.BuffType<PatchedUpDebuff>()) && player.statLife > player.statLifeMax2 / 2)
                 {
-                    if (hooks.Count < HooksToSummon)
+                    if (hooks.Count < HOOKS_TO_SUMMON)
                     {
                         hooks.Add(Projectile.NewProjectileDirect(player.GetSource_FromThis(), player.MountedCenter, Vector2.Zero, ModContent.ProjectileType<BloomingHook>(), 11, 1));
                     }
