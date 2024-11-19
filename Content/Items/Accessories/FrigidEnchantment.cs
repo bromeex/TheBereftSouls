@@ -11,11 +11,11 @@ namespace TheBereftSouls.Content.Items.Accessories
     [ExtendsFromMod("SOTS")]
     public class FrigidEnchantment : ModItem
     {
-        public const int PRECENT_DAMAGE = 10;
+        public const int PERCENT_DAMAGE = 10;
         public const int FLAT_DAMAGE = 10;
         public const int CRIT = 5;
 
-        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(PRECENT_DAMAGE, FLAT_DAMAGE, CRIT);
+        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(PERCENT_DAMAGE, FLAT_DAMAGE, CRIT);
 
         public override void SetStaticDefaults()
         {
@@ -67,7 +67,7 @@ namespace TheBereftSouls.Content.Items.Accessories
         {
             if (player.GetModPlayer<BereftSOTSPlayer>().FrigidEnch)
             {
-                damage += FrigidEnchantment.PRECENT_DAMAGE / 100;
+                damage += FrigidEnchantment.PERCENT_DAMAGE / 100;
                 damage.Flat += FrigidEnchantment.FLAT_DAMAGE;
             }
         }
