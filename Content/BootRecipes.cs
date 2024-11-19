@@ -37,7 +37,7 @@ namespace TheBereftSouls.Content
                         break;
                     default:
                         break;
-                };
+                }
             }
         }
     }

@@ -51,9 +51,9 @@ namespace TheBereftSouls.Content.Items.Accessories
     [ExtendsFromMod("SOTS")]
     public class VibrantItem : GlobalItem
     {
-        public override bool InstancePerEntity => true;
-
         private float chanceToFire = 0.8f; // 80% chance to shoot
+
+        public override bool InstancePerEntity => true;
 
         public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
