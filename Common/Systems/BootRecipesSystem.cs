@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Accessories.Wings;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
@@ -11,33 +12,47 @@ namespace TheBereftSouls.Common.Systems;
 [ExtendsFromMod("CalamityMod", "FargowiltasSouls", "SOTS")]
 public class BootRecipesSystem : ModSystem
 {
+    private readonly record struct RecipeModification(int RemoveItem, int AddItem);
+
+    private static readonly Dictionary<int, RecipeModification> RecipeModifications = new()
+    {
+        [ModContent.ItemType<FlashsparkBoots>()] = new(
+            RemoveItem: ItemID.TerrasparkBoots,
+            AddItem: ModContent.ItemType<AngelTreads>()
+        ),
+
+        [ModContent.ItemType<AeolusBoots>()] = new(
+            RemoveItem: ModContent.ItemType<AngelTreads>(),
+            AddItem: ModContent.ItemType<FlashsparkBoots>()
+        ),
+
+        [ModContent.ItemType<SubspaceBoosters>()] = new(
+            RemoveItem: ModContent.ItemType<FlashsparkBoots>(),
+            AddItem: ModContent.ItemType<AeolusBoots>()
+        ),
+
+        [ModContent.ItemType<TracersCelestial>()] = new(
+            RemoveItem: ModContent.ItemType<AeolusBoots>(),
+            AddItem: ModContent.ItemType<SubspaceBoosters>()
+        ),
+    };
+
     public override void PostAddRecipes()
     {
         for (int i = 0; i < Recipe.numRecipes; i++)
         {
             Recipe recipe = Main.recipe[i];
+            ModifyRecipe(recipe);
+        }
+    }
 
-            switch (recipe.createItem.type)
-            {
-                case var id when id == ModContent.ItemType<FlashsparkBoots>():
-                    recipe.RemoveIngredient(ItemID.TerrasparkBoots);
-                    recipe.AddIngredient(ModContent.ItemType<AngelTreads>());
-                    break;
-                case var id when id == ModContent.ItemType<AeolusBoots>():
-                    recipe.RemoveIngredient(ModContent.ItemType<AngelTreads>());
-                    recipe.AddIngredient(ModContent.ItemType<FlashsparkBoots>());
-                    break;
-                case var id when id == ModContent.ItemType<SubspaceBoosters>():
-                    recipe.RemoveIngredient(ModContent.ItemType<FlashsparkBoots>());
-                    recipe.AddIngredient(ModContent.ItemType<AeolusBoots>());
-                    break;
-                case var id when id == ModContent.ItemType<TracersCelestial>():
-                    recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
-                    recipe.AddIngredient(ModContent.ItemType<SubspaceBoosters>());
-                    break;
-                default:
-                    break;
-            }
+    private static void ModifyRecipe(Recipe recipe)
+    {
+        int item = recipe.createItem.type;
+        if (RecipeModifications.TryGetValue(item, out RecipeModification modification))
+        {
+            recipe.RemoveIngredient(modification.RemoveItem);
+            recipe.AddIngredient(modification.AddItem);
         }
     }
 }
