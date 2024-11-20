@@ -131,7 +131,6 @@ corresponding category.
 - [Quality of Terraria](https://steamcommunity.com/sharedfiles/filedetails/?id=2797518634 "Steam Workshop Link")
 - [Boss Cursor](https://steamcommunity.com/sharedfiles/filedetails/?id=2816694149 "Steam Workshop Link")
 - [Recipe Browser](https://steamcommunity.com/sharedfiles/filedetails/?id=2619954303 "Steam Workshop Link")
-- [Begone, Evil! (Disable Corruption Spread)](https://steamcommunity.com/sharedfiles/filedetails/?id=2669670918 "Steam Workshop Link")
 - [Chat Source](https://steamcommunity.com/sharedfiles/filedetails/?id=2566083800 "Steam Workshop Link")
 - [High FPS Support](https://steamcommunity.com/sharedfiles/filedetails/?id=3119712528 "Steam Workshop Link")
 - [Smarter Cursor](https://steamcommunity.com/sharedfiles/filedetails/?id=2877850919 "Steam Workshop Link")
