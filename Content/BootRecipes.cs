@@ -1,10 +1,10 @@
-﻿using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using SOTS.Items;
-using CalamityMod.Items.Accessories;
+﻿using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Accessories.Wings;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
+using SOTS.Items;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace TheBereftSouls.Content
 {

@@ -55,18 +55,37 @@ namespace TheBereftSouls.Content.Items.Accessories
 
         public override bool InstancePerEntity => true;
 
-        public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        public override bool Shoot(
+            Item item,
+            Player player,
+            EntitySource_ItemUse_WithAmmo source,
+            Vector2 position,
+            Vector2 velocity,
+            int type,
+            int damage,
+            float knockback
+        )
         {
             if (item.damage <= 0)
             {
                 return true; // Only work on weapons
             }
 
-            if (player.GetModPlayer<BereftSOTSPlayer>().VibrantEnch && chanceToFire >= Main.rand.NextFloat())
+            if (
+                player.GetModPlayer<BereftSOTSPlayer>().VibrantEnch
+                && chanceToFire >= Main.rand.NextFloat()
+            )
             {
                 if (Main.myPlayer == player.whoAmI)
                 {
-                    Projectile.NewProjectile(source, position, (velocity / 2).RotatedByRandom(MathHelper.Pi / 6), type, damage / 2, knockback); // Additional projectiles deal half damage and move at half speed (should be tested)
+                    Projectile.NewProjectile(
+                        source,
+                        position,
+                        (velocity / 2).RotatedByRandom(MathHelper.Pi / 6),
+                        type,
+                        damage / 2,
+                        knockback
+                    ); // Additional projectiles deal half damage and move at half speed (should be tested)
                 }
 
                 if (chanceToFire >= 0)

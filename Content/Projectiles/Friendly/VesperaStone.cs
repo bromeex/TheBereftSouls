@@ -25,7 +25,12 @@ namespace TheBereftSouls.Content.Projectiles.Friendly
 
         public override void AI()
         {
-            Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PureSpray);
+            Dust.NewDust(
+                Projectile.position,
+                Projectile.width,
+                Projectile.height,
+                DustID.PureSpray
+            );
             Projectile.rotation += MathHelper.ToRadians(Projectile.timeLeft);
         }
 
@@ -35,7 +40,16 @@ namespace TheBereftSouls.Content.Projectiles.Friendly
             {
                 for (int i = -1; i < 1; i++)
                 {
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(i * 36)).SafeNormalize(Vector2.Zero) * 5, ModContent.ProjectileType<BigEvostonePebble>(), 15, 0.1f);
+                    Projectile.NewProjectile(
+                        Projectile.GetSource_FromThis(),
+                        Projectile.Center,
+                        Projectile
+                            .velocity.RotatedBy(MathHelper.ToRadians(i * 36))
+                            .SafeNormalize(Vector2.Zero) * 5,
+                        ModContent.ProjectileType<BigEvostonePebble>(),
+                        15,
+                        0.1f
+                    );
                 }
             }
         }
@@ -61,8 +75,15 @@ namespace TheBereftSouls.Content.Projectiles.Friendly
                 Point point = Projectile.position.ToTileCoordinates();
                 WorldGen.PlaceTile(point.X, point.Y, ModContent.TileType<VesperaStoneBlock>());
                 NetMessage.SendTileSquare(-1, point.X, point.Y);
-                BereftUtils.DustCircle(Main.player[Projectile.owner].Center, 16, 10, DustID.PureSpray);
-                Main.player[Projectile.owner].GetModPlayer<BereftSOTSPlayer>().VesperaStoneCoords.Add(new Vector2(point.X, point.Y));
+                BereftUtils.DustCircle(
+                    Main.player[Projectile.owner].Center,
+                    16,
+                    10,
+                    DustID.PureSpray
+                );
+                Main.player[Projectile.owner]
+                    .GetModPlayer<BereftSOTSPlayer>()
+                    .VesperaStoneCoords.Add(new Vector2(point.X, point.Y));
             }
         }
     }

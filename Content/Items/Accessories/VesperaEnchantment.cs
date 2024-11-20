@@ -47,7 +47,10 @@ namespace TheBereftSouls.Content.Items.Accessories
                 {
                     int xCoords = (int)bPlayer.VesperaStoneCoords[i].X;
                     int yCoords = (int)bPlayer.VesperaStoneCoords[i].Y;
-                    if (Main.tile[xCoords, yCoords].TileType == ModContent.TileType<VesperaStoneBlock>())
+                    if (
+                        Main.tile[xCoords, yCoords].TileType
+                        == ModContent.TileType<VesperaStoneBlock>()
+                    )
                     {
                         WorldGen.KillTile(xCoords, yCoords);
                         NetMessage.SendTileSquare(-1, xCoords, yCoords);
@@ -59,9 +62,18 @@ namespace TheBereftSouls.Content.Items.Accessories
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    Vector2 positionToTarget = Main.MouseWorld + new Vector2(Main.rand.NextFloat(-30, 30), Main.rand.NextFloat(-30, 30));
+                    Vector2 positionToTarget =
+                        Main.MouseWorld
+                        + new Vector2(Main.rand.NextFloat(-30, 30), Main.rand.NextFloat(-30, 30));
                     float speed = player.Center.Distance(positionToTarget) / 30;
-                    Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, player.Center.DirectionTo(positionToTarget) * speed, ModContent.ProjectileType<VesperaStone>(), 15, 0.1f);
+                    Projectile.NewProjectile(
+                        Item.GetSource_FromThis(),
+                        player.Center,
+                        player.Center.DirectionTo(positionToTarget) * speed,
+                        ModContent.ProjectileType<VesperaStone>(),
+                        15,
+                        0.1f
+                    );
                 }
 
                 timer = 300;

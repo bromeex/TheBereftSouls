@@ -2,7 +2,5 @@ using Terraria.ModLoader;
 
 namespace TheBereftSouls
 {
-    public class TheBereftSouls : Mod
-    {
-    }
+    public class TheBereftSouls : Mod { }
 }
