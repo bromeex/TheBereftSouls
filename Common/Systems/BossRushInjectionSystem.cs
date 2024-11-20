@@ -43,41 +43,26 @@ namespace TheBereftSouls.Common.Systems
                 (List<BossRushEntry>)CalamityMod.ModCalls.Call("GetBossRushEntries");
 
             AddToBossRush(
-                ref brEntries,
+                brEntries,
                 NPCID.KingSlime,
                 NPCType<TrojanSquirrel>(),
-                default,
-                default,
-                default,
-                default,
-                default,
-                [NPCType<TrojanSquirrelArms>(), NPCType<TrojanSquirrelHead>()]
+                extraNPCs: [NPCType<TrojanSquirrelArms>(), NPCType<TrojanSquirrelHead>()]
             );
-            AddToBossRush(ref brEntries, NPCID.WallofFlesh, NPCType<DeviBoss>());
-            AddToBossRush(ref brEntries, NPCID.TheDestroyer, NPCType<BanishedBaron>());
-            AddToBossRush(ref brEntries, NPCType<CalamitasClone>(), NPCType<LifeChallenger>());
-            AddToBossRush(ref brEntries, NPCType<Providence>(), NPCType<CosmosChampion>());
+            AddToBossRush(brEntries, NPCID.WallofFlesh, NPCType<DeviBoss>());
+            AddToBossRush(brEntries, NPCID.TheDestroyer, NPCType<BanishedBaron>());
+            AddToBossRush(brEntries, NPCType<CalamitasClone>(), NPCType<LifeChallenger>());
+            AddToBossRush(brEntries, NPCType<Providence>(), NPCType<CosmosChampion>());
             AddToBossRush(
-                ref brEntries,
+                brEntries,
                 NPCType<DevourerofGodsHead>(),
                 NPCType<AbomBoss>(),
-                default,
-                default,
-                default,
-                default,
-                default,
-                [NPCType<AbomSaucer>()]
+                extraNPCs: [NPCType<AbomSaucer>()]
             );
             AddToBossRush(
-                ref brEntries,
+                brEntries,
                 NPCType<SupremeCalamitas>(),
                 NPCType<MutantBoss>(),
-                default,
-                default,
-                default,
-                default,
-                default,
-                [NPCType<MutantIllusion>()]
+                extraNPCs: [NPCType<MutantIllusion>()]
             );
 
             // SetBossRushEntries call.
@@ -147,7 +132,7 @@ namespace TheBereftSouls.Common.Systems
         /// - The player who's closest to the center of the world.
         /// </param>
         internal static void AddToBossRush(
-            ref List<BossRushEntry> brEntries,
+            List<BossRushEntry> brEntries,
             int beforeBossType,
             int NPCType,
             TimeChangeContext needsNight = TimeChangeContext.None,
