@@ -156,34 +156,22 @@ public class BossRushInjectionSystem : ModSystem
         }
         if (bossidx < 0)
         {
-            bossidx = brEntries[brEntries.Count - 1].Item1;
+            bossidx = brEntries[^1].Item1;
         }
 
         // NPCs that are allowed to exist. if the passed in array is null, just use the boss
-        if (extraNPCs == null)
-        {
-            extraNPCs = [NPCType];
-        }
+        extraNPCs ??= [NPCType];
 
         // NPCs required to be defeated to finish the fight. if the passed in array is default,
         // just use the boss
-        if (needsDead == null)
-        {
-            needsDead = [NPCType];
-        }
+        needsDead ??= [NPCType];
 
         // What happens when the boss is spawned. by default it just spawns one on the closest
         // player to the world center
-        if (customAction == null)
+        customAction ??= npc =>
         {
-            customAction = npc =>
-            {
-                NPC.SpawnOnPlayer(
-                    CalamityMod.Events.BossRushEvent.ClosestPlayerToWorldCenter,
-                    NPCType
-                );
-            };
-        }
+            NPC.SpawnOnPlayer(ClosestPlayerToWorldCenter, NPCType);
+        };
 
         // The countdown override, custom sound, and dimness factors are all hardcoded for now
         // as no boss currently warrants them
