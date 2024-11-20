@@ -39,11 +39,23 @@ namespace TheBereftSouls.Content.Items.Accessories
             player.statDefense += player.numMinions * DEFENSE_BOOST;
             if (Main.myPlayer == player.whoAmI)
             {
-                if (!player.HasBuff(ModContent.BuffType<PatchedUpDebuff>()) && player.statLife > player.statLifeMax2 / 2)
+                if (
+                    !player.HasBuff(ModContent.BuffType<PatchedUpDebuff>())
+                    && player.statLife > player.statLifeMax2 / 2
+                )
                 {
                     if (hooks.Count < HOOKS_TO_SUMMON)
                     {
-                        hooks.Add(Projectile.NewProjectileDirect(player.GetSource_FromThis(), player.MountedCenter, Vector2.Zero, ModContent.ProjectileType<BloomingHook>(), 11, 1));
+                        hooks.Add(
+                            Projectile.NewProjectileDirect(
+                                player.GetSource_FromThis(),
+                                player.MountedCenter,
+                                Vector2.Zero,
+                                ModContent.ProjectileType<BloomingHook>(),
+                                11,
+                                1
+                            )
+                        );
                     }
                 }
 
@@ -59,7 +71,13 @@ namespace TheBereftSouls.Content.Items.Accessories
                         hook.Kill();
                         player.Heal(player.statLifeMax2 / 16);
                         player.AddBuff(ModContent.BuffType<PatchedUpDebuff>(), 3600);
-                        BereftUtils.DustCircle(player.Center, 16, 10, DustID.GemEmerald, Main.rand.NextFloat(1f, 2f));
+                        BereftUtils.DustCircle(
+                            player.Center,
+                            16,
+                            10,
+                            DustID.GemEmerald,
+                            Main.rand.NextFloat(1f, 2f)
+                        );
                     }
 
                     hooks.Clear();

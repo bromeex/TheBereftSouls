@@ -15,7 +15,8 @@ namespace TheBereftSouls.Content.Items.Accessories
         public const int FLAT_DAMAGE = 10;
         public const int CRIT = 5;
 
-        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(PERCENT_DAMAGE, FLAT_DAMAGE, CRIT);
+        public override LocalizedText Tooltip =>
+            base.Tooltip.WithFormatArgs(PERCENT_DAMAGE, FLAT_DAMAGE, CRIT);
 
         public override void SetStaticDefaults()
         {
