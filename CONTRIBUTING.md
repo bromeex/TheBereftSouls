@@ -63,7 +63,8 @@
 Before creating your suggestion:
 
 1. Make sure you're on the latest version of the `main` branch of the repository.
-2. Search through the [Issues](https://github.com/bromeex/TheBereftSouls/issues) to see if it's already discussed.
+2. Search through the [Issues](https://github.com/bromeex/TheBereftSouls/issues)
+   to see if it's already discussed.
 3. Evaluate if your feature is useful for most of/everyone using this mod and
    not just a small niche of players.
 
