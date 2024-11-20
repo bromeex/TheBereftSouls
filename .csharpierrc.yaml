@@ -1,0 +1,10 @@
+# Based on the default configuration in:
+# <https://csharpier.com/docs/Configuration>
+#
+# NOTE: Make sure to install the package, for example, via NuGet:
+# `dotnet tool install csharpier -g`.
+
+printWidth: 100
+useTabs: false
+tabWidth: 4
+endOfLine: auto

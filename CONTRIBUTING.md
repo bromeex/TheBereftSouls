@@ -71,10 +71,18 @@ Before creating your suggestion:
 
 ### Code Formatting
 
-The formatter used was merged from PR
-[#10](/pull/10) (StyleCop). In order
-to apply the formatter you can run `dotnet build --no-incremental` and then
-`dotnet format`.
+The formatting is achieved via [CSharpier](https://csharpier.com/) with the
+[`.csharpierrc.yaml`](./.csharpierrc.yaml) configuration _(for more information,
+check: <https://csharpier.com/docs/Configuration>)_.
+
+> [!NOTE]
+> Make sure to install `csharpier`. You can do this with NuGet like so:
+>
+> ```sh
+> dotnet tool install csharpier
+> ```
+>
+> _For more information: <https://csharpier.com/docs/About>_
 
 ### Commit Messages
 
