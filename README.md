@@ -18,51 +18,13 @@ If you'd like to contribute, please refer to the
 [CONTRIBUTING.md](./CONTRIBUTING.md) file of this repository. We'd be very
 thankful for all of your contributions as well as credit them in this file.
 
-### Maintainers
-
-<!-- markdownlint-disable MD033 -->
-<a href="https://github.com/bromeex" title="Brome">
-  <img
-      src="https://avatars.githubusercontent.com/u/109879946?v=4"
-      width="50"
-      alt="Brome"
-  />
-</a>
-
-<!-- markdownlint-enable MD033 -->
-
 ### Contributors
 
 <!-- markdownlint-disable MD033 -->
-<a href="https://github.com/izutsumifan" title="Izutsumifan">
+<a href="https://github.com/bromeex/TheBereftSouls/graphs/contributors">
   <img
-      src="https://avatars.githubusercontent.com/u/91285741?v=4"
-      width="50"
-      alt="Izutsumifan"
-  />
-</a>
-
-<a href="https://github.com/ggk8" title="Rebattleking">
-  <img
-      src="https://avatars.githubusercontent.com/u/148354820?v=4"
-      width="50"
-      alt="Rebattleking"
-  />
-</a>
-
-<a href="https://github.com/1Git2Clone" title="1Git2Clone">
-  <img
-      src="https://avatars.githubusercontent.com/u/171241044?v=4"
-      width="50"
-      alt="1Git2Clone"
-  />
-</a>
-
-<a href="https://github.com/Sangar2728" title="Sangar2728">
-  <img
-      src="https://avatars.githubusercontent.com/u/183438273?v=4"
-      width="50"
-      alt="Sangar2728"
+    src="https://contrib.rocks/image?repo=bromeex/TheBereftSouls"
+    alt="The BereftSouls Contributors"
   />
 </a>
 <!-- markdownlint-enable MD033 -->
@@ -77,7 +39,6 @@ corresponding category.
 - [Luminance](https://steamcommunity.com/sharedfiles/filedetails/?id=3222493606)
 - [MooMoo’s Yoyo Lib](https://steamcommunity.com/sharedfiles/filedetails/?id=3069154070)
 - [Subworld Library](https://steamcommunity.com/sharedfiles/filedetails/?id=2785100219)
-
 
 ### Content Mods
 
@@ -95,8 +56,6 @@ corresponding category.
   (Required for Testing)
 - [Spirit Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2982372319 "Steam Workshop Link")
 
-
-
 ### Overhaul Mods
 
 - [Better Caves](https://steamcommunity.com/sharedfiles/filedetails/?id=3158254975 "Steam Workshop Link")
@@ -108,7 +67,6 @@ corresponding category.
 - [Stronger Reforges](https://steamcommunity.com/sharedfiles/filedetails/?id=3267459688 "Steam Workshop Link")
 - [Thorium Bosses Reworked](https://steamcommunity.com/sharedfiles/filedetails/?id=3070717963 "Steam Workshop Link")
 
-
 ### Cross-Compatibility Mods
 
 - [Calamity Unofficial Bard/Healer](https://steamcommunity.com/sharedfiles/filedetails/?id=3142064272 "Steam Workshop Link")
@@ -119,7 +77,6 @@ corresponding category.
   (Fargo’s/Spirit/Consolaria)
 - [Ragnarok](https://steamcommunity.com/sharedfiles/filedetails/?id=3114886209 "Steam Workshop Link")
   (Calamity/Thorium)
-
 
 ### Quality-of-Life Mods
 
@@ -139,8 +96,6 @@ corresponding category.
 - [Shop Expander](https://steamcommunity.com/sharedfiles/filedetails/?id=2828370879 "Steam Workshop Link")
 - [Smarter Cursor](https://steamcommunity.com/sharedfiles/filedetails/?id=2877850919 "Steam Workshop Link")
 - [The Shop Market](https://steamcommunity.com/sharedfiles/filedetails/?id=2572367426 "Steam Workshop Link")
-
-
 
 ### Graphics/Audio Mods
 
