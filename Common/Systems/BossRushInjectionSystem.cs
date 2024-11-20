@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using CalamityMod.NPCs.CalClone;
 using CalamityMod.NPCs.DevourerofGods;
@@ -14,11 +14,18 @@ using FargowiltasSouls.Content.Bosses.TrojanSquirrel;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static CalamityMod.Events.BossRushEvent;
 using static Terraria.ModLoader.ModContent;
 
 namespace TheBereftSouls.Common.Systems
 {
-    [ExtendsFromMod("CalamityMod", "FargowiltasSouls", "SOTS")]
+    // Type alias.
+    //
+    // Referenced permalink:
+    // - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/ModSupport/ModCalls.cs#L1999
+    using BossRushEntry = (int, int, Action<int>, int, bool, float, int[], int[]);
+
+    [ExtendsFromMod("CalamityMod", "FargowiltasSouls")]
     public class BossRushInjectionSystem : ModSystem
     {
         public override void PostSetupContent()
@@ -26,32 +33,131 @@ namespace TheBereftSouls.Common.Systems
             LoadBossRushEntries(ModLoader.GetMod("CalamityMod"));
         }
 
-
         internal static void LoadBossRushEntries(Mod cal)
         {
-            List<(int, int, Action<int>, int, bool, float, int[], int[])> brEntries = (List<(int, int, Action<int>, int, bool, float, int[], int[])>)cal.Call("GetBossRushEntries");
+            // GetBossRushEntries call.
+            //
+            // Referenced permalink:
+            // - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/ModSupport/ModCalls.cs#L1998-L2006
+            List<BossRushEntry> brEntries =
+                (List<BossRushEntry>)CalamityMod.ModCalls.Call("GetBossRushEntries");
 
-            AddToBossRush(ref brEntries, NPCID.KingSlime, NPCType<TrojanSquirrel>(),[NPCType<TrojanSquirrelArms>(), NPCType<TrojanSquirrelHead>()]);
+            AddToBossRush(
+                ref brEntries,
+                NPCID.KingSlime,
+                NPCType<TrojanSquirrel>(),
+                default,
+                default,
+                default,
+                default,
+                default,
+                [NPCType<TrojanSquirrelArms>(), NPCType<TrojanSquirrelHead>()]
+            );
             AddToBossRush(ref brEntries, NPCID.WallofFlesh, NPCType<DeviBoss>());
             AddToBossRush(ref brEntries, NPCID.TheDestroyer, NPCType<BanishedBaron>());
             AddToBossRush(ref brEntries, NPCType<CalamitasClone>(), NPCType<LifeChallenger>());
             AddToBossRush(ref brEntries, NPCType<Providence>(), NPCType<CosmosChampion>());
-            AddToBossRush(ref brEntries, NPCType<DevourerofGodsHead>(), NPCType<AbomBoss>(),[NPCType<AbomSaucer>()]);
-            AddToBossRush(ref brEntries, NPCType<SupremeCalamitas>(), NPCType<MutantBoss>(),[NPCType<MutantIllusion>()]);
-            cal.Call("SetBossRushEntries", brEntries);
+            AddToBossRush(
+                ref brEntries,
+                NPCType<DevourerofGodsHead>(),
+                NPCType<AbomBoss>(),
+                default,
+                default,
+                default,
+                default,
+                default,
+                [NPCType<AbomSaucer>()]
+            );
+            AddToBossRush(
+                ref brEntries,
+                NPCType<SupremeCalamitas>(),
+                NPCType<MutantBoss>(),
+                default,
+                default,
+                default,
+                default,
+                default,
+                [NPCType<MutantIllusion>()]
+            );
+
+            // SetBossRushEntries call.
+            //
+            // Referenced permalink:
+            // - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/ModSupport/ModCalls.cs#L2008-L2023
+            CalamityMod.ModCalls.Call("SetBossRushEntries", brEntries);
         }
 
         /// <summary>
         /// Adds a boss to the Calamity Boss Rush event.
         /// </summary>
-        /// <param name="brEntries">Just pass in the boss rush list, cmon you can do it!.</param>
-        /// <param name="beforeBossType">The boss that is fought directly after the boss you want to insert.</param>
-        /// <param name="NPCType">The boss you want to insert.</param>
-        /// <param name="extraNPCs">Minions/parts of the boss.</param>
-        /// <param name="needsDead">Components of the boss that need to be defeated to progress such as Golem parts.</param>
-        /// <param name="needsNight">Sets time to night if true.</param>
-        /// <param name="customAction">Extra code to perform when spawning the boss.</param>
-        internal static void AddToBossRush(ref List<(int, int, Action<int>, int, bool, float, int[], int[])> brEntries, int beforeBossType, int NPCType, int[] extraNPCs = default, int[] needsDead = default, bool needsNight = false, Action<int> customAction = default)
+        ///
+        /// <param name="brEntries">
+        /// Just pass in the boss rush list, cmon you can do it!.
+        /// </param>
+        ///
+        /// <param name="beforeBossType">
+        /// The boss that is fought directly after the boss you want to insert. If the boss type is
+        /// invalid it defaults to the end of the array of bosses.
+        /// </param>
+        ///
+        /// <param name="NPCType">
+        /// The boss you want to insert.
+        /// </param>
+        ///
+        /// <param name="dimnessFactor">
+        /// Float field in the `CalamityMod.Events.BossRushEvent.Boss` struct.
+        ///
+        /// Referenced permalink:
+        /// - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L67
+        /// </param>
+        ///
+        /// <param name="specialSpawnCountdown">
+        /// Int field in the `CalamityMod.Events.BossRushEvent.Boss` struct.
+        ///
+        /// Referenced permalink:
+        /// - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L66
+        /// </param>
+        ///
+        /// <param name="usesSpecialSound">
+        /// Boolean field in the `CalamityMod.Events.BossRushEvent.Boss` struct.
+        ///
+        /// Referenced permalink:
+        /// - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L68
+        /// </param>
+        ///
+        /// <param name="extraNPCs">
+        /// Minions/parts of the boss.
+        /// </param>
+        ///
+        /// <param name="needsDead">
+        /// Components of the boss that need to be defeated to progress such as Golem parts.
+        /// </param>
+        ///
+        /// <param name="needsNight">
+        /// Sets time to night if true.
+        ///
+        /// Default:
+        /// - No time override.
+        /// </param>
+        ///
+        /// <param name="customAction">
+        /// Extra code to perform when spawning the boss.
+        ///
+        /// Default:
+        /// - The player who's closest to the center of the world.
+        /// </param>
+        internal static void AddToBossRush(
+            ref List<BossRushEntry> brEntries,
+            int beforeBossType,
+            int NPCType,
+            TimeChangeContext needsNight = TimeChangeContext.None,
+            Action<int> customAction = null,
+            int specialSpawnCountdown = 45,
+            bool usesSpecialSound = false,
+            float dimnessFactor = 0.0f,
+            int[] extraNPCs = null,
+            int[] needsDead = null
+        )
         {
             // find the index of the boss to inject before
             int bossidx = -1;
@@ -63,33 +169,58 @@ namespace TheBereftSouls.Common.Systems
                     break;
                 }
             }
-
-            // NPCs that are allowed to exist. if the passed in array is default, just use the boss
-            int[] allowedIDs =[NPCType];
-            if (extraNPCs != default)
+            if (bossidx < 0)
             {
-                allowedIDs = extraNPCs;
+                bossidx = brEntries[brEntries.Count - 1].Item1;
             }
 
-            // NPCs required to be defeated to finish the fight. if the passed in array is default, just use the boss
-            int[] requiredIDs =[NPCType];
-            if (needsDead != default)
+            // NPCs that are allowed to exist. if the passed in array is null, just use the boss
+            if (extraNPCs == null)
             {
-                requiredIDs = needsDead;
+                extraNPCs = [NPCType];
             }
 
-            // what happens when the boss is spawned. by default it just spawns one on the closest player to the world center
-            Action<int> pr2 = npc =>
+            // NPCs required to be defeated to finish the fight. if the passed in array is default,
+            // just use the boss
+            if (needsDead == null)
             {
-                NPC.SpawnOnPlayer(CalamityMod.Events.BossRushEvent.ClosestPlayerToWorldCenter, NPCType);
-            };
-            if (customAction != default)
-            {
-                pr2 = customAction;
+                needsDead = [NPCType];
             }
 
-            // the countdown override, custom sound, and dimness factors are all hardcoded for now as no boss currently warrants them
-            brEntries.Insert(bossidx, (NPCType, needsNight ? -1 : 1, pr2, 45, false, 0f, allowedIDs, requiredIDs));
+            // What happens when the boss is spawned. by default it just spawns one on the closest
+            // player to the world center
+            if (customAction == null)
+            {
+                customAction = npc =>
+                {
+                    NPC.SpawnOnPlayer(
+                        CalamityMod.Events.BossRushEvent.ClosestPlayerToWorldCenter,
+                        NPCType
+                    );
+                };
+            }
+
+            // The countdown override, custom sound, and dimness factors are all hardcoded for now
+            // as no boss currently warrants them
+            //
+            // Referenced permalink:
+            // - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L56C21-L61
+            //
+            // UsesSpecialSound
+            // DimnessFactor
+            brEntries.Insert(
+                bossidx,
+                (
+                    NPCType,
+                    (int)needsNight,
+                    customAction,
+                    specialSpawnCountdown,
+                    usesSpecialSound,
+                    dimnessFactor,
+                    extraNPCs,
+                    needsDead
+                )
+            );
         }
     }
 }
