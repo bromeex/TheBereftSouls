@@ -4,10 +4,6 @@
     <Import Project="..\tModLoader.targets" />
 
     <ItemGroup>
-        <AdditionalFiles Include="stylecop.json" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Reference Include="lib\*.dll"></Reference>
     </ItemGroup>
 
