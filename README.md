@@ -84,6 +84,7 @@ corresponding category.
 - [Clamity Addon](https://steamcommunity.com/sharedfiles/filedetails/?id=3028584450 "Steam Workshop Link")
 - [Calamity Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2824688072 "Steam Workshop Link")
 - [Catalyst Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2838015851 "Steam Workshop Link")
+- [Calamity Ranger Expansion](https://steamcommunity.com/sharedfiles/filedetails/?id=2860270524 "Steam Workshop Link")
 - [Calamity: Wrath of the Gods](https://steamcommunity.com/sharedfiles/filedetails/?id=2995193002 "Steam Workshop Link")
   (Required for Testing)
 - [Consolaria](https://steamcommunity.com/sharedfiles/filedetails/?id=2864843929 "Steam Workshop Link")
