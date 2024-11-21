@@ -29,9 +29,11 @@ namespace TheBereftSouls.Utils
             private Dictionary<string, Node> cache;
             private Node head;
             private Node tail;
-
-            // Constructor to initialize the
-            // cache with a given capacity
+  
+            /// <summary>
+            /// Initializes a new instance of the <see cref="LRUCache"/> class.
+            /// </summary>
+            /// <param name="capacity"></param>
             public LRUCache(int capacity)
             {
                 this.capacity = capacity;
@@ -43,7 +45,7 @@ namespace TheBereftSouls.Utils
             }
 
             // Add a node right after the head
-            //(most recently used position)
+            // (most recently used position)
             private void Add(Node node)
             {
                 Node nextNode = head.Next;
@@ -54,7 +56,7 @@ namespace TheBereftSouls.Utils
             }
 
             // Remove a node from the doubly linked list
-            private void Remove(Node node)
+            private static void Remove(Node node)
             {
                 Node prevNode = node.Prev;
                 Node nextNode = node.Next;
@@ -67,7 +69,7 @@ namespace TheBereftSouls.Utils
             {
                 if (!cache.ContainsKey(name))
                 {
-                    return -1;
+                    return null;
                 }
 
                 Node node = cache[name];
@@ -76,10 +78,11 @@ namespace TheBereftSouls.Utils
                 return node.Value;
             }
 
-            public dynamic Get(string name, ref Mod mod)
+            public dynamic Get(string name, out Mod mod)
             {
                 if (!cache.ContainsKey(name))
                 {
+                    mod = null;
                     return null;
                 }
 
@@ -100,25 +103,25 @@ namespace TheBereftSouls.Utils
                     cache.Remove(name);
                 }
 
-                if (cache.Count >= capacity)
+                while (cache.Count >= capacity)
                 {
                     Node lruNode = tail.Prev;
                     Remove(lruNode);
                     cache.Remove(lruNode.Name);
                 }
 
-                Node newNode = new(name, mod, value);
+                Node newNode = new (name, mod, value);
                 Add(newNode);
                 cache[name] = newNode;
             }
             public void UpdateSize()
             {
-                if (cache.Count >= capacity)
+                while (cache.Count >= capacity)
                     capacity++;
             }
             public void UpdateSize(int ammount)
             {
-                if (cache.Count >= capacity)
+                while (cache.Count >= capacity)
                     capacity += ammount;
             }
         }

@@ -11,7 +11,7 @@ namespace TheBereftSouls.Common.Global
     public class BossSummonOverride : GlobalItem
     {
         public override bool InstancePerEntity => true;
-        public static Collection<int> BossSummons = [];
+        public static HashSet<int> BossSummons = [];
 
         public override void SetDefaults(Item item)
         {
@@ -37,9 +37,9 @@ namespace TheBereftSouls.Common.Global
     internal class GensokyoBossSummonOverride
     {
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static void LoadList(ICollection<int> bossSummons)
+        public static void LoadList(HashSet<int> bossSummons)
         {
-            List<int> gensokyolist =
+            int[] gensokyolist =
             [
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"AliceMargatroidSpawner").Type,
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"CirnoSpawner").Type,
@@ -63,7 +63,7 @@ namespace TheBereftSouls.Common.Global
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"TsukumoSistersSpawner").Type,
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"UtsuhoReiujiSpawner").Type
             ];
-            bossSummons.Union(gensokyolist);
+            bossSummons.UnionWith(gensokyolist);
         }
     }
 
@@ -71,16 +71,16 @@ namespace TheBereftSouls.Common.Global
     internal class SOTSBossSummonOverride
     {
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static void LoadList(ICollection<int> bossSummons)
+        public static void LoadList(HashSet<int> bossSummons)
         {
-            List<int> sotsList =
+            int[] sotsList =
             [
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"JarOfPeanuts").Type,
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"SuspiciousLookingCandle").Type,
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"FrostedKey").Type,
                 ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"CatalystBomb").Type
             ];
-            bossSummons.Union(sotsList);
+            bossSummons.UnionWith(sotsList);
         }
     }
 }
