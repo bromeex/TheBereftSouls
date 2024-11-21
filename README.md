@@ -81,13 +81,14 @@ corresponding category.
 
 ### Content Mods
 
-- [Clamity Addon](https://steamcommunity.com/sharedfiles/filedetails/?id=3028584450 "Steam Workshop Link")
+
 - [Calamity Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2824688072 "Steam Workshop Link")
 - [Catalyst Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2838015851 "Steam Workshop Link")
 - [Calamity Ranger Expansion](https://steamcommunity.com/sharedfiles/filedetails/?id=2860270524 "Steam Workshop Link")
 - [Calamity: Wrath of the Gods](https://steamcommunity.com/sharedfiles/filedetails/?id=2995193002 "Steam Workshop Link")
   (Required for Testing)
 - [Consolaria](https://steamcommunity.com/sharedfiles/filedetails/?id=2864843929 "Steam Workshop Link")
+- [Clamity Addon](https://steamcommunity.com/sharedfiles/filedetails/?id=3028584450 "Steam Workshop Link")
 - [Fargo’s Souls Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2815540735 "Steam Workshop Link")
 - [Gensokyo](https://steamcommunity.com/sharedfiles/filedetails/?id=2817254924 "Steam Workshop Link")
 - [Thorium Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2909886416 "Steam Workshop Link")
@@ -123,7 +124,6 @@ corresponding category.
 
 ### Quality-of-Life Mods
 
-- [Auto Trash](https://steamcommunity.com/sharedfiles/filedetails/?id=2565540604 "Steam Workshop Link")
 - [Boss Checklist](https://steamcommunity.com/sharedfiles/filedetails/?id=2669644269 "Steam Workshop Link")
 - [Boss Cursor](https://steamcommunity.com/sharedfiles/filedetails/?id=2816694149 "Steam Workshop Link")
 - [Census (Town NPC Checklist)](https://steamcommunity.com/sharedfiles/filedetails/?id=2687866031 "Steam Workshop Link")
