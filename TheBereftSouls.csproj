@@ -7,4 +7,8 @@
       <Reference Include="lib\*.dll"></Reference>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Content\ItemChanges\" />
+    </ItemGroup>
+
 </Project>
