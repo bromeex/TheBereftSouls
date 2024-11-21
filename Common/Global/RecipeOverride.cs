@@ -14,10 +14,10 @@ namespace TheBereftSouls.Common.Global
             {
                 if (TheBereftSouls.CalamityRangerExpansion != null)
                 {
-                    if (recipe.TryGetResult(ExternalModCallUtils.GetItemFromMod(TheBereftSouls.CalamityRangerExpansion, "AutoCalculationCoil"), out _))
+                    if (recipe.TryGetResult(ExternalModCallUtils.Get<ModItem>(TheBereftSouls.CalamityRangerExpansion, "AutoCalculationCoil"), out _))
                     {
-                        recipe.AddIngredient(ExternalModCallUtils.GetItemFromMod(CalamityMod,"CosmiliteBar").Type,5);
-                        RecipeUtils.OverrideTile(recipe,ExternalModCallUtils.GetTileFromMod(CalamityMod, "CosmicAnvil").Type);
+                        recipe.AddIngredient(ExternalModCallUtils.Get<ModItem>(CalamityMod,"CosmiliteBar").Type,5);
+                        RecipeUtils.OverrideTile(recipe,ExternalModCallUtils.Get<ModItem>(CalamityMod, "CosmicAnvil").Type);
                     }
                 }
             }

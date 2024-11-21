@@ -1,34 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Terraria.ModLoader;
 
 namespace TheBereftSouls.Utils
 {
-    public class CacheManager
+    public class CacheManager<T>
     {
         class Node
         {
             public string Name;
             public Mod mod;
-            public dynamic Value;
+            public T currentValue;
             public Node Prev;
             public Node Next;
 
-            public Node(string name, Mod mod_, dynamic value)
+            public Node(string name, Mod mod_, T value)
             {
                 Name = name;
                 mod = mod_;
-                Value = value;
+                currentValue = value;
                 Prev = null;
                 Next = null;
             }
+
         }
 
         public class LRUCache
         {
             private int capacity;
             private Dictionary<string, Node> cache;
-            private Node head;
-            private Node tail;
+            private Node? head;
+            private Node? tail;
   
             /// <summary>
             /// Initializes a new instance of the <see cref="LRUCache"/> class.
@@ -38,8 +40,8 @@ namespace TheBereftSouls.Utils
             {
                 this.capacity = capacity;
                 cache = new Dictionary<string, Node>();
-                head = new Node(string.Empty, null, -1);
-                tail = new Node(string.Empty, null, -1);
+                head = new Node(string.Empty, null, default);
+                tail = new Node(string.Empty, null, default);
                 head.Next = tail;
                 tail.Prev = head;
             }
@@ -65,36 +67,36 @@ namespace TheBereftSouls.Utils
             }
 
             // Get the value for a given key
-            public dynamic Get(string name)
+            public T Get(string name)
             {
                 if (!cache.ContainsKey(name))
                 {
-                    return null;
+                    return default;
                 }
 
                 Node node = cache[name];
                 Remove(node);
                 Add(node);
-                return node.Value;
+                return node.currentValue;
             }
 
-            public dynamic Get(string name, out Mod mod)
+            public T Get(string name, out Mod mod)
             {
                 if (!cache.ContainsKey(name))
                 {
                     mod = null;
-                    return null;
+                    return default;
                 }
 
                 Node node = cache[name];
                 Remove(node);
                 Add(node);
                 mod = node.mod;
-                return node.Value;
+                return node.currentValue;
             }
 
             // Put a key-value pair into the cache
-            public void Put(string name, Mod mod, dynamic value)
+            public void Put(string name, Mod mod, T value)
             {
                 if (cache.ContainsKey(name))
                 {

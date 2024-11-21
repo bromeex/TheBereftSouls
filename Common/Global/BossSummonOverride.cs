@@ -41,27 +41,27 @@ namespace TheBereftSouls.Common.Global
         {
             int[] gensokyolist =
             [
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"AliceMargatroidSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"CirnoSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"EternityLarvaSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"HinaKagiyamaSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"KaguyaHouraisanSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"KoishiKomeijiSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"LilyWhiteSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"MayumiJoutouguuSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"MedicineMelancholySpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"MinamitsuMurasaSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"NazrinSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"NitoriKawashiroSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"RumiaSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"SakuyaIzayoiSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"SeijaKijinSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"SeiranSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"SekibankiSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"TenshiHinanawiSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"ToyosatomimiNoMikoSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"TsukumoSistersSpawner").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.GensokyoMod,"UtsuhoReiujiSpawner").Type
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"AliceMargatroidSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"CirnoSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"EternityLarvaSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"HinaKagiyamaSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"KaguyaHouraisanSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"KoishiKomeijiSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"LilyWhiteSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"MayumiJoutouguuSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"MedicineMelancholySpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"MinamitsuMurasaSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"NazrinSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"NitoriKawashiroSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"RumiaSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"SakuyaIzayoiSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"SeijaKijinSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"SeiranSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"SekibankiSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"TenshiHinanawiSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"ToyosatomimiNoMikoSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"TsukumoSistersSpawner").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.GensokyoMod,"UtsuhoReiujiSpawner").Type
             ];
             bossSummons.UnionWith(gensokyolist);
         }
@@ -75,10 +75,10 @@ namespace TheBereftSouls.Common.Global
         {
             int[] sotsList =
             [
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"JarOfPeanuts").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"SuspiciousLookingCandle").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"FrostedKey").Type,
-                ExternalModCallUtils.GetItemFromMod(TheBereftSouls.SecretsOfTheShadows,"CatalystBomb").Type
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.SecretsOfTheShadows,"JarOfPeanuts").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.SecretsOfTheShadows,"SuspiciousLookingCandle").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.SecretsOfTheShadows,"FrostedKey").Type,
+                ExternalModCallUtils.Get<ModItem>(TheBereftSouls.SecretsOfTheShadows,"CatalystBomb").Type
             ];
             bossSummons.UnionWith(sotsList);
         }

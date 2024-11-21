@@ -21,7 +21,7 @@ namespace TheBereftSouls.Common.Global
         {
             if (TheBereftSouls.CalamityRangerExpansion != null)
             {
-                if (projectile.type == ExternalModCallUtils.GetProjectileFromMod(TheBereftSouls.CalamityRangerExpansion, "WulfrumBoltRanged").Type)
+                if (projectile.type == ExternalModCallUtils.Get<ModProjectile>(TheBereftSouls.CalamityRangerExpansion, "WulfrumBoltRanged").Type)
                 {
                     WulfrumBolt.HomingRange = 150;
                 }
