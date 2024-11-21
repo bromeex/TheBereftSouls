@@ -30,4 +30,8 @@
       <Reference Include="lib\*.dll"></Reference>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Content\RecipeChanges\" />
+    </ItemGroup>
+
 </Project>
