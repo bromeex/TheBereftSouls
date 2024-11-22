@@ -1,10 +1,7 @@
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.ID;
 using CalamityMod.Items.TreasureBags.MiscGrabBags;
-using FargowiltasSouls.Content.Items.Accessories.Souls;
+using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ModLoader;
 using ThoriumMod.Items.BardItems;
 using ThoriumMod.Items.HealerItems;
 
@@ -16,11 +13,11 @@ public class CalamityStarterBagChanges : GlobalItem
     private static readonly IItemDropRule[] ItemsToAdd =
     [
         ItemDropRule.Common(ModContent.ItemType<Pill>(), 1, 500, 500),
-        ItemDropRule.Common(ModContent.ItemType<Ukulele>(), 1, 1, 1),
+        ItemDropRule.Common(ModContent.ItemType<Ukulele>())
     ];
 
     private static readonly IItemDropRule[] ItemsToRemove = [];
-    
+
     public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
     {
         if (item.ModItem is not StarterBag)
@@ -28,12 +25,12 @@ public class CalamityStarterBagChanges : GlobalItem
             return;
         }
 
-        foreach (var dropRule in ItemsToAdd)
+        foreach (IItemDropRule dropRule in ItemsToAdd)
         {
             itemLoot.Add(dropRule);
         }
 
-        foreach (var dropRule in ItemsToRemove)
+        foreach (IItemDropRule dropRule in ItemsToRemove)
         {
             itemLoot.Remove(dropRule);
         }

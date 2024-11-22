@@ -6,8 +6,8 @@ namespace TheBereftSouls.Utils;
 public class BereftUtils
 {
     /// <summary>
-    /// <para>Creates a circle of dust around a given position.</para>
-    /// <para><paramref name="noGrav"/> - if false, dust will be affected by gravity.</para>
+    ///     <para>Creates a circle of dust around a given position.</para>
+    ///     <para><paramref name="noGrav" /> - if false, dust will be affected by gravity.</para>
     /// </summary>
     /// <param name="position"></param>
     /// <param name="amount"></param>

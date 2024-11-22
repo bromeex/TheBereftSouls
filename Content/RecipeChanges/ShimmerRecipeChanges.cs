@@ -1,18 +1,19 @@
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using System.Collections.Generic;
-using ThoriumMod.Items.Consumable;
 using ThoriumMod.Items.BardItems;
+using ThoriumMod.Items.Consumable;
 using ThoriumMod.Items.Donate;
 
-namespace TheBereftSouls.Content.RecipeChanges
+namespace TheBereftSouls.Content.RecipeChanges;
+
+[ExtendsFromMod("ThoriumMod")]
+public class ShimmerRecipeModifications : ModSystem
 {
-    [ExtendsFromMod("ThoriumMod")]
-    public class ShimmerRecipeModifications : ModSystem
-    {
-        private static readonly Dictionary<int, Func<bool>> shimmerRecipeConditions = new Dictionary<int, Func<bool>>
+    private static readonly Dictionary<int, Func<bool>> shimmerRecipeConditions =
+        new()
         {
             { ModContent.ItemType<KineticPotion>(), () => Main.hardMode },
             { ModContent.ItemType<HolyPotion>(), () => Main.hardMode },
@@ -20,26 +21,25 @@ namespace TheBereftSouls.Content.RecipeChanges
             { ModContent.ItemType<WarmongerPotion>(), () => NPC.downedBoss2 }
         };
 
-        public override void PreUpdateWorld()
-        {
-            ApplyShimmerConditions();
-        }
+    public override void PreUpdateWorld()
+    {
+        ApplyShimmerConditions();
+    }
 
-        private void ApplyShimmerConditions()
+    private void ApplyShimmerConditions()
+    {
+        foreach (KeyValuePair<int, Func<bool>> entry in shimmerRecipeConditions)
         {
-            foreach (var entry in shimmerRecipeConditions)
+            int itemType = entry.Key;
+            Func<bool> condition = entry.Value;
+
+            if (!condition())
             {
-                int itemType = entry.Key;
-                Func<bool> condition = entry.Value;
-
-                if (!condition())
-                {
-                    ItemID.Sets.ShimmerTransformToItem[itemType] = itemType;
-                }
-                else
-                {
-                    ItemID.Sets.ShimmerTransformToItem[itemType] = 0;
-                }
+                ItemID.Sets.ShimmerTransformToItem[itemType] = itemType;
+            }
+            else
+            {
+                ItemID.Sets.ShimmerTransformToItem[itemType] = 0;
             }
         }
     }

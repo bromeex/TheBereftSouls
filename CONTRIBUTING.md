@@ -4,12 +4,12 @@
 
 - [I Have a Question](#i-have-a-question)
 - [I Want To Contribute](#i-want-to-contribute)
-  - [Reporting Bugs](#reporting-bugs)
-  - [Suggesting Enhancements](#suggesting-enhancements)
-  - [Your First Code Contribution](#your-first-code-contribution)
+    - [Reporting Bugs](#reporting-bugs)
+    - [Suggesting Enhancements](#suggesting-enhancements)
+    - [Your First Code Contribution](#your-first-code-contribution)
 - [Style Guides](#style-guides)
-  - [Code Formatting](#code-formatting)
-  - [Commit Messages](#commit-messages)
+    - [Code Formatting](#code-formatting)
+    - [Commit Messages](#commit-messages)
 - [Community](#community)
 
 ## I Have a Question

@@ -40,12 +40,12 @@ public class BereftSOTSPlayer : ModPlayer
             ModContent.ItemType<IcicleImpale>(),
             ModContent.ItemType<Metalmalgamation>(),
             ModContent.ItemType<ShardstormSpell>(),
-            ModContent.ItemType<NorthStar>(),
+            ModContent.ItemType<NorthStar>()
         ];
 
-    public bool VibrantEnch { get; set; } = false;
-    public bool FrigidEnch { get; set; } = false;
-    public bool PatchedUp { get; set; } = false;
+    public bool VibrantEnch { get; set; }
+    public bool FrigidEnch { get; set; }
+    public bool PatchedUp { get; set; }
 
     // Used by Vespera ench
     public List<Vector2> VesperaStoneCoords { get; } = [];
