@@ -13,7 +13,7 @@ public class CalamityStarterBagChanges : GlobalItem
     private static readonly IItemDropRule[] ItemsToAdd =
     [
         ItemDropRule.Common(ModContent.ItemType<Pill>(), 1, 500, 500),
-        ItemDropRule.Common(ModContent.ItemType<Ukulele>())
+        ItemDropRule.Common(ModContent.ItemType<Ukulele>()),
     ];
 
     private static readonly IItemDropRule[] ItemsToRemove = [];

@@ -40,7 +40,7 @@ public class BereftSOTSPlayer : ModPlayer
             ModContent.ItemType<IcicleImpale>(),
             ModContent.ItemType<Metalmalgamation>(),
             ModContent.ItemType<ShardstormSpell>(),
-            ModContent.ItemType<NorthStar>()
+            ModContent.ItemType<NorthStar>(),
         ];
 
     public bool VibrantEnch { get; set; }

@@ -40,8 +40,7 @@ public class BossRushInjectionSystem : ModSystem
         //
         // Referenced permalink:
         // - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/ModSupport/ModCalls.cs#L1998-L2006
-        List<BossRushEntry> brEntries =
-            (List<BossRushEntry>)ModCalls.Call("GetBossRushEntries");
+        List<BossRushEntry> brEntries = (List<BossRushEntry>)ModCalls.Call("GetBossRushEntries");
 
         AddToBossRush(
             brEntries,

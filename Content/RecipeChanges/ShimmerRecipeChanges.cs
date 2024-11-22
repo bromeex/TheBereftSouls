@@ -12,35 +12,23 @@ namespace TheBereftSouls.Content.RecipeChanges;
 [ExtendsFromMod("ThoriumMod")]
 public class ShimmerRecipeModifications : ModSystem
 {
-    private static readonly Dictionary<int, Func<bool>> shimmerRecipeConditions =
-        new()
-        {
-            { ModContent.ItemType<KineticPotion>(), () => Main.hardMode },
-            { ModContent.ItemType<HolyPotion>(), () => Main.hardMode },
-            { ModContent.ItemType<InspirationReachPotion>(), () => Main.hardMode },
-            { ModContent.ItemType<WarmongerPotion>(), () => NPC.downedBoss2 }
-        };
-
-    public override void PreUpdateWorld()
+    private static readonly Dictionary<int, Func<bool>> shimmerRecipeConditions = new()
     {
-        ApplyShimmerConditions();
+        { ModContent.ItemType<KineticPotion>(), () => Main.hardMode },
+        { ModContent.ItemType<HolyPotion>(), () => Main.hardMode },
+        { ModContent.ItemType<InspirationReachPotion>(), () => Main.hardMode },
+        { ModContent.ItemType<WarmongerPotion>(), () => NPC.downedBoss2 },
+    };
+
+    public override void Load()
+    {
+        On_Item.CanShimmer += On_Item_CanShimmer;
     }
 
-    private void ApplyShimmerConditions()
+    private static bool On_Item_CanShimmer(On_Item.orig_CanShimmer orig, Item self)
     {
-        foreach (KeyValuePair<int, Func<bool>> entry in shimmerRecipeConditions)
-        {
-            int itemType = entry.Key;
-            Func<bool> condition = entry.Value;
-
-            if (!condition())
-            {
-                ItemID.Sets.ShimmerTransformToItem[itemType] = itemType;
-            }
-            else
-            {
-                ItemID.Sets.ShimmerTransformToItem[itemType] = 0;
-            }
-        }
+        return shimmerRecipeConditions.TryGetValue(self.type, out var condition)
+            ? condition() && orig(self)
+            : orig(self);
     }
 }
