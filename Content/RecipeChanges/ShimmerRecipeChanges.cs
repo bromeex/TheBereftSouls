@@ -1,9 +1,9 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ThoriumMod.Items.Consumable;
 using System;
 using System.Collections.Generic;
+using ThoriumMod.Items.Consumable;
 using ThoriumMod.Items.BardItems;
 using ThoriumMod.Items.Donate;
 
@@ -20,25 +20,25 @@ namespace TheBereftSouls.Content.RecipeChanges
             { ModContent.ItemType<WarmongerPotion>(), () => NPC.downedBoss2 }
         };
 
-        public override void OnWorldLoad()
+        public override void PreUpdateWorld()
         {
-            base.OnWorldLoad();
+            ApplyShimmerConditions();
+        }
 
-            for (int i = 0; i < Recipe.numRecipes; i++)
+        private void ApplyShimmerConditions()
+        {
+            foreach (var entry in shimmerRecipeConditions)
             {
-                Recipe recipe = Main.recipe[i];
+                int itemType = entry.Key;
+                Func<bool> condition = entry.Value;
 
-                if (shimmerRecipeConditions.TryGetValue(recipe.createItem.type, out var condition))
+                if (!condition())
                 {
-                    bool canShimmer = !condition();
-                    if (canShimmer)
-                    { 
-                        ItemID.Sets.ShimmerTransformToItem[recipe.createItem.type] = recipe.createItem.type;
-                    }
-                    else
-                    {
-                        ItemID.Sets.ShimmerTransformToItem[recipe.createItem.type] = 0;
-                    }
+                    ItemID.Sets.ShimmerTransformToItem[itemType] = itemType;
+                }
+                else
+                {
+                    ItemID.Sets.ShimmerTransformToItem[itemType] = 0;
                 }
             }
         }
