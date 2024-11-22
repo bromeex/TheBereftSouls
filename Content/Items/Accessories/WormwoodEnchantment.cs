@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using SOTS.Items.Nature;
 using SOTS.Projectiles.Nature;
