@@ -55,7 +55,6 @@ corresponding category.
 - [Thorium Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2909886416 "Steam Workshop Link")
 - [Secrets of the Shadows](https://steamcommunity.com/sharedfiles/filedetails/?id=2843112914 "Steam Workshop Link")
   (Required for Testing)
-- [Spirit Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2982372319 "Steam Workshop Link")
 
 ### Overhaul Mods
 
