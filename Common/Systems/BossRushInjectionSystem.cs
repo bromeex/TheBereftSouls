@@ -23,7 +23,7 @@ namespace TheBereftSouls.Common.Systems;
 //
 // Referenced permalink:
 // - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/ModSupport/ModCalls.cs#L1999
-using BossRushEntry = (int, int, Action<int>, int, bool, float, int[], int[]);
+using BossRushEntry = (int, int, Action<int>, int, bool, float, int[], int[]?);
 
 [ExtendsFromMod("CalamityMod", "FargowiltasSouls")]
 public class BossRushInjectionSystem : ModSystem
@@ -136,12 +136,12 @@ public class BossRushInjectionSystem : ModSystem
         int beforeBossType,
         int NPCType,
         TimeChangeContext needsNight = TimeChangeContext.None,
-        Action<int> customAction = null,
+        Action<int>? customAction = null,
         int specialSpawnCountdown = 45,
         bool usesSpecialSound = false,
         float dimnessFactor = 0.0f,
-        int[] extraNPCs = null,
-        int[] needsDead = null
+        int[]? extraNPCs = null,
+        int[]? needsDead = null
     )
     {
         // find the index of the boss to inject before

@@ -4,7 +4,7 @@ namespace TheBereftSouls
 {
     public class TheBereftSouls : Mod
     {
-        internal static TheBereftSouls Instance;
+        internal static TheBereftSouls Instance = null!;
 
         public override void Load()
         {
@@ -13,7 +13,7 @@ namespace TheBereftSouls
 
         public override void Unload()
         {
-            Instance = null;
+            Instance = null!;
         }
     }
 }
