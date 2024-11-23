@@ -2,19 +2,18 @@
 using Terraria.ModLoader;
 using TheBereftSouls.Common.Players;
 
-namespace TheBereftSouls.Content.Buffs
-{
-    [ExtendsFromMod("SOTS")]
-    public class PatchedUpDebuff : ModBuff
-    {
-        public override void SetStaticDefaults()
-        {
-            Main.debuff[Type] = true;
-        }
+namespace TheBereftSouls.Content.Buffs;
 
-        public override void Update(Player player, ref int buffIndex)
-        {
-            player.GetModPlayer<BereftSOTSPlayer>().PatchedUp = true;
-        }
+[ExtendsFromMod("SOTS")]
+public class PatchedUpDebuff : ModBuff
+{
+    public override void SetStaticDefaults()
+    {
+        Main.debuff[Type] = true;
+    }
+
+    public override void Update(Player player, ref int buffIndex)
+    {
+        player.GetModPlayer<BereftSOTSPlayer>().PatchedUp = true;
     }
 }
