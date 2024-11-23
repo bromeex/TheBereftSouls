@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using SOTS;
 using SOTS.Items.Earth;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TheBereftSouls.Players;
+using TheBereftSouls.Common.Players;
 
 namespace TheBereftSouls.Content.Items.Accessories;
 

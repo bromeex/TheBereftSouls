@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using SOTS.Items.Flails;
 using SOTS.Items.Permafrost;
@@ -6,7 +6,7 @@ using SOTS.Items.SpiritStaves;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TheBereftSouls.Players;
+namespace TheBereftSouls.Common.Players;
 
 [ExtendsFromMod("SOTS")]
 public class BereftSOTSPlayer : ModPlayer
@@ -43,18 +43,31 @@ public class BereftSOTSPlayer : ModPlayer
             ModContent.ItemType<NorthStar>(),
         ];
 
-    public bool VibrantEnch { get; set; }
-    public bool FrigidEnch { get; set; }
-    public bool PatchedUp { get; set; }
+    // Accessories.
+    public bool VibrantEnch { get; set; } = false;
+    public bool FrigidEnch { get; set; } = false;
 
-    // Used by Vespera ench
+    // Buffs and debuffs.
+    public bool PatchedUp { get; set; } = false;
+
+    // Accessory effects.
     public List<Vector2> VesperaStoneCoords { get; } = [];
 
-    public override void ResetEffects()
+    private void ResetVariables()
     {
         VibrantEnch = false;
         FrigidEnch = false;
 
         PatchedUp = false;
+    }
+
+    public override void Initialize()
+    {
+        ResetVariables();
+    }
+
+    public override void ResetEffects()
+    {
+        ResetVariables();
     }
 }

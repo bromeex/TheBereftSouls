@@ -1,6 +1,6 @@
-﻿using Terraria;
+using Terraria;
 using Terraria.ModLoader;
-using TheBereftSouls.Players;
+using TheBereftSouls.Common.Players;
 
 namespace TheBereftSouls.Content.Buffs;
 

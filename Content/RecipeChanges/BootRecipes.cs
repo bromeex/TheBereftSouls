@@ -35,6 +35,8 @@ public class BootRecipes : ModSystem
                     recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
                     recipe.AddIngredient(ModContent.ItemType<SubspaceBoosters>());
                     break;
+                default:
+                    break;
             }
         }
     }
