@@ -2,40 +2,38 @@ using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Accessories.Wings;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
 using SOTS.Items;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TheBereftSouls.Common.Systems;
 
 namespace TheBereftSouls.Content;
 
 [ExtendsFromMod("CalamityMod", "FargowiltasSouls", "SOTS")]
 public class BootRecipes : ModSystem
 {
-    public override void PostAddRecipes()
+    public override void PostSetupContent()
     {
-        for (int i = 0; i < Recipe.numRecipes; i++)
-        {
-            Recipe recipe = Main.recipe[i];
-
-            switch (recipe.createItem.type)
-            {
-                case var id when id == ModContent.ItemType<FlashsparkBoots>():
-                    recipe.RemoveIngredient(ItemID.TerrasparkBoots);
-                    recipe.AddIngredient(ModContent.ItemType<AngelTreads>());
-                    break;
-                case var id when id == ModContent.ItemType<AeolusBoots>():
-                    recipe.RemoveIngredient(ModContent.ItemType<AngelTreads>());
-                    recipe.AddIngredient(ModContent.ItemType<FlashsparkBoots>());
-                    break;
-                case var id when id == ModContent.ItemType<SubspaceBoosters>():
-                    recipe.RemoveIngredient(ModContent.ItemType<FlashsparkBoots>());
-                    recipe.AddIngredient(ModContent.ItemType<AeolusBoots>());
-                    break;
-                case var id when id == ModContent.ItemType<TracersCelestial>():
-                    recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
-                    recipe.AddIngredient(ModContent.ItemType<SubspaceBoosters>());
-                    break;
-            }
-        }
+        int flashsparkBoots = ModContent.ItemType<FlashsparkBoots>();
+        int terrasparkBoots = ItemID.TerrasparkBoots;
+        int angelTreads = ModContent.ItemType<AngelTreads>();
+        int aeolusBoots = ModContent.ItemType<AeolusBoots>();
+        int subspaceBoosters = ModContent.ItemType<SubspaceBoosters>();
+        int tracersCelestial = ModContent.ItemType<TracersCelestial>();
+        RecipeUpdaterSystem.AddRecipeMod(
+            flashsparkBoots,
+            RecipeMod.ReplaceItem(terrasparkBoots, angelTreads)
+        );
+        RecipeUpdaterSystem.AddRecipeMod(
+            aeolusBoots,
+            RecipeMod.ReplaceItem(angelTreads, flashsparkBoots)
+        );
+        RecipeUpdaterSystem.AddRecipeMod(
+            subspaceBoosters,
+            RecipeMod.ReplaceItem(flashsparkBoots, aeolusBoots)
+        );
+        RecipeUpdaterSystem.AddRecipeMod(
+            tracersCelestial,
+            RecipeMod.ReplaceItem(aeolusBoots, subspaceBoosters)
+        );
     }
 }

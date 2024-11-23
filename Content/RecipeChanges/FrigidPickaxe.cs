@@ -1,28 +1,19 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TheBereftSouls.Common.Systems;
 
 namespace TheBereftSouls.Content.RecipeChanges;
 
 [ExtendsFromMod("SOTS")]
 public class FrigidPickaxe : ModSystem
 {
-    public override void PostAddRecipes()
+    public override void PostSetupContent()
     {
-        for (int i = 0; i < Recipe.numRecipes; i++)
-        {
-            Recipe recipe = Main.recipe[i];
-
-            if (recipe.createItem.type != ModContent.ItemType<SOTS.Items.Tools.FrigidPickaxe>())
-                continue;
-
-            Recipe alternativeRecipe = recipe.Clone();
-
-            recipe.AddIngredient(ItemID.TissueSample, 6);
-
-            alternativeRecipe.AddIngredient(ItemID.ShadowScale, 6);
-            alternativeRecipe.Register();
-            break;
-        }
+        int frigidPickaxe = ModContent.ItemType<SOTS.Items.Tools.FrigidPickaxe>();
+        RecipeUpdaterSystem.AddRecipeMod(
+            frigidPickaxe,
+            RecipeMod.AddItem(ItemID.ShadowScale, 6).AsAltRecipe()
+        );
+        RecipeUpdaterSystem.AddRecipeMod(frigidPickaxe, RecipeMod.AddItem(ItemID.TissueSample, 6));
     }
 }

@@ -58,3 +58,7 @@ Projectiles: {
 Keybinds: {
 	VesperaEnchantmentStone.DisplayName: Vespera Enchantment Stone
 }
+
+Conditions: {
+	CanGetHellstone.DisplayName: Beat Eater of Worlds or Brain of Cthulu, or is in hardmode.
+}
