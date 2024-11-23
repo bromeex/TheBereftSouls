@@ -1,4 +1,4 @@
-﻿using SOTS.Items.Permafrost;
+using SOTS.Items.Permafrost;
 using SOTS.Items.Tools;
 using Terraria;
 using Terraria.ID;

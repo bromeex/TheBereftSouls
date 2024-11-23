@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using SOTS.Projectiles.Earth;
 using Terraria;
 using Terraria.ID;

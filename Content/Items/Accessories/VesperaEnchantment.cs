@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using SOTS.Items.Invidia;
 using Terraria;
 using Terraria.Audio;
