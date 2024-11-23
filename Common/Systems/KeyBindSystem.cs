@@ -4,7 +4,7 @@ namespace TheBereftSouls.Common.Systems;
 
 public class KeybindSystem : ModSystem
 {
-    public static ModKeybind VesperaEnchStone { get; private set; }
+    public static ModKeybind VesperaEnchStone { get; private set; } = null!;
 
     public override void Load()
     {
@@ -14,6 +14,6 @@ public class KeybindSystem : ModSystem
 
     public override void Unload()
     {
-        VesperaEnchStone = null;
+        VesperaEnchStone = null!;
     }
 }
