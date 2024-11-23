@@ -1,19 +1,18 @@
 using Terraria.ModLoader;
 
-namespace TheBereftSouls
+namespace TheBereftSouls;
+
+public class TheBereftSouls : Mod
 {
-    public class TheBereftSouls : Mod
+    internal static TheBereftSouls Instance;
+
+    public override void Load()
     {
-        internal static TheBereftSouls Instance;
+        Instance = this;
+    }
 
-        public override void Load()
-        {
-            Instance = this;
-        }
-
-        public override void Unload()
-        {
-            Instance = null;
-        }
+    public override void Unload()
+    {
+        Instance = null;
     }
 }
