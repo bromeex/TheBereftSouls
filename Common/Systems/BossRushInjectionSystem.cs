@@ -23,7 +23,9 @@ namespace TheBereftSouls.Common.Systems;
 //
 // Referenced permalink:
 // - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/ModSupport/ModCalls.cs#L1999
+#nullable enable
 using BossRushEntry = (int, int, Action<int>, int, bool, float, int[], int[]?);
+#nullable disable
 
 [ExtendsFromMod("CalamityMod", "FargowiltasSouls")]
 public class BossRushInjectionSystem : ModSystem
@@ -131,6 +133,7 @@ public class BossRushInjectionSystem : ModSystem
     /// Default:
     /// - The player who's closest to the center of the world.
     /// </param>
+#nullable enable
     internal static void AddToBossRush(
         List<BossRushEntry> brEntries,
         int beforeBossType,
@@ -195,4 +198,5 @@ public class BossRushInjectionSystem : ModSystem
             )
         );
     }
+#nullable disable
 }
