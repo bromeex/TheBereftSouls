@@ -8,7 +8,8 @@ public class KeybindSystem : ModSystem
 
     public override void Load()
     {
-        VesperaEnchStone = KeybindLoader.RegisterKeybind(Mod, "Vespera Enchantment Stone", "U");
+        // Use localization keys (refer to the localization file) for keybind names.
+        VesperaEnchStone = KeybindLoader.RegisterKeybind(Mod, "VesperaEnchantmentStone", "U");
     }
 
     public override void Unload()
