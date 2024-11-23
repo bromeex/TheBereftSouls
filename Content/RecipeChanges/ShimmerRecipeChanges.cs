@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CalamityAmmo.Misc;
+using SOTS.Items.Potions;
 using Terraria;
 using Terraria.ModLoader;
 using ThoriumMod.Items.BardItems;
@@ -9,16 +10,17 @@ using ThoriumMod.Items.Donate;
 
 namespace TheBereftSouls.Content.RecipeChanges;
 
-[ExtendsFromMod("ThoriumMod")]
+[ExtendsFromMod("ThoriumMod", "SOTS")]
 public class ShimmerRecipeModifications : ModSystem
 {
     private static readonly Dictionary<int, Func<bool>> shimmerRecipeConditions = new()
     {
-        { ModContent.ItemType<KineticPotion>(), () => Main.hardMode },
-        { ModContent.ItemType<HolyPotion>(), () => Main.hardMode },
-        { ModContent.ItemType<InspirationReachPotion>(), () => Main.hardMode },
-        { ModContent.ItemType<WarmongerPotion>(), () => NPC.downedBoss2 },
-        { ModContent.ItemType<HardTack>(), (() => CalamityMod.DownedBossSystem.downedYharon)}
+        { ModContent.ItemType<KineticPotion>(), () => Main.hardMode }, // Gives Pixie Dust
+        { ModContent.ItemType<HolyPotion>(), () => Main.hardMode }, // Gives Pixie Dust
+        { ModContent.ItemType<InspirationReachPotion>(), () => Main.hardMode }, // Gives Pixie Dust
+        { ModContent.ItemType<WarmongerPotion>(), () => NPC.downedBoss2 }, // Gives Hell Stone
+        { ModContent.ItemType<HardTack>(), (() => CalamityMod.DownedBossSystem.downedYharon)}, // Gives Auric Tesla Bars
+        { ModContent.ItemType<NightmarePotion>(), (() => Main.hardMode)}, // Gives Souls Of Night
     };
 
     public override void Load()
