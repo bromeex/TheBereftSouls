@@ -3,8 +3,8 @@ using SOTS.Projectiles.Earth;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TheBereftSouls.Common.Players;
 using TheBereftSouls.Content.Tiles.Special;
-using TheBereftSouls.Players;
 using TheBereftSouls.Utils;
 
 namespace TheBereftSouls.Content.Projectiles.Friendly;

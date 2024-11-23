@@ -6,13 +6,13 @@ using SOTS.Items.SpiritStaves;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TheBereftSouls.Players;
-
-[ExtendsFromMod("SOTS")]
-public class BereftSOTSPlayer : ModPlayer
+namespace TheBereftSouls.Common.Players
 {
-    // Used by Frigid Ench, needs to be updated with weapons from other mods; Maybe move somewhere else
-    public static HashSet<int> FrigidItems { get; } =
+    [ExtendsFromMod("SOTS")]
+    public class BereftSOTSPlayer : ModPlayer
+    {
+        // Used by Frigid Ench, needs to be updated with weapons from other mods; Maybe move somewhere else
+        public static HashSet<int> FrigidItems { get; } =
         [
             ItemID.Snowball,
             ItemID.SnowballCannon,
@@ -43,18 +43,32 @@ public class BereftSOTSPlayer : ModPlayer
             ModContent.ItemType<NorthStar>(),
         ];
 
-    public bool VibrantEnch { get; set; } = false;
-    public bool FrigidEnch { get; set; } = false;
-    public bool PatchedUp { get; set; } = false;
+        // Accessories.
+        public bool VibrantEnch { get; set; } = false;
+        public bool FrigidEnch { get; set; } = false;
 
-    // Used by Vespera ench
-    public List<Vector2> VesperaStoneCoords { get; } = [];
+        // Buffs and debuffs.
+        public bool PatchedUp { get; set; } = false;
 
-    public override void ResetEffects()
-    {
-        VibrantEnch = false;
-        FrigidEnch = false;
+        // Accessory effects.
+        public List<Vector2> VesperaStoneCoords { get; } = [];
 
-        PatchedUp = false;
+        private void ResetVariables()
+        {
+            VibrantEnch = false;
+            FrigidEnch = false;
+
+            PatchedUp = false;
+        }
+
+        public override void Initialize()
+        {
+            ResetVariables();
+        }
+
+        public override void ResetEffects()
+        {
+            ResetVariables();
+        }
     }
 }

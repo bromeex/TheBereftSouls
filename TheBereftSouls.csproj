@@ -3,8 +3,8 @@
     <!-- Import tModLoader mod properties -->
     <Import Project="..\tModLoader.targets" />
 
-    <ItemGroup>
-      <Reference Include="lib\*.dll"></Reference>
-    </ItemGroup>
+	<ItemGroup>
+		<Reference Include="lib\*.dll"></Reference>
+	</ItemGroup>
 
 </Project>
