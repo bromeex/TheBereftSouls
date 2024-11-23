@@ -3,11 +3,8 @@
 [![Discord Icon]][Discord]&emsp;[![Steam Icon]][Steam Workshop Link]&emsp;
 
 [Discord Icon]: https://img.shields.io/badge/Discord-Brome%20World-black.svg
-
 [Discord]: https://discord.com/invite/nYJfz3jgQy
-
 [Steam Icon]: https://img.shields.io/badge/Steam%20Workshop-0960b7.svg
-
 [Steam Workshop Link]: https://steamcommunity.com/sharedfiles/filedetails/?id=3340400317
 
 A compatibility mod for the "UltraModded" ModPack. For more information:
@@ -44,6 +41,7 @@ corresponding category.
 - [Subworld Library](https://steamcommunity.com/sharedfiles/filedetails/?id=2785100219)
 
 ### Content Mods
+
 
 - [Calamity Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2824688072 "Steam Workshop Link")
 - [Catalyst Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2838015851 "Steam Workshop Link")
