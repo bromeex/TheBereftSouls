@@ -6,7 +6,6 @@ public class TheBereftSouls : Mod
 {
     internal static TheBereftSouls Instance = null!;
 
-
     public override void Load()
     {
         Instance = this;
