@@ -1,10 +1,10 @@
-﻿using SOTS.Items.Permafrost;
+using SOTS.Items.Permafrost;
 using SOTS.Items.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using TheBereftSouls.Players;
+using TheBereftSouls.Common.Players;
 
 namespace TheBereftSouls.Content.Items.Accessories;
 
