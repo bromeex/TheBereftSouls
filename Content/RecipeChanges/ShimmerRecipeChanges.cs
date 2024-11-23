@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CalamityAmmo.Misc;
 using Terraria;
 using Terraria.ModLoader;
 using ThoriumMod.Items.BardItems;
@@ -17,6 +18,7 @@ public class ShimmerRecipeModifications : ModSystem
         { ModContent.ItemType<HolyPotion>(), () => Main.hardMode },
         { ModContent.ItemType<InspirationReachPotion>(), () => Main.hardMode },
         { ModContent.ItemType<WarmongerPotion>(), () => NPC.downedBoss2 },
+        { ModContent.ItemType<HardTack>(), (() => CalamityMod.DownedBossSystem.downedYharon)}
     };
 
     public override void Load()
