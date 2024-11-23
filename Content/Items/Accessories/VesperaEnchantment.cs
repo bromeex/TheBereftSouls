@@ -15,7 +15,7 @@ namespace TheBereftSouls.Content.Items.Accessories;
 [ExtendsFromMod("SOTS")]
 public class VesperaEnchantment : ModItem
 {
-    private float timer = 0;
+    private float timer;
 
     public override void SetStaticDefaults()
     {
@@ -27,7 +27,7 @@ public class VesperaEnchantment : ModItem
         Item.width = 30;
         Item.height = 34;
         Item.accessory = true;
-        Item.value = Item.sellPrice(0, 5, 0, 0);
+        Item.value = Item.sellPrice(0, 5);
         Item.rare = ItemRarityID.Green;
     }
 

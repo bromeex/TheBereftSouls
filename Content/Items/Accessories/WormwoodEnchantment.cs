@@ -30,7 +30,7 @@ public class WormwoodEnchantment : ModItem
         Item.width = 30;
         Item.height = 34;
         Item.accessory = true;
-        Item.value = Item.sellPrice(0, 5, 0, 0);
+        Item.value = Item.sellPrice(0, 5);
         Item.rare = ItemRarityID.Blue;
     }
 
@@ -59,14 +59,14 @@ public class WormwoodEnchantment : ModItem
                 }
             }
 
-            foreach (var hook in hooks)
+            foreach (Projectile hook in hooks)
             {
                 hook.timeLeft = 6;
             }
 
             if (player.statLife < player.statLifeMax / 2)
             {
-                foreach (var hook in hooks)
+                foreach (Projectile hook in hooks)
                 {
                     hook.Kill();
                     player.Heal(player.statLifeMax2 / 16);

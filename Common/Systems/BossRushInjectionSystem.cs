@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CalamityMod;
 using CalamityMod.NPCs.CalClone;
 using CalamityMod.NPCs.DevourerofGods;
 using CalamityMod.NPCs.Providence;
@@ -41,8 +42,7 @@ public class BossRushInjectionSystem : ModSystem
         //
         // Referenced permalink:
         // - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/ModSupport/ModCalls.cs#L1998-L2006
-        List<BossRushEntry> brEntries =
-            (List<BossRushEntry>)CalamityMod.ModCalls.Call("GetBossRushEntries");
+        List<BossRushEntry> brEntries = (List<BossRushEntry>)ModCalls.Call("GetBossRushEntries");
 
         AddToBossRush(
             brEntries,
@@ -71,67 +71,55 @@ public class BossRushInjectionSystem : ModSystem
         //
         // Referenced permalink:
         // - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/ModSupport/ModCalls.cs#L2008-L2023
-        CalamityMod.ModCalls.Call("SetBossRushEntries", brEntries);
+        ModCalls.Call("SetBossRushEntries", brEntries);
     }
 
     /// <summary>
-    /// Adds a boss to the Calamity Boss Rush event.
+    ///     Adds a boss to the Calamity Boss Rush event.
     /// </summary>
-    ///
     /// <param name="brEntries">
-    /// Just pass in the boss rush list, cmon you can do it!.
+    ///     Just pass in the boss rush list, cmon you can do it!.
     /// </param>
-    ///
     /// <param name="beforeBossType">
-    /// The boss that is fought directly after the boss you want to insert. If the boss type is
-    /// invalid it defaults to the end of the array of bosses.
+    ///     The boss that is fought directly after the boss you want to insert. If the boss type is
+    ///     invalid it defaults to the end of the array of bosses.
     /// </param>
-    ///
     /// <param name="NPCType">
-    /// The boss you want to insert.
+    ///     The boss you want to insert.
     /// </param>
-    ///
     /// <param name="dimnessFactor">
-    /// Float field in the `CalamityMod.Events.BossRushEvent.Boss` struct.
-    ///
-    /// Referenced permalink:
-    /// - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L67
+    ///     Float field in the `CalamityMod.Events.BossRushEvent.Boss` struct.
+    ///     Referenced permalink:
+    ///     -
+    ///     https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L67
     /// </param>
-    ///
     /// <param name="specialSpawnCountdown">
-    /// Int field in the `CalamityMod.Events.BossRushEvent.Boss` struct.
-    ///
-    /// Referenced permalink:
-    /// - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L66
+    ///     Int field in the `CalamityMod.Events.BossRushEvent.Boss` struct.
+    ///     Referenced permalink:
+    ///     -
+    ///     https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L66
     /// </param>
-    ///
     /// <param name="usesSpecialSound">
-    /// Boolean field in the `CalamityMod.Events.BossRushEvent.Boss` struct.
-    ///
-    /// Referenced permalink:
-    /// - https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L68
+    ///     Boolean field in the `CalamityMod.Events.BossRushEvent.Boss` struct.
+    ///     Referenced permalink:
+    ///     -
+    ///     https://github.com/CalamityTeam/CalamityModPublic/blob/a5bdc9231f2859abddb85c9043413a57fcb042b9/Events/BossRushEvent.cs#L68
     /// </param>
-    ///
     /// <param name="extraNPCs">
-    /// Minions/parts of the boss.
+    ///     Minions/parts of the boss.
     /// </param>
-    ///
     /// <param name="needsDead">
-    /// Components of the boss that need to be defeated to progress such as Golem parts.
+    ///     Components of the boss that need to be defeated to progress such as Golem parts.
     /// </param>
-    ///
     /// <param name="needsNight">
-    /// Sets time to night if true.
-    ///
-    /// Default:
-    /// - No time override.
+    ///     Sets time to night if true.
+    ///     Default:
+    ///     - No time override.
     /// </param>
-    ///
     /// <param name="customAction">
-    /// Extra code to perform when spawning the boss.
-    ///
-    /// Default:
-    /// - The player who's closest to the center of the world.
+    ///     Extra code to perform when spawning the boss.
+    ///     Default:
+    ///     - The player who's closest to the center of the world.
     /// </param>
 #nullable enable
     internal static void AddToBossRush(

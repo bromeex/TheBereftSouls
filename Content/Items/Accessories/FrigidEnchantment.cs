@@ -28,7 +28,7 @@ public class FrigidEnchantment : ModItem
         Item.width = 30;
         Item.height = 34;
         Item.accessory = true;
-        Item.value = Item.sellPrice(0, 8, 0, 0);
+        Item.value = Item.sellPrice(0, 8);
         Item.rare = ItemRarityID.LightPurple;
     }
 
