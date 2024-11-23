@@ -1,4 +1,4 @@
-﻿using CalamityMod.Items.Accessories;
+using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Accessories.Wings;
 using FargowiltasSouls.Content.Items.Accessories.Masomode;
 using SOTS.Items;
