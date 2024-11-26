@@ -36,9 +36,10 @@ corresponding category.
 
 ### Library Mods
 
-- [Luminance](https://steamcommunity.com/sharedfiles/filedetails/?id=3222493606)
-- [MooMoo’s Yoyo Lib](https://steamcommunity.com/sharedfiles/filedetails/?id=3069154070)
-- [Subworld Library](https://steamcommunity.com/sharedfiles/filedetails/?id=2785100219)
+- [Luminance](https://steamcommunity.com/sharedfiles/filedetails/?id=3222493606 "Steam Workshop Link")
+- [MooMoo’s Yoyo Lib](https://steamcommunity.com/sharedfiles/filedetails/?id=3069154070 "Steam Workshop Link")
+- [Subworld Library](https://steamcommunity.com/sharedfiles/filedetails/?id=2785100219 "Steam Workshop Link")
+- [absoluteAquarian Utilities (SerousCommonLib)](https://steamcommunity.com/sharedfiles/filedetails/?id=2908170107 "Steam Workshop Link")
 
 ### Content Mods
 
@@ -49,13 +50,10 @@ corresponding category.
 - [Calamity: Wrath of the Gods](https://steamcommunity.com/sharedfiles/filedetails/?id=2995193002 "Steam Workshop Link")
   (Required for Testing)
 - [Consolaria](https://steamcommunity.com/sharedfiles/filedetails/?id=2864843929 "Steam Workshop Link")
-- [Clamity Addon](https://steamcommunity.com/sharedfiles/filedetails/?id=3028584450 "Steam Workshop Link")
 - [Fargo’s Souls Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2815540735 "Steam Workshop Link")
-- [Gensokyo](https://steamcommunity.com/sharedfiles/filedetails/?id=2817254924 "Steam Workshop Link")
 - [Thorium Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2909886416 "Steam Workshop Link")
 - [Secrets of the Shadows](https://steamcommunity.com/sharedfiles/filedetails/?id=2843112914 "Steam Workshop Link")
   (Required for Testing)
-- [Spirit Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2982372319 "Steam Workshop Link")
 
 ### Overhaul Mods
 
@@ -65,7 +63,6 @@ corresponding category.
 - [MooMoo’s Ultimate Yoyo Revamp](https://steamcommunity.com/sharedfiles/filedetails/?id=2977808495 "Steam Workshop Link")
 - [Orchid Mineshaft](https://steamcommunity.com/sharedfiles/filedetails/?id=2939093580 "Steam Workshop Link")
   (Required for Testing)
-- [Stronger Reforges](https://steamcommunity.com/sharedfiles/filedetails/?id=3267459688 "Steam Workshop Link")
 - [Thorium Bosses Reworked](https://steamcommunity.com/sharedfiles/filedetails/?id=3070717963 "Steam Workshop Link")
 
 ### Cross-Compatibility Mods
@@ -86,7 +83,6 @@ corresponding category.
 - [Census (Town NPC Checklist)](https://steamcommunity.com/sharedfiles/filedetails/?id=2687866031 "Steam Workshop Link")
 - [Chat Source](https://steamcommunity.com/sharedfiles/filedetails/?id=2566083800 "Steam Workshop Link")
 - [Fargo’s Mutant](https://steamcommunity.com/sharedfiles/filedetails/?id=2570931073 "Steam Workshop Link")
-- [High FPS Support](https://steamcommunity.com/sharedfiles/filedetails/?id=3119712528 "Steam Workshop Link")
 - [Instant Platform Fallthrough](https://steamcommunity.com/sharedfiles/filedetails/?id=2992213994 "Steam Workshop Link")
 - [Magic Storage](https://steamcommunity.com/sharedfiles/filedetails/?id=2563309347 "Steam Workshop Link")
 - [More Pylons](https://steamcommunity.com/sharedfiles/filedetails/?id=2974503494 "Steam Workshop Link")
@@ -95,7 +91,6 @@ corresponding category.
 - [Recipe Browser](https://steamcommunity.com/sharedfiles/filedetails/?id=2619954303 "Steam Workshop Link")
 - [Shop Expander](https://steamcommunity.com/sharedfiles/filedetails/?id=2828370879 "Steam Workshop Link")
 - [Smarter Cursor](https://steamcommunity.com/sharedfiles/filedetails/?id=2877850919 "Steam Workshop Link")
-- [The Shop Market](https://steamcommunity.com/sharedfiles/filedetails/?id=2572367426 "Steam Workshop Link")
 
 ### Graphics/Audio Mods
 
