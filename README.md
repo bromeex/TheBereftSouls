@@ -93,7 +93,6 @@ corresponding category.
 - [Fishing with Explosives](https://steamcommunity.com/sharedfiles/filedetails/?id=3238219681 "Steam Workshop Link")
 - [Generated Housing](https://steamcommunity.com/sharedfiles/filedetails/?id=3141716573 "Steam Workshop Link")
 - [Shop Market](https://steamcommunity.com/sharedfiles/filedetails/?id=2572367426 "Steam Workshop Link")
-- [Auto Trash](https://steamcommunity.com/sharedfiles/filedetails/?id=2565540604 "Steam Workshop Link")
 
 ### Graphics/Audio Mods
 
