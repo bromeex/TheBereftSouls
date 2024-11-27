@@ -89,13 +89,17 @@ corresponding category.
 - [Ore Excavator (1.4.3/1.4.4 Veinminer)](https://steamcommunity.com/sharedfiles/filedetails/?id=2565639705 "Steam Workshop Link")
 - [Quality of Terraria](https://steamcommunity.com/sharedfiles/filedetails/?id=2797518634 "Steam Workshop Link")
 - [Recipe Browser](https://steamcommunity.com/sharedfiles/filedetails/?id=2619954303 "Steam Workshop Link")
-- [Shop Expander](https://steamcommunity.com/sharedfiles/filedetails/?id=2828370879 "Steam Workshop Link")
 - [Smarter Cursor](https://steamcommunity.com/sharedfiles/filedetails/?id=2877850919 "Steam Workshop Link")
+- [Fishing with Explosives](https://steamcommunity.com/sharedfiles/filedetails/?id=3238219681 "Steam Workshop Link")
+- [Generated Housing](https://steamcommunity.com/sharedfiles/filedetails/?id=3141716573 "Steam Workshop Link")
+- [Shop Market](https://steamcommunity.com/sharedfiles/filedetails/?id=2572367426 "Steam Workshop Link")
+- [Auto Trash](https://steamcommunity.com/sharedfiles/filedetails/?id=2565540604 "Steam Workshop Link")
 
 ### Graphics/Audio Mods
 
 - [Calamity Mod Music](https://steamcommunity.com/sharedfiles/filedetails/?id=2824688266 "Steam Workshop Link")
 - [Vanilla Calamity Mod Music](https://steamcommunity.com/sharedfiles/filedetails/?id=2816188633 "Steam Workshop Link")
+- [Fargo's Music Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2782337219 "Steam Workshop Link")
 
 > [!NOTE]
 > A lot of graphics mods are often client-side, so they are considered optional.
