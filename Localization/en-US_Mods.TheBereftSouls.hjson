@@ -51,14 +51,6 @@ Buffs: {
 	}
 }
 
-Projectiles: {
-	VesperaStone.DisplayName: Vespera Stone
-}
-
-Keybinds: {
-	VesperaEnchantmentStone.DisplayName: Vespera Enchantment Stone
-}
-
-Conditions: {
-	CanGetHellstone.DisplayName: Beat Eater of Worlds or Brain of Cthulu, or is in hardmode.
-}
+Projectiles.VesperaStone.DisplayName: Vespera Stone
+Keybinds.VesperaEnchantmentStone.DisplayName: Vespera Enchantment Stone
+Conditions.CanGetHellstone.DisplayName: Beat Eater of Worlds or Brain of Cthulu, or is in hardmode.

@@ -10,7 +10,10 @@ namespace TheBereftSouls.Content.RecipeChanges;
 [ExtendsFromMod("ThoriumMod")]
 public class ShimmerRecipeModifications : ModSystem
 {
-    private static readonly Condition CanGetHellstone = new("CanGetHellstone", () => NPC.downedBoss2 || Main.hardMode);
+    private static readonly Condition CanGetHellstone = new(
+        "CanGetHellstone",
+        () => NPC.downedBoss2 || Main.hardMode
+    );
 
     public override void Load()
     {
