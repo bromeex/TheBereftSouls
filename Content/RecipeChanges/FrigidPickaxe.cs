@@ -7,7 +7,7 @@ namespace TheBereftSouls.Content.RecipeChanges;
 [ExtendsFromMod("SOTS")]
 public class FrigidPickaxe : ModSystem
 {
-    public override void PostSetupContent()
+    public override void Load()
     {
         int frigidPickaxe = ModContent.ItemType<SOTS.Items.Tools.FrigidPickaxe>();
         RecipeUpdaterSystem.AddRecipeMod(

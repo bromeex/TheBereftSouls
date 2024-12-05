@@ -19,7 +19,8 @@ public class RecipeUpdaterSystem : ModSystem
 
     public override void PostAddRecipes()
     {
-        for (int i = 0; i < Recipe.numRecipes; i++)
+        int numRecipes = Recipe.numRecipes; // prevent infinite loop
+        for (int i = 0; i < numRecipes; i++)
         {
             Recipe recipe = Main.recipe[i];
             if (_recipeMods.TryGetValue(recipe.createItem.type, out List<RecipeMod>? mods))
@@ -28,6 +29,11 @@ public class RecipeUpdaterSystem : ModSystem
                     mod.Modify(recipe);
             }
         }
+    }
+
+    public override void Unload()
+    {
+        _recipeMods.Clear();
     }
 }
 

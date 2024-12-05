@@ -11,7 +11,7 @@ namespace TheBereftSouls.Content;
 [ExtendsFromMod("CalamityMod", "FargowiltasSouls", "SOTS")]
 public class BootRecipes : ModSystem
 {
-    public override void PostSetupContent()
+    public override void Load()
     {
         int flashsparkBoots = ModContent.ItemType<FlashsparkBoots>();
         int terrasparkBoots = ItemID.TerrasparkBoots;

@@ -12,7 +12,7 @@ public class ShimmerRecipeModifications : ModSystem
 {
     private static readonly Condition CanGetHellstone = new("CanGetHellstone", () => NPC.downedBoss2 || Main.hardMode);
 
-    public override void PostSetupContent()
+    public override void Load()
     {
         int kineticPotion = ModContent.ItemType<KineticPotion>();
         int holyPotion = ModContent.ItemType<HolyPotion>();
