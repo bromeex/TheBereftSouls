@@ -1,18 +1,10 @@
-﻿using CalamityMod.Tiles.Abyss;
-using CalamityMod.World;
-using Microsoft.Xna.Framework;
-using SOTS.WorldgenHelpers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent.Biomes;
 using Terraria.GameContent.Generation;
-using Terraria.ID;
 using Terraria.IO;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
-using ThoriumMod;
 using ThoriumMod.Tiles;
 using ThoriumMod.WorldGeneration;
 
@@ -53,7 +45,7 @@ namespace TheBereftSouls.Common.Systems
         private static void GenerateGemOres(GenerationProgress progress, GameConfiguration configuration)
         {
             progress.Message = Language.GetTextValue("LegacyWorldGen.23");
-            bool calorRem = ModLoader.TryGetMod("CalamityMod", out _) || WorldGenerationSystem.RemnantsEnabled;
+            bool calorRem = TheBereftSouls.calamity != null || WorldGenerationSystem.RemnantsEnabled;
             for (int i = 0; i < 2; i++)
             {
                 int type = i == 0 ? ModContent.TileType<Opal>() : ModContent.TileType<Aquamarine>();
@@ -92,7 +84,7 @@ namespace TheBereftSouls.Common.Systems
         private static void ThoriumOres(GenerationProgress progress, GameConfiguration configuration)
         {
             progress.Message = "Thorium Mod : " + Language.GetTextValue("LegacyWorldGen.16");
-            bool calorRem = ModLoader.TryGetMod("CalamityMod", out _) || WorldGenerationSystem.RemnantsEnabled;
+            bool calorRem = TheBereftSouls.calamity != null || WorldGenerationSystem.RemnantsEnabled;
             int totalTiles = Main.maxTilesX * Main.maxTilesY;
             int type = ModContent.TileType<global::ThoriumMod.Tiles.ThoriumOre>();
             int yMin = (int)((float)Main.maxTilesY * 0.5f);
