@@ -51,10 +51,5 @@ Buffs: {
 	}
 }
 
-Projectiles: {
-	VesperaStone.DisplayName: Vespera Stone
-}
-
-Keybinds: {
-	VesperaEnchantmentStone.DisplayName: Vespera Enchantment Stone
-}
+Projectiles.VesperaStone.DisplayName: Vespera Stone
+Keybinds.VesperaEnchantmentStone.DisplayName: Vespera Enchantment Stone

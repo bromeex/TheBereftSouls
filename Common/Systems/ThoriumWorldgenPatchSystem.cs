@@ -13,7 +13,6 @@ namespace TheBereftSouls.Common.Systems
     [ExtendsFromMod("ThoriumMod")]
     public class ThoriumWorldgenPatchSystem : ModSystem
     {
-        [JITWhenModsEnabled("ThoriumMod")]
 
         // Edit Thorium's ore generation to avoid the sides of the world
         // This prevents them from generating on Abyss blocks
@@ -41,7 +40,6 @@ namespace TheBereftSouls.Common.Systems
             }
         }
 
-        [JITWhenModsEnabled("ThoriumMod")]
         private static void GenerateGemOres(GenerationProgress progress, GameConfiguration configuration)
         {
             progress.Message = Language.GetTextValue("LegacyWorldGen.23");
@@ -80,7 +78,6 @@ namespace TheBereftSouls.Common.Systems
             }
         }
 
-        [JITWhenModsEnabled("ThoriumMod")]
         private static void ThoriumOres(GenerationProgress progress, GameConfiguration configuration)
         {
             progress.Message = "Thorium Mod : " + Language.GetTextValue("LegacyWorldGen.16");
