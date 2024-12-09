@@ -15,16 +15,11 @@ public class TheBereftSouls : Mod
     public override void Load()
     {
         Instance = this;
-        if (ModLoader.TryGetMod("CalamityMod", out Mod cal))
-            calamity = cal;
-        if (ModLoader.TryGetMod("Fargowiltas", out Mod fargo))
-            fargos = fargo;
-        if (ModLoader.TryGetMod("FargowiltasSouls", out Mod souls))
-            fargosSouls = souls;
-        if (ModLoader.TryGetMod("SOTS", out Mod sot))
-            sots = sot;
-        if (ModLoader.TryGetMod("ThoriumMod", out Mod thor))
-            thorium = thor;
+        ModLoader.TryGetMod("CalamityMod", out calamity);
+        ModLoader.TryGetMod("Fargowiltas", out fargos);
+        ModLoader.TryGetMod("FargowiltasSouls", out fargosSouls);
+        ModLoader.TryGetMod("SOTS", out sots);
+        ModLoader.TryGetMod("ThoriumMod", out thorium);
     }
 
     public override void Unload()
