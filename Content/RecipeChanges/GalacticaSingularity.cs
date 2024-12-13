@@ -19,10 +19,10 @@ public class GalacticaSingularity : ModSystem
 
             if (recipe.createItem.type != ModContent.ItemType<CalamityMod.Items.Materials.GalacticaSingularity>())
                 continue;
-            recipe.AddIngredient(ModContent.ItemType<ShootingStarFragment>(),1);
-			recipe.AddIngredient(ModContent.ItemType<CelestialFragment>(),1);
-			recipe.AddIngredient(ModContent.ItemType<WhiteDwarfFragment>(),1);
-			recipe.AddIngredient(ModContent.ItemType<MeldBlob>(),1);
+		recipe.AddIngredient(ModContent.ItemType<ShootingStarFragment>(),1);
+		recipe.AddIngredient(ModContent.ItemType<CelestialFragment>(),1);
+		recipe.AddIngredient(ModContent.ItemType<WhiteDwarfFragment>(),1);
+		recipe.AddIngredient(ModContent.ItemType<MeldBlob>(),1);
             break;
         }
     }
