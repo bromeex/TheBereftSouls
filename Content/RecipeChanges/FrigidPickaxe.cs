@@ -12,8 +12,11 @@ public class FrigidPickaxe : ModSystem
         int frigidPickaxe = ModContent.ItemType<SOTS.Items.Tools.FrigidPickaxe>();
         RecipeUpdaterSystem.AddRecipeMod(
             frigidPickaxe,
-            RecipeMod.AddItem(ItemID.ShadowScale, 6).AsAltRecipe()
+            // one version has tissue sample, the other has shadow scale
+            RecipeMod.Branch(
+                RecipeMod.AddItem(ItemID.TissueSample, 6),
+                RecipeMod.AddItem(ItemID.ShadowScale, 6)
+            )
         );
-        RecipeUpdaterSystem.AddRecipeMod(frigidPickaxe, RecipeMod.AddItem(ItemID.TissueSample, 6));
     }
 }
