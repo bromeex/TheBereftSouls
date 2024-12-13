@@ -56,6 +56,9 @@ public readonly struct ChainableRecipeMod
 
     internal ChainableRecipeMod(Action<Recipe> mod) => _mod = new(mod);
 
+    // convert unchainable to chainable. should only be used internally.
+    private ChainableRecipeMod(RecipeMod mod) => _mod = mod;
+
     internal void Modify(Recipe recipe) => _mod.Modify(recipe);
 
     public ChainableRecipeMod AddItem(int itemId, int stack = 1) =>
@@ -70,16 +73,6 @@ public readonly struct ChainableRecipeMod
     public RecipeMod Branch(RecipeMod option1, RecipeMod option2) =>
         Chain(this, RecipeMod.Branch(option1, option2));
 
-    private static ChainableRecipeMod Chain(ChainableRecipeMod first, ChainableRecipeMod second) =>
-        new(
-            (Recipe recipe) =>
-            {
-                first.Modify(recipe);
-                second.Modify(recipe);
-            }
-        );
-
-    // unchainable variant
     private static RecipeMod Chain(ChainableRecipeMod first, RecipeMod second) =>
         new(
             (Recipe recipe) =>
@@ -88,6 +81,10 @@ public readonly struct ChainableRecipeMod
                 second.Modify(recipe);
             }
         );
+
+    // re-chainable variant
+    private static ChainableRecipeMod Chain(ChainableRecipeMod first, ChainableRecipeMod second) =>
+        new(Chain(first, second));
 
     public static implicit operator RecipeMod(ChainableRecipeMod r) => r._mod;
 }
