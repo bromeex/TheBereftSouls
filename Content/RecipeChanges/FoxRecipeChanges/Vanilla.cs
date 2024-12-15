@@ -15,7 +15,7 @@ public class MechanicalGlove : ModSystem
 			if (recipe.createItem.type == ItemID.MechanicalGlove)
 				recipe.DisableRecipe();
 		}
-			Recipe newRecipe = Recipe.Create(result:ItemID.MechanicalGlove);
+			Recipe newRecipe = Recipe.Create(ItemID.MechanicalGlove);
 			newRecipe.AddIngredient(ItemID.PowerGlove);
 			newRecipe.AddIngredient(ItemID.AvengerEmblem);
 			newRecipe.AddTile(TileID.TinkerersWorkbench);
@@ -32,7 +32,7 @@ public class CelestialEmblem : ModSystem
 			if (recipe.createItem.type == ItemID.CelestialEmblem)
 				recipe.DisableRecipe();
 		}
-			Recipe newRecipe = Recipe.Create(result:ItemID.CelestialEmblem);
+			Recipe newRecipe = Recipe.Create(ItemID.CelestialEmblem);
 			newRecipe.AddIngredient(ItemID.CelestialMagnet);
 			newRecipe.AddIngredient(ItemID.AvengerEmblem);
 			newRecipe.AddTile(TileID.TinkerersWorkbench);
