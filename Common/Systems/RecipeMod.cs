@@ -27,6 +27,15 @@ public readonly struct RecipeMod
     public static ChainableRecipeMod ReplaceItem(int origId, int newId) =>
         RemoveItem(origId).AddItem(newId);
 
+    public static ChainableRecipeMod AddTile(int tileId) =>
+        new((Recipe recipe) => recipe.AddTile(tileId));
+
+    public static ChainableRecipeMod AddTile(ModTile tile) =>
+        new((Recipe recipe) => recipe.AddTile(tile));
+
+    public static ChainableRecipeMod AddTile<T>()
+        where T : ModTile => new((Recipe recipe) => recipe.AddTile<T>());
+
     public static ChainableRecipeMod AddDecraftCondition(Condition condition) =>
         new((Recipe recipe) => recipe.AddDecraftCondition(condition));
 
@@ -42,6 +51,8 @@ public readonly struct RecipeMod
                 option2.Modify(newRecipe);
             }
         );
+
+    public static RecipeMod Disable() => new((Recipe recipe) => recipe.DisableRecipe());
 }
 
 /*
@@ -69,6 +80,13 @@ public readonly struct ChainableRecipeMod
 
     public ChainableRecipeMod AddItem<T>(int stack = 1)
         where T : ModItem => Chain(this, RecipeMod.AddItem<T>(stack));
+
+    public ChainableRecipeMod AddTile(int tileId) => Chain(this, RecipeMod.AddTile(tileId));
+
+    public ChainableRecipeMod AddTile(ModTile tile) => Chain(this, RecipeMod.AddTile(tile));
+
+    public ChainableRecipeMod AddTile<T>()
+        where T : ModTile => Chain(this, RecipeMod.AddTile<T>());
 
     public RecipeMod Branch(RecipeMod option1, RecipeMod option2) =>
         Chain(this, RecipeMod.Branch(option1, option2));
