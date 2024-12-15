@@ -1,26 +1,10 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using SOTS.Items.Permafrost;
 
 namespace TheBereftSouls.Content.RecipeChanges;
 
-[ExtendsFromMod("CalamityMod", "ThoriumMod", "SOTS", "FargowiltasSouls", "CombinationsMod", "Consolaria", "MagicStorage")]
-
-public class TrueNightsEdge : ModSystem
-{
-	public override void PostAddRecipes()
-	{
-		foreach (var recipe in Main.recipe)
-		{
-			if (recipe.createItem.type !=ItemID.TrueNightsEdge)
-				continue;
-		
-			recipe.AddIngredient(ModContent.ItemType<SoulOfPlight>(), 3);
-			break;
-		}
-	}
-}
+[ExtendsFromMod()]
 
 public class MechanicalGlove : ModSystem
 {
