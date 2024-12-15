@@ -15,22 +15,20 @@ public class Calamity : ModSystem
     public override void PostAddRecipes()
     {  
         foreach (var recipe in Main.recipe)
-        {
-            {
-                recipe.DisableRecipe();
-                Recipe newRecipe = Recipe.Create(ModContent.ItemType<GalacticaSingularity>(), 2);
-                newRecipe.AddIngredient(ItemID.FragmentVortex);
-                newRecipe.AddIngredient(ItemID.FragmentNebula);
-                newRecipe.AddIngredient(ItemID.FragmentSolar);
-                newRecipe.AddIngredient(ItemID.FragmentStardust);
-                newRecipe.AddIngredient(ModContent.ItemType<ShootingStarFragment>());
-                newRecipe.AddIngredient(ModContent.ItemType<CelestialFragment>());
-                newRecipe.AddIngredient(ModContent.ItemType<WhiteDwarfFragment>());
-                newRecipe.AddIngredient(ModContent.ItemType<MeldBlob>());
-                newRecipe.AddTile(TileID.LunarCraftingStation);
-                newRecipe.Register();
-                break;
-            }
-        }
+    	{
+            if (recipe.createItem.type == ModContent.ItemType<GalacticaSingularity>())
+	            recipe.DisableRecipe();
+	    }
+            Recipe newRecipe = Recipe.Create(ModContent.ItemType<GalacticaSingularity>(), 2);
+            newRecipe.AddIngredient(ItemID.FragmentVortex);
+            newRecipe.AddIngredient(ItemID.FragmentNebula);
+            newRecipe.AddIngredient(ItemID.FragmentSolar);
+            newRecipe.AddIngredient(ItemID.FragmentStardust);
+            newRecipe.AddIngredient(ModContent.ItemType<ShootingStarFragment>());
+            newRecipe.AddIngredient(ModContent.ItemType<CelestialFragment>());
+            newRecipe.AddIngredient(ModContent.ItemType<WhiteDwarfFragment>());
+            newRecipe.AddIngredient(ModContent.ItemType<MeldBlob>());
+            newRecipe.AddTile(TileID.LunarCraftingStation);
+            newRecipe.Register();
     }
 }
