@@ -12,9 +12,8 @@ public class MechanicalGlove : ModSystem
 	{
 		foreach (var recipe in Main.recipe)
 		{
-			if (recipe.createItem.type != ItemID.MechanicalGlove)
-				continue;
-			recipe.DisableRecipe();
+			if (recipe.createItem.type == ItemID.MechanicalGlove)
+				recipe.DisableRecipe();
 		}
 			Recipe newRecipe = Recipe.Create(result:ItemID.MechanicalGlove);
 			newRecipe.AddIngredient(ItemID.PowerGlove);
@@ -30,9 +29,8 @@ public class CelestialEmblem : ModSystem
 	{
 		foreach (var recipe in Main.recipe)
 		{
-			if (recipe.createItem.type != ItemID.CelestialEmblem)
-				continue;
-			recipe.DisableRecipe();
+			if (recipe.createItem.type == ItemID.CelestialEmblem)
+				recipe.DisableRecipe();
 		}
 			Recipe newRecipe = Recipe.Create(result:ItemID.CelestialEmblem);
 			newRecipe.AddIngredient(ItemID.CelestialMagnet);
