@@ -4,6 +4,8 @@ using Terraria.ModLoader;
 
 namespace TheBereftSouls.Common.Systems;
 
+public delegate bool RecipeCondition(Recipe recipe);
+
 public readonly struct RecipeMod
 {
     private readonly Action<Recipe> _mod;
@@ -11,6 +13,8 @@ public readonly struct RecipeMod
     internal RecipeMod(Action<Recipe> mod) => _mod = mod;
 
     internal void Modify(Recipe recipe) => _mod(recipe);
+
+    public static ChainableRecipeMod NoOp => new((_) => { });
 
     public static ChainableRecipeMod AddItem(int itemId, int stack = 1) =>
         new((Recipe recipe) => recipe.AddIngredient(itemId, stack));
@@ -53,6 +57,23 @@ public readonly struct RecipeMod
         );
 
     public static RecipeMod Disable() => new((Recipe recipe) => recipe.DisableRecipe());
+
+    public static RecipeMod Custom(Action<Recipe> action) => new(action);
+
+    public static RecipeMod If(
+        RecipeCondition condition,
+        RecipeMod then,
+        RecipeMod? @else = null
+    ) =>
+        new(
+            (Recipe recipe) =>
+            {
+                if (condition(recipe))
+                    then.Modify(recipe);
+                else
+                    @else?.Modify(recipe);
+            }
+        );
 }
 
 /*
@@ -90,6 +111,11 @@ public readonly struct ChainableRecipeMod
 
     public RecipeMod Branch(RecipeMod option1, RecipeMod option2) =>
         Chain(this, RecipeMod.Branch(option1, option2));
+
+    public RecipeMod Custom(Action<Recipe> action) => Chain(this, RecipeMod.Custom(action));
+
+    public RecipeMod If(RecipeCondition condition, RecipeMod then, RecipeMod? @else = null) =>
+        Chain(this, RecipeMod.If(condition, then, @else));
 
     private static RecipeMod Chain(ChainableRecipeMod first, RecipeMod second) =>
         new(

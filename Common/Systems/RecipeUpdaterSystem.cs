@@ -7,8 +7,8 @@ namespace TheBereftSouls.Common.Systems;
 
 public class RecipeUpdaterSystem : ModSystem
 {
-    private readonly static Dictionary<int, List<RecipeMod>> _recipeMods = [];
-    private readonly static List<Action> _postModCallbacks = [];
+    private static readonly Dictionary<int, List<RecipeMod>> _recipeMods = [];
+    private static readonly List<Action> _postModCallbacks = [];
 
     // register a RecipeMod to apply to the given itemId
     public static void AddRecipeMod(int itemId, RecipeMod mod)
