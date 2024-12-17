@@ -7,6 +7,7 @@ namespace TheBereftSouls.Common.Systems;
 
 public class RecipeUpdaterSystem : ModSystem
 {
+    private static readonly List<RecipeMod> _globalRecipeMods = [];
     private static readonly Dictionary<int, List<RecipeMod>> _recipeMods = [];
     private static readonly List<Action> _postModCallbacks = [];
 
@@ -17,6 +18,12 @@ public class RecipeUpdaterSystem : ModSystem
             mods.Add(mod);
         else
             _recipeMods[itemId] = [mod];
+    }
+
+    // register a RecipeMod to apply to every recipe. this is mainly useful for conditional modifications.
+    public static void AddGlobalRecipeMod(RecipeMod mod)
+    {
+        _globalRecipeMods.Add(mod);
     }
 
     // register a callback to get called after recipes have been modified.
@@ -32,6 +39,10 @@ public class RecipeUpdaterSystem : ModSystem
         for (int i = 0; i < numRecipes; i++)
         {
             Recipe recipe = Main.recipe[i];
+
+            foreach (RecipeMod globalMod in _globalRecipeMods)
+                globalMod.Modify(recipe);
+
             if (_recipeMods.TryGetValue(recipe.createItem.type, out List<RecipeMod>? mods))
             {
                 foreach (RecipeMod mod in mods)
@@ -45,6 +56,7 @@ public class RecipeUpdaterSystem : ModSystem
 
     public override void Unload()
     {
+        _globalRecipeMods.Clear();
         _recipeMods.Clear();
         _postModCallbacks.Clear();
     }
