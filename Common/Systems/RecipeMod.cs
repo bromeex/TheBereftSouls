@@ -102,7 +102,7 @@ public readonly struct ChainableRecipeMod
 
     // re-chainable variant
     private static ChainableRecipeMod Chain(ChainableRecipeMod first, ChainableRecipeMod second) =>
-        new(Chain(first, second));
+        new(Chain(first, second._mod));
 
     public static implicit operator RecipeMod(ChainableRecipeMod r) => r._mod;
 }
