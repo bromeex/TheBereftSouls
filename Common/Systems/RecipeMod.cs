@@ -29,7 +29,15 @@ public readonly struct RecipeMod
         new((Recipe recipe) => recipe.RemoveIngredient(itemId));
 
     public static ChainableRecipeMod ReplaceItem(int origId, int newId) =>
-        RemoveItem(origId).AddItem(newId);
+        new(
+            (Recipe recipe) =>
+            {
+                if (!recipe.TryGetIngredient(origId, out Item orig))
+                    return;
+                recipe.RemoveIngredient(origId);
+                recipe.AddIngredient(newId, orig.stack);
+            }
+        );
 
     public static ChainableRecipeMod AddTile(int tileId) =>
         new((Recipe recipe) => recipe.AddTile(tileId));
@@ -101,6 +109,9 @@ public readonly struct ChainableRecipeMod
 
     public ChainableRecipeMod AddItem<T>(int stack = 1)
         where T : ModItem => Chain(this, RecipeMod.AddItem<T>(stack));
+
+    public ChainableRecipeMod ReplaceItem(int origId, int newId) =>
+        Chain(this, RecipeMod.ReplaceItem(origId, newId));
 
     public ChainableRecipeMod AddTile(int tileId) => Chain(this, RecipeMod.AddTile(tileId));
 
