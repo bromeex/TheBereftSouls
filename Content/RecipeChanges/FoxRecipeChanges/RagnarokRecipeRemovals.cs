@@ -1,7 +1,7 @@
+using RagnarokMod.Items.BardItems.Armor;
+using RagnarokMod.Items.HealerItems.Armor;
 using Terraria;
 using Terraria.ModLoader;
-using RagnarokMod.Items.HealerItems.Armor;
-using RagnarokMod.Items.BardItems.Armor;
 
 namespace TheBereftSouls.Content.RecipeChanges;
 
