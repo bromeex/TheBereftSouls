@@ -16,19 +16,14 @@ public class AccessoryRecipeModifications : ModSystem
     {
         foreach (var recipe in Main.recipe)
         {
-            {
+            {   
+                // Removed all Ankh Shield component recipes that did not contain Warding Charm
                 if (recipe.createItem.type == ItemID.AdhesiveBandage)
                 {
                     if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
                         recipe.DisableRecipe();
                 }
             }
-            if (recipe.createItem.type == ItemID.Aglet 
-                && recipe.HasIngredient(ItemID.CopperBar))
-                recipe.DisableRecipe();
-            if (recipe.createItem.type == ItemID.AnkletoftheWind
-                && recipe.HasIngredient(ItemID.JungleSpores))
-                recipe.DisableRecipe();
             {
                 if (recipe.createItem.type == ItemID.ArmorPolish)
                 {
@@ -36,12 +31,6 @@ public class AccessoryRecipeModifications : ModSystem
                         recipe.DisableRecipe();
                 }
             }
-            if (recipe.createItem.type == ItemID.BandofRegeneration
-                && recipe.HasIngredient(ItemID.Shackle))
-                recipe.DisableRecipe();
-            if (recipe.createItem.type == ItemID.BandofStarpower
-                && recipe.HasIngredient(ItemID.PanicNecklace))
-                recipe.DisableRecipe();
             {
                 if (recipe.createItem.type == ItemID.Bezoar)
                 {
@@ -56,6 +45,62 @@ public class AccessoryRecipeModifications : ModSystem
                         recipe.DisableRecipe();
                 }
             }
+            {
+                if (recipe.createItem.type == ItemID.FastClock)
+                {
+                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
+                        recipe.DisableRecipe();
+                }
+            }
+            {
+                if (recipe.createItem.type == ItemID.Megaphone)
+                {
+                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
+                        recipe.DisableRecipe();
+                }
+            }
+            {
+                if (recipe.createItem.type == ItemID.Nazar)
+                {
+                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
+                        recipe.DisableRecipe();
+                }
+            }
+            {
+                if (recipe.createItem.type == ItemID.PocketMirror)
+                {
+                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
+                        recipe.DisableRecipe();
+                }
+            }
+            {
+                if (recipe.createItem.type == ItemID.TrifoldMap)
+                {
+                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
+                        recipe.DisableRecipe();
+                }
+            }
+            {
+                if (recipe.createItem.type == ItemID.Vitamins)
+                {
+                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
+                        recipe.DisableRecipe();
+                }
+            }
+            // Subjectively removed recipes that had duplicate recipes, removed the "easier" recipe to encourage actually playing the game, subject to massive changes
+            // May change these all to be "&& does not contain a recipe item", making it retroactive for additional mods being added in the future
+            if (recipe.createItem.type == ItemID.Aglet 
+                && recipe.HasIngredient(ItemID.CopperBar))
+                recipe.DisableRecipe();
+            if (recipe.createItem.type == ItemID.AnkletoftheWind
+                && recipe.HasIngredient(ItemID.JungleSpores))
+                recipe.DisableRecipe();
+            if (recipe.createItem.type == ItemID.BandofRegeneration
+                && recipe.HasIngredient(ItemID.Shackle))
+                recipe.DisableRecipe();
+            if (recipe.createItem.type == ItemID.BandofStarpower
+                && recipe.HasIngredient(ItemID.PanicNecklace))
+                recipe.DisableRecipe();
             if (recipe.createItem.type == ItemID.BlizzardinaBottle
                 && recipe.HasIngredient(ItemID.Bottle))
                 recipe.DisableRecipe();
@@ -77,13 +122,6 @@ public class AccessoryRecipeModifications : ModSystem
             if (recipe.createItem.type == ItemID.DPSMeter 
                 && recipe.HasIngredient(ItemID.IronBar))
                 recipe.DisableRecipe();
-            {
-                if (recipe.createItem.type == ItemID.FastClock)
-                {
-                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
-                        recipe.DisableRecipe();
-                }
-            }
             if (recipe.createItem.type == ItemID.FeralClaws 
                 && recipe.HasIngredient(ItemID.Leather))
                 recipe.DisableRecipe();
@@ -154,23 +192,9 @@ public class AccessoryRecipeModifications : ModSystem
             if (recipe.createItem.type == ItemID.MechanicalGlove
                 && recipe.HasIngredient(ItemID.SoulofSight))
                 recipe.DisableRecipe();
-            {
-                if (recipe.createItem.type == ItemID.Megaphone)
-                {
-                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
-                        recipe.DisableRecipe();
-                }
-            }
             if (recipe.createItem.type == ItemID.MetalDetector
                 && recipe.HasIngredient(ItemID.NypmhBanner))
                 recipe.DisableRecipe();
-            {
-                if (recipe.createItem.type == ItemID.Nazar)
-                {
-                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
-                        recipe.DisableRecipe();
-                }
-            }
             if (recipe.createItem.type == ItemID.ObsidianRose
                 && recipe.HasIngredient(ItemID.FireImpBanner))
                 recipe.DisableRecipe();
@@ -180,13 +204,6 @@ public class AccessoryRecipeModifications : ModSystem
             if (recipe.createItem.type == ItemID.PanicNecklace
                 && recipe.HasIngredient(ItemID.BandofStarpower))
                 recipe.DisableRecipe();
-            {
-                if (recipe.createItem.type == ItemID.PocketMirror)
-                {
-                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
-                        recipe.DisableRecipe();
-                }
-            }
             if (recipe.createItem.type == ItemID.PutridScent
                 && recipe.HasTile(TileID.TinkerersWorkbench))
                 recipe.DisableRecipe();
@@ -211,26 +228,12 @@ public class AccessoryRecipeModifications : ModSystem
             if (recipe.createItem.type == ItemID.PortableStool 
                 && recipe.HasIngredient(ItemID.Wood))
                 recipe.DisableRecipe();
-            {
-                if (recipe.createItem.type == ItemID.TrifoldMap)
-                {
-                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
-                        recipe.DisableRecipe();
-                }
-            }
             if (recipe.createItem.type == ModContent.ItemType<TrinketofChi>()
                 && recipe.HasIngredient(ItemID.Wood))
                 recipe.DisableRecipe();
             if (recipe.createItem.type == ModContent.ItemType<UnstableGraniteCore>()
                 && recipe.HasIngredient(ModContent.ItemType<AmidiasSpark>()))
                 recipe.DisableRecipe();
-            {
-                if (recipe.createItem.type == ItemID.Vitamins)
-                {
-                    if (!recipe.HasIngredient(ModContent.ItemType<WardingCharm>()))
-                        recipe.DisableRecipe();
-                }
-            }
             if (recipe.createItem.type == ItemID.WaterWalkingBoots
                 && recipe.HasIngredient(ItemID.WaterWalkingPotion))
                 recipe.DisableRecipe();

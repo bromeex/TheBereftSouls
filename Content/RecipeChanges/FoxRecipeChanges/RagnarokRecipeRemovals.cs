@@ -11,7 +11,8 @@ public class RagnarokRecipeRemovals : ModSystem
     public override void PostAddRecipes()
     {
         foreach (var recipe in Main.recipe)
-        {
+        {   
+            // Removed these items from being able to be crafted as CalamityBardHealer has the same items, no reason to have 2 of the same item, let alone 15 times
             if (recipe.createItem.type == ModContent.ItemType<AerospecHealer>())
                 recipe.DisableRecipe();
             if (recipe.createItem.type == ModContent.ItemType<AuricTeslaHealerHead>())

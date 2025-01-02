@@ -18,6 +18,7 @@ public class Calamity : ModSystem
             if (recipe.createItem.type == ModContent.ItemType<GalacticaSingularity>())
                 recipe.DisableRecipe();
         }
+        // Changed the Galactica Singularity recipe to include all fragments + meld blob, and increase the yield to 2 per craft
         Recipe newRecipe = Recipe.Create(ModContent.ItemType<GalacticaSingularity>(), 2);
         newRecipe.AddIngredient(ItemID.FragmentVortex);
         newRecipe.AddIngredient(ItemID.FragmentNebula);
