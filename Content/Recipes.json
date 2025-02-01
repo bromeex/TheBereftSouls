@@ -1,0 +1,40 @@
+[
+  {
+    "output": {
+      "item": "Terraria:Terraspark Boots",
+      "quantity": 1
+    },
+    "ingredients": [
+      {
+        "item": "Terraria:HermesBoots",
+        "quantity": 1
+      },
+      {
+        "item": "Terraria:LavaWaders",
+        "quantity": 1
+      },
+      {
+        "item": "Terraria:IceSkates",
+        "quantity": 1
+      }
+    ],
+    "station": "Terraria:TinkerersWorkbench"
+  },
+  {
+    "output": {
+      "item": "Terraria:Angel Wings",
+      "quantity": 1
+    },
+    "ingredients": [
+      {
+        "item": "Feather",
+        "quantity": 10
+      },
+      {
+        "item": "SoulofFlight",
+        "quantity": 20
+      }
+    ],
+    "station": "MythrilAnvil"
+  }
+]

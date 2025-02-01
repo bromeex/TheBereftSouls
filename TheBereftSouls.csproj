@@ -5,14 +5,21 @@
     </PropertyGroup>
 
     <!-- Import tModLoader mod properties -->
-    <Import Project="..\tModLoader.targets"/>
+    <Import Project="..\tModLoader.targets" />
 
     <ItemGroup>
         <Reference Include="lib\*.dll"></Reference>
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Content\RecipeChanges\"/>
+      <None Remove="Content\RecipeChanges\Recipes.json" />
+      <None Remove="Recipes.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Content\Recipes.json">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
