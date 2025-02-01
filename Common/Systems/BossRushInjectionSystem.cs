@@ -147,7 +147,7 @@ public class BossRushInjectionSystem : ModSystem
         }
         if (bossidx < 0)
         {
-            bossidx = brEntries.Count;
+            bossidx = brEntries.Count; // Set to end of the list
         }
 
         // NPCs that are allowed to exist. if the passed in array is null, just use the boss
