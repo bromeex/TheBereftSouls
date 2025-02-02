@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> **The Bereft Souls** has been moved to a [new repository](https://github.com/bereft-souls/bereft-souls). Development in this repository has been canceled and work is not being ported over (and this repository has been archived; we are no longer accepting contributions here).
+>
+> The new repository (https://github.com/bereft-souls/bereft-souls) is under an organization (https://github.com/bereft-souls) which will encompass all related projects.
+>
+> Additionally, smaller components will be and have been broken up into their own mods for use outside of the mod pack. Please join the Discord for any questions.
+
 # The Bereft Souls
 
 [![Discord Icon]][Discord]&emsp;[![Steam Icon]][Steam Workshop Link]&emsp;
