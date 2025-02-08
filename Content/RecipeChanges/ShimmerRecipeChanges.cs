@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using TheBereftSouls.Common.Systems;
 using ThoriumMod.Items.BardItems;
 using ThoriumMod.Items.Consumable;
 using ThoriumMod.Items.Donate;
@@ -11,23 +10,36 @@ namespace TheBereftSouls.Content.RecipeChanges;
 [ExtendsFromMod("ThoriumMod")]
 public class ShimmerRecipeModifications : ModSystem
 {
-    private static readonly Dictionary<int, Func<bool>> shimmerRecipeConditions = new()
-    {
-        { ModContent.ItemType<KineticPotion>(), () => Main.hardMode },
-        { ModContent.ItemType<HolyPotion>(), () => Main.hardMode },
-        { ModContent.ItemType<InspirationReachPotion>(), () => Main.hardMode },
-        { ModContent.ItemType<WarmongerPotion>(), () => NPC.downedBoss2 },
-    };
+    private static readonly Condition CanGetHellstone = new(
+        "CanGetHellstone",
+        () => NPC.downedBoss2 || Main.hardMode
+    );
 
     public override void Load()
     {
-        On_Item.CanShimmer += On_Item_CanShimmer;
-    }
-
-    private static bool On_Item_CanShimmer(On_Item.orig_CanShimmer orig, Item self)
-    {
-        return shimmerRecipeConditions.TryGetValue(self.type, out var condition)
-            ? condition() && orig(self)
-            : orig(self);
+        int kineticPotion = ModContent.ItemType<KineticPotion>();
+        int holyPotion = ModContent.ItemType<HolyPotion>();
+        int inspirationReachPotion = ModContent.ItemType<InspirationReachPotion>();
+        int warmongerPotion = ModContent.ItemType<WarmongerPotion>();
+        // gives pixie dust
+        RecipeUpdaterSystem.AddRecipeMod(
+            kineticPotion,
+            RecipeMod.AddDecraftCondition(Condition.Hardmode)
+        );
+        // gives pixie dust
+        RecipeUpdaterSystem.AddRecipeMod(
+            holyPotion,
+            RecipeMod.AddDecraftCondition(Condition.Hardmode)
+        );
+        // gives pixie dust
+        RecipeUpdaterSystem.AddRecipeMod(
+            inspirationReachPotion,
+            RecipeMod.AddDecraftCondition(Condition.Hardmode)
+        );
+        // gives hellstone
+        RecipeUpdaterSystem.AddRecipeMod(
+            warmongerPotion,
+            RecipeMod.AddDecraftCondition(CanGetHellstone)
+        );
     }
 }
